@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+  db:
+    image: 'postgres:latest'
+    environment:
+      POSTGRES_USER: 'tourplanner_admin'
+      POSTGRES_PASSWORD: 'tourplanner123'
+      POSTGRES_DB: 'tourplanner'
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'db_tourplanner:/var/lib/postgresql/data'
+
+
+  adminer:
+    image: 'adminer'
+    ports:
+      - '8080:8080'
+    restart: always
+
+
+volumes:
+  db_tourplanner:
+    driver: local

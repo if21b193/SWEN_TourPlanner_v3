@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/SWEN_TourPlanner.iml" filepath="$PROJECT_DIR$/.idea/SWEN_TourPlanner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TourPlanner/TourPlanner.iml" filepath="$PROJECT_DIR$/TourPlanner/TourPlanner.iml" />
+    </modules>
+  </component>
+</project>

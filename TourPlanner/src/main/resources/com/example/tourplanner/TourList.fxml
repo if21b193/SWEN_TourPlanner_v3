@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.tourplanner.FXApp.view.TourListController"
+            prefHeight="400.0" prefWidth="600.0">
+        <ToolBar>
+            <Label text="TourList" />
+            <Button text="Add" fx:id="addTour" onAction="#addTour"/>
+            <Button text="Mod" fx:id="modifyTour" onAction="#modTour"/>
+            <Button text="Del" fx:id="deleteTour" onAction="#delTour"/>
+        </ToolBar>
+        <ListView fx:id="TourListView" VBox.vgrow="ALWAYS"/>
+</VBox>

@@ -1,0 +1,28 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "com.example.tourplanner.models.Tour" table = "tours">
+
+        <meta attribute = "class-description">
+            This class contains the Tour detail.
+        </meta>
+
+        <id name = "id" type = "int" column = "id">
+            <generator class="native"/>
+        </id>
+
+        <property name = "name" column = "name" type = "string"/>
+        <property name = "description" column = "description" type = "string"/>
+        <property name = "from" column = "start_location" type = "string"/>
+        <property name = "to" column = "end_location" type = "string"/>
+        <property name = "transportType" column = "transport_type" type = "string"/>
+        <property name = "distance" column = "distance" type = "float"/>
+        <property name = "estimatedTime" column = "estimated_time" type = "string"/>
+        <property name = "routeInfo" column = "route_info" type = "string"/>
+
+
+    </class>
+</hibernate-mapping>

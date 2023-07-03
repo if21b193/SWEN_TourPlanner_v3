@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.MenuItem?>
+<VBox alignment="CENTER" prefHeight="407.0" prefWidth="620.0"
+      xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.tourplanner.FXApp.view.MainWindowController">
+    <MenuBar>
+        <Menu text="File">
+            <MenuItem text="Import file" onAction="#openImportFileWindow" fx:id="importFileMenu"/>
+            <MenuItem text ="Export file" fx:id="exportFileMenu"/>
+        </Menu>
+        <Menu text="Edit">
+        </Menu>
+        <Menu text="Options">
+            <MenuItem text="Create tour report" fx:id="createTourReport"/>
+            <MenuItem text ="Create summarize report" fx:id="createSummarizeReport" />
+        </Menu>
+        <Menu text="Help">
+        </Menu>
+    </MenuBar>
+    <fx:include fx:id="searchBar" source="Searchbar.fxml" />
+    <SplitPane dividerPositions="0.3" orientation="HORIZONTAL" VBox.vgrow="ALWAYS">
+        <fx:include fx:id="tourListFX" source="TourList.fxml" />
+        <fx:include fx:id="tourDetailsFX" source="TourDetails.fxml" />
+    </SplitPane>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</VBox>
