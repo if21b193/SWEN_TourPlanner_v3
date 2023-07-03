@@ -1,6 +1,13 @@
 package com.example.tourplanner.DAL.dal;
 
+import com.example.tourplanner.DAL.dal.config.DataSource;
+import com.example.tourplanner.DAL.dal.config.DbConnector;
+import com.example.tourplanner.DAL.dal.config.HibernateUtil;
 import com.example.tourplanner.models.Tour;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,55 +16,95 @@ import java.util.Optional;
 
 public class TourDao implements Dao<Tour>{
 
-    private List<Tour> tours = new ArrayList<>();
+    private static SessionFactory tourFactory;
 
-    private int nextID = 0;
-
-   /* public TourDao(){
-        tours.add(new Tour(nextID++, "tour1", "...", "..", "..", "..", 20.3, "...", "..."));
-        tours.add(new Tour(nextID++, "tour2", "...", "..", "..", "..", 20.3, "...", "..."));
-        tours.add(new Tour(nextID++, "tour1", "...", "..", "..", "..", 20.3, "...", "..."));
-    }*/
+    public TourDao(){
+       tourFactory = HibernateUtil.getSessionFactory();
+    }
 
     @Override
     public Optional<Tour> get(int id) {
-        if(tours.get(id) != null){
-            return Optional.ofNullable(tours.get(id));
+        Session session = tourFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        Tour tour = null;
+        try {
+            tour = session.get(Tour.class, id);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
         }
-        return Optional.empty();
+        session.close();
+        return Optional.of(tour);
     }
 
     @Override
     public List<Tour> getAll() {
+        Session session = tourFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        List<Tour> tours = null;
+        try {
+            tours = session.createQuery("from Tour", Tour.class).getResultList();
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        }
+        session.close();
+
         return tours;
     }
 
     @Override
     public void save(Tour tour) {
-        tours.add(tour);
-    }
-
-    @Override
-    public void update(Tour tour, List<?> params) {
-        tour.setName(Objects.requireNonNull(params.get(1), "Name cannot be null").toString());
-        tour.setDescription(Objects.requireNonNull(params.get(2), "Description cannot be null").toString());
-        tour.setFrom(Objects.requireNonNull(params.get(3), "Starting point cannot be null").toString());
-        tour.setTo(Objects.requireNonNull(params.get(4), "Ending point cannot be null").toString());
-        tour.setTransportType(Objects.requireNonNull(params.get(5), "Transport type cannot be null").toString());
-        tour.setDistance(Float.parseFloat(params.get(6).toString()));
-        tour.setEstimatedTime(Objects.requireNonNull(params.get(7), "Estimated time can't be null").toString());
-        tour.setRouteInfo(Objects.requireNonNull(params.get(8), "RouteInfo cannot be null").toString());
+        Session session = tourFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        try {
+            session.save(tour);
+            tx.commit();
+        } catch (Exception e){
+            if(tx != null){
+                tx.rollback();
+            }
+            e.printStackTrace();
+        }
+        session.close();
     }
 
     @Override
     public void update(Tour tour) {
-
+        Session session = tourFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        try {
+            session.update(tour);
+            tx.commit();
+        } catch (Exception e) {
+            if(tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        }
+        session.close();
     }
 
     @Override
     public void delete(Tour tour) {
-        if(tours.contains(tour)){
-            tours.remove(tour);
+        Session session = tourFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        try {
+            session.delete(tour);
+            tx.commit();
+        } catch(Exception e) {
+            if(tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
         }
     }
 }

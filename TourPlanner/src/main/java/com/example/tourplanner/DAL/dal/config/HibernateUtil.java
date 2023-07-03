@@ -1,5 +1,7 @@
 package com.example.tourplanner.DAL.dal.config;
 
+import com.example.tourplanner.models.Tour;
+import com.example.tourplanner.models.TourLog;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -14,7 +16,10 @@ public class HibernateUtil {
 
     private static SessionFactory buildSessionFactory() {
         try {
-            Configuration configuration = new Configuration().configure();
+            Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
+            configuration.addAnnotatedClass(Tour.class);
+            configuration.addAnnotatedClass(TourLog.class);
+
             StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties()).build();
 
@@ -26,7 +31,6 @@ public class HibernateUtil {
     }
 
     public static SessionFactory getSessionFactory() {
-
         return sessionFactory;
     }
 

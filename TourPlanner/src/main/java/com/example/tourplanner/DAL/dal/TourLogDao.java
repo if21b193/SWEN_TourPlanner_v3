@@ -10,7 +10,6 @@ public class TourLogDao implements Dao<TourLog>{
 
     private List<TourLog> tourLogs = new ArrayList<>();
 
-    private int nextID = 0;
 
     @Override
     public Optional<TourLog> get(int id) {
@@ -28,11 +27,6 @@ public class TourLogDao implements Dao<TourLog>{
     @Override
     public void save(TourLog tourLog) {
         tourLogs.add(tourLog);
-    }
-
-    @Override
-    public void update(TourLog tourLog, List<?> params) {
-
     }
 
     @Override

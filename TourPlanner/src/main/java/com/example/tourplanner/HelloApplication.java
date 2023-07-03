@@ -1,5 +1,6 @@
 package com.example.tourplanner;
 
+import com.example.tourplanner.DAL.dal.config.HibernateUtil;
 import com.example.tourplanner.models.Tour;
 import com.example.tourplanner.UI.View.ButtonLayout;
 import com.example.tourplanner.UI.View.NavBar;
@@ -73,7 +74,7 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
         //creating a tour factory
-        try {
+        /* try {
             tourFactory = new Configuration().
                     configure().addAnnotatedClass(Tour.class).
                     buildSessionFactory();
@@ -92,7 +93,10 @@ public class HelloApplication extends Application {
 
         Session tourSession = tourFactory.openSession();
         Session tourLogSession = tourLogFactory.openSession();
+*/
 
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session tourSession = sessionFactory.openSession();
         // start transaction
         Transaction transaction = tourSession.beginTransaction();
 
@@ -100,7 +104,7 @@ public class HelloApplication extends Application {
         Tour tour = new Tour();
         Integer tourID;
         tour.setName("Test Tour");
-        tour.setDescription("This is a test tour");
+        tour.setDescription("proof of concept");
         tour.setDistance(300.33f);
         tourID = (Integer) tourSession.save(tour);
 

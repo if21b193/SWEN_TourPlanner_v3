@@ -1,6 +1,6 @@
 package com.example.tourplanner.models;
 
-import lombok.Getter;
+
 import javax.persistence.Entity;
 import javax.persistence.*;
 
