@@ -19,9 +19,9 @@ CREATE TABLE TourLogs(
     log_id SERIAL PRIMARY KEY,
     tour_id INT NOT NULL,
     date_time TIMESTAMP NOT NULL,
-    rating INT NOT NULL,
+    rating FLOAT NOT NULL,
     comment VARCHAR(500),
-    difficulty INT,
+    difficulty FlOAT,
     total_time TIME,
     FOREIGN KEY (tour_id) REFERENCES Tours(tour_id)
 

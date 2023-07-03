@@ -1,11 +1,11 @@
 package com.example.tourplanner;
 
-import com.example.tourplanner.DAL.dal.config.HibernateUtil;
 import com.example.tourplanner.models.Tour;
 import com.example.tourplanner.UI.View.ButtonLayout;
 import com.example.tourplanner.UI.View.NavBar;
 import com.example.tourplanner.UI.View.TourList;
 import com.example.tourplanner.UI.View.TourLogList;
+import com.example.tourplanner.models.TourLog;
 import javafx.application.Application;
 
 import javafx.scene.Scene;
@@ -19,13 +19,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.UUID;
 
 /* ! ! ! ! IMPORTANT COMMENT BEFORE U START <3 ! ! ! !
 - since the tour id value in the table is a varchar and not an int, i have also changed our tour id type to string
@@ -37,7 +32,8 @@ import java.util.UUID;
 
 public class HelloApplication extends Application {
 
-    private static SessionFactory factory;
+    private static SessionFactory tourFactory;
+    private static SessionFactory tourLogFactory;
     private BorderPane mainLayout = new BorderPane();
     private final ArrayList<String> tours = new ArrayList<>(Arrays.asList("Tour 1", "Tour 2", "Tour 3"));
     private final String[] tourLogs = {"Log 1", "Log 2", "Log 3"};
@@ -76,41 +72,47 @@ public class HelloApplication extends Application {
 
 
     public static void main(String[] args) {
-            //  I have commented out the code below that has started the hikari session
-            //  DbConnector dataSource = DataSource.getInstance();
-            // ImplTourService implTourService = new ImplTourService(new TourDaoRepo(dataSource));launch();
+        //creating a tour factory
+        try {
+            tourFactory = new Configuration().
+                    configure().addAnnotatedClass(Tour.class).
+                    buildSessionFactory();
+        } catch (Throwable e) {
+            throw new ExceptionInInitializerError("Setting up  tourFactory didn't work " + e);
+        }
 
-        // I used the code below to try and insert a tour object into the db.
-    //Session session = HibernateUtil.getSessionFactory().openSession();
+        //creating a tourLog factory
+        try {
+            tourLogFactory = new Configuration().
+                    configure().addAnnotatedClass(TourLog.class).
+                    buildSessionFactory();
+        } catch (Throwable e) {
+            throw new ExceptionInInitializerError("Setting up tourLogFactory didn't work " + e);
+        }
 
-    try {
-        factory = new Configuration().
-                configure().addAnnotatedClass(Tour.class).
-                buildSessionFactory();
-    } catch (Throwable e) {
-        throw new ExceptionInInitializerError(e);
-    }
+        Session tourSession = tourFactory.openSession();
+        Session tourLogSession = tourLogFactory.openSession();
 
-    Session session = factory.openSession();
+        // start transaction
+        Transaction transaction = tourSession.beginTransaction();
 
-    // start transaction
-    Transaction transaction = session.beginTransaction();
-
-    // create new instance of Tour and set values in it
-    Tour tour = new Tour();
-    Integer tourID;
+        // create new instance of Tour and set values in it
+        Tour tour = new Tour();
+        Integer tourID;
         tour.setName("Test Tour");
         tour.setDescription("This is a test tour");
         tour.setDistance(300.33f);
-        tourID = (Integer) session.save(tour);
+        tourID = (Integer) tourSession.save(tour);
 
 
         // commit transaction
         transaction.commit();
 
-        // close the session
-        session.close();
+        // close the tourSession
+        tourSession.close();
 
-        System.out.println("Tour successfully saved");
+        launch();
     }
+
+
 }
