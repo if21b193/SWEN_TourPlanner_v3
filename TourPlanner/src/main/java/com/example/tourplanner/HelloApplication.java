@@ -6,7 +6,6 @@ import com.example.tourplanner.UI.View.ButtonLayout;
 import com.example.tourplanner.UI.View.NavBar;
 import com.example.tourplanner.UI.View.TourList;
 import com.example.tourplanner.UI.View.TourLogList;
-import com.example.tourplanner.models.TourLog;
 import javafx.application.Application;
 
 import javafx.scene.Scene;
@@ -18,7 +17,6 @@ import javafx.stage.Stage;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,6 +28,7 @@ import java.util.Arrays;
 
 - A good thing to do would be to remove all the hikari elements so we can declutter our code a bit if you still have time after figuring out the ID Issue
 */
+
 
 public class HelloApplication extends Application {
 

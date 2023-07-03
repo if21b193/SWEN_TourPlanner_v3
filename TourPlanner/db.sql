@@ -1,5 +1,6 @@
 DROP TABLE  IF EXISTS TourLogs;
 DROP TABLE IF EXISTS Tours;
+DROP SEQUENCE  IF EXISTS hibernate_sequence;
 
 
 CREATE TABLE Tours(
@@ -24,5 +25,6 @@ CREATE TABLE TourLogs(
     difficulty FlOAT,
     total_time TIME,
     FOREIGN KEY (tour_id) REFERENCES Tours(tour_id)
+    );
 
-);
+CREATE SEQUENCE hibernate_sequence START 1;

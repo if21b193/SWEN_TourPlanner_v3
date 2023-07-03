@@ -1,34 +1,31 @@
-package com.example.tourplanner.DAL.dal;
+package com.example.tourplanner.DAL.dal.dao;
 
-import com.example.tourplanner.DAL.dal.config.DataSource;
-import com.example.tourplanner.DAL.dal.config.DbConnector;
 import com.example.tourplanner.DAL.dal.config.HibernateUtil;
-import com.example.tourplanner.models.Tour;
+import com.example.tourplanner.models.TourLog;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
-public class TourDao implements Dao<Tour>{
+public class TourLogDao implements Dao<TourLog>{
 
-    private static SessionFactory tourFactory;
-
-    public TourDao(){
-       tourFactory = HibernateUtil.getSessionFactory();
+    private List<TourLog> tourLogs = new ArrayList<>();
+    private static SessionFactory tourLogFactory;
+    public TourLogDao(){
+        tourLogFactory = HibernateUtil.getSessionFactory();
     }
 
+
     @Override
-    public Optional<Tour> get(int id) {
-        Session session = tourFactory.openSession();
+    public Optional<TourLog> get(int id) {
+        Session session = tourLogFactory.openSession();
         Transaction tx = session.beginTransaction();
-        Tour tour = null;
+        TourLog tourLog = null;
         try {
-            tour = session.get(Tour.class, id);
+            tourLog = session.get(TourLog.class, id);
             tx.commit();
         } catch (Exception e) {
             if (tx != null) {
@@ -37,16 +34,16 @@ public class TourDao implements Dao<Tour>{
             e.printStackTrace();
         }
         session.close();
-        return Optional.of(tour);
+        return Optional.of(tourLog);
     }
 
     @Override
-    public List<Tour> getAll() {
-        Session session = tourFactory.openSession();
+    public List<TourLog> getAll() {
+        Session session = tourLogFactory.openSession();
         Transaction tx = session.beginTransaction();
-        List<Tour> tours = null;
+        List<TourLog> tourLogs = null;
         try {
-            tours = session.createQuery("from Tour", Tour.class).getResultList();
+            tourLogs = session.createQuery("from TourLog", TourLog.class).getResultList();
             tx.commit();
         } catch (Exception e) {
             if (tx != null) {
@@ -56,15 +53,15 @@ public class TourDao implements Dao<Tour>{
         }
         session.close();
 
-        return tours;
+        return tourLogs;
     }
 
     @Override
-    public void save(Tour tour) {
-        Session session = tourFactory.openSession();
+    public void save(TourLog tourLog) {
+        Session session = tourLogFactory.openSession();
         Transaction tx = session.beginTransaction();
         try {
-            session.save(tour);
+            session.save(tourLog);
             tx.commit();
         } catch (Exception e){
             if(tx != null){
@@ -76,14 +73,14 @@ public class TourDao implements Dao<Tour>{
     }
 
     @Override
-    public void update(Tour tour) {
-        Session session = tourFactory.openSession();
+    public void update(TourLog tourLog) {
+        Session session = tourLogFactory.openSession();
         Transaction tx = session.beginTransaction();
         try {
-            session.update(tour);
+            session.update(tourLog);
             tx.commit();
-        } catch (Exception e) {
-            if(tx != null) {
+        } catch (Exception e){
+            if(tx != null){
                 tx.rollback();
             }
             e.printStackTrace();
@@ -92,19 +89,18 @@ public class TourDao implements Dao<Tour>{
     }
 
     @Override
-    public void delete(Tour tour) {
-        Session session = tourFactory.openSession();
+    public void delete(TourLog tourLog) {
+        Session session = tourLogFactory.openSession();
         Transaction tx = session.beginTransaction();
         try {
-            session.delete(tour);
+            session.delete(tourLog);
             tx.commit();
-        } catch(Exception e) {
-            if(tx != null) {
+        } catch (Exception e){
+            if(tx != null){
                 tx.rollback();
             }
             e.printStackTrace();
-        } finally {
-            session.close();
         }
+        session.close();
     }
 }
