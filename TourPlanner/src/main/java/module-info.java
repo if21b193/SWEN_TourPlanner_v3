@@ -10,6 +10,9 @@ module com.example.tourplanner {
     requires org.apache.httpcomponents.httpclient;
 
 
+
+    exports com.example.tourplanner.UI.View to javafx.fxml;
+    opens com.example.tourplanner.UI.View to javafx.fxml;
     opens com.example.tourplanner to javafx.fxml;
     exports com.example.tourplanner;
     opens com.example.tourplanner.models to org.hibernate.orm.core;

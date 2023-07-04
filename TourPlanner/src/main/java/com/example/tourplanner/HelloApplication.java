@@ -2,22 +2,19 @@ package com.example.tourplanner;
 
 import com.example.tourplanner.DAL.dal.config.HibernateUtil;
 import com.example.tourplanner.models.Tour;
-import com.example.tourplanner.UI.View.ButtonLayout;
-import com.example.tourplanner.UI.View.NavBar;
-import com.example.tourplanner.UI.View.TourList;
-import com.example.tourplanner.UI.View.TourLogList;
 import javafx.application.Application;
 
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
 import javafx.scene.layout.BorderPane;
 
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -40,59 +37,17 @@ public class HelloApplication extends Application {
 
     @Override
 
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException {
 
-
-        TourList tourList = new TourList(tours);
-        NavBar navBar = new NavBar();
-        mainLayout.setTop(navBar);
-        TourLogList tourLogList = new TourLogList(tourLogs);
-
-        // When a tour is selected, update the tour logs list
-        tourList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            // replace with code to update tourLogList based on selected tour
-        });
-
-        // Create a layout for the tours side
-        VBox toursLayout = new VBox(10);
-        toursLayout.getChildren().addAll(tourList, new ButtonLayout(tourList));
-
-        // Create the main layout
-
-        mainLayout.setLeft(toursLayout);
-        mainLayout.setCenter(tourLogList);
-
-        // Create the scene and show the stage
-        Scene scene = new Scene(mainLayout, 800, 600);
-
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainWindow.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 620, 540);
+        primaryStage.setTitle("Tourplanner");
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Tour Planner");
         primaryStage.show();
     }
 
 
     public static void main(String[] args) {
-        //creating a tour factory
-        /* try {
-            tourFactory = new Configuration().
-                    configure().addAnnotatedClass(Tour.class).
-                    buildSessionFactory();
-        } catch (Throwable e) {
-            throw new ExceptionInInitializerError("Setting up  tourFactory didn't work " + e);
-        }
-
-        //creating a tourLog factory
-        try {
-            tourLogFactory = new Configuration().
-                    configure().addAnnotatedClass(TourLog.class).
-                    buildSessionFactory();
-        } catch (Throwable e) {
-            throw new ExceptionInInitializerError("Setting up tourLogFactory didn't work " + e);
-        }
-
-        Session tourSession = tourFactory.openSession();
-        Session tourLogSession = tourLogFactory.openSession();
-*/
 
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session tourSession = sessionFactory.openSession();
