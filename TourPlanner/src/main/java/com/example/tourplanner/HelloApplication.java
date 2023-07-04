@@ -5,6 +5,7 @@ import com.example.tourplanner.models.Tour;
 import javafx.application.Application;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.scene.layout.BorderPane;
@@ -17,6 +18,7 @@ import org.hibernate.Transaction;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
 
 /* ! ! ! ! IMPORTANT COMMENT BEFORE U START <3 ! ! ! !
 - since the tour id value in the table is a varchar and not an int, i have also changed our tour id type to string
@@ -38,9 +40,10 @@ public class HelloApplication extends Application {
     @Override
 
     public void start(Stage primaryStage) throws IOException {
+        Parent root =FXMLDependencyInjection.load("MainWindow.fxml", Locale.GERMAN);
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainWindow.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 620, 540);
+        //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainWindow.fxml"));
+        Scene scene = new Scene(root, 620, 540);
         primaryStage.setTitle("Tourplanner");
         primaryStage.setScene(scene);
         primaryStage.show();

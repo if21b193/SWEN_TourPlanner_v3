@@ -1,7 +1,6 @@
 module com.example.tourplanner {
     requires javafx.controls;
     requires javafx.fxml;
-    //requires lombok;
     requires java.sql;
     requires com.zaxxer.hikari;
     requires java.persistence;

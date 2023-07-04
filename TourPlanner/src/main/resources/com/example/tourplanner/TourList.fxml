@@ -4,4 +4,4 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<ListView fx:id="listView" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.tourplanner.UI.View.listViewController"/>
+<ListView fx:id="listView" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.tourplanner.UI.View.ListViewController"/>
