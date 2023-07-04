@@ -12,10 +12,9 @@ public class ControllerFactory {
 
     public ControllerFactory(){
         ImplTourService implTourService = new ImplTourService();
-        tourListViewModel = new TourListViewModel(implTourService);
-        addTourViewModel = new AddTourViewModel();
+        addTourViewModel = new AddTourViewModel(implTourService);
+        tourListViewModel = new TourListViewModel(implTourService, addTourViewModel);
         mainWindowViewModel = new MainWindowViewModel(tourListViewModel);
-
     }
 
     public Object create(Class<?> controllerClass){

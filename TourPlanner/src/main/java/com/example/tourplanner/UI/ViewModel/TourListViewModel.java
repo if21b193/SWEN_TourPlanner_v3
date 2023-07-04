@@ -15,11 +15,13 @@ import java.util.Locale;
 
 public class TourListViewModel {
     private final TourService tourService;
+    private AddTourViewModel addTourViewModel;
 
     private ObservableList<Tour> observableList = FXCollections.observableArrayList();
 
-    public TourListViewModel(TourService tourService){
+    public TourListViewModel(TourService tourService, AddTourViewModel addTourViewModel){
         this.tourService = tourService;
+        this.addTourViewModel = addTourViewModel;
         setTours(this.tourService.getAll());
     }
 
@@ -33,15 +35,7 @@ public class TourListViewModel {
     }
 
     public void addTour(){
-        try {
-            Parent root = FXMLDependencyInjection.load("addTourMask.fxml", Locale.GERMAN);
-            Stage secondary = new Stage();
-            secondary.setTitle("Add Tour");
-            secondary.setScene(new Scene(root));
-            secondary.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
 
     }
 }

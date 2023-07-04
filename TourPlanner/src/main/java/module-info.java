@@ -7,7 +7,7 @@ module com.example.tourplanner {
     requires org.hibernate.orm.core;
     requires org.apache.httpcomponents.httpcore;
     requires org.apache.httpcomponents.httpclient;
-
+    requires com.fasterxml.jackson.databind;
 
 
     exports com.example.tourplanner.UI.View to javafx.fxml;
