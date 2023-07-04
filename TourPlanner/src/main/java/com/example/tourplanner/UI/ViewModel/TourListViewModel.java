@@ -35,7 +35,11 @@ public class TourListViewModel {
     }
 
     public void addTour(){
+        addTourViewModel.setOnTourCreatedListener(this::onTourCreated);
+        setTours(this.tourService.getAll());
+    }
 
-
+    private void onTourCreated(Tour tour) {
+        observableList.add(tour);
     }
 }

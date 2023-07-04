@@ -61,6 +61,7 @@ public class TourListController {
 
     public void addTour(ActionEvent actionEvent) {
         try {
+
             Parent root = FXMLDependencyInjection.load("addTourMask.fxml", Locale.GERMAN);
             Stage secondary = new Stage();
             secondary.setTitle("Add Tour");
@@ -69,7 +70,7 @@ public class TourListController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        
+        tourListViewModel.addTour();
     }
 
     public void updateTour(ActionEvent actionEvent) {

@@ -14,7 +14,7 @@ public class ControllerFactory {
         ImplTourService implTourService = new ImplTourService();
         addTourViewModel = new AddTourViewModel(implTourService);
         tourListViewModel = new TourListViewModel(implTourService, addTourViewModel);
-        mainWindowViewModel = new MainWindowViewModel(tourListViewModel);
+        mainWindowViewModel = new MainWindowViewModel(tourListViewModel, addTourViewModel);
     }
 
     public Object create(Class<?> controllerClass){

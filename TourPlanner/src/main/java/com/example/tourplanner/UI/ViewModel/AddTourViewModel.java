@@ -7,7 +7,9 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.io.IOException;
+import java.util.EventListener;
 import java.util.Map;
+import java.util.function.Consumer;
 
 public class AddTourViewModel {
     /*private StringProperty from = new SimpleStringProperty();
@@ -17,6 +19,10 @@ public class AddTourViewModel {
     private StringProperty tourDescription = new SimpleStringProperty();*/
 
     private final TourService tourService;
+    private Consumer<Tour> onTourCreatedListener;
+    public void setOnTourCreatedListener(Consumer<Tour> eventListener){
+        this.onTourCreatedListener = eventListener;
+    }
 
     public AddTourViewModel(TourService tourService) {
         this.tourService = tourService;
@@ -63,6 +69,9 @@ public class AddTourViewModel {
         tour.setEstimatedTime(map.get("time").toString());
         tour.setDescription(description);
         tourService.create(tour);
+        if(onTourCreatedListener != null){
+            onTourCreatedListener.accept(tour);
+        }
     }
 
 
