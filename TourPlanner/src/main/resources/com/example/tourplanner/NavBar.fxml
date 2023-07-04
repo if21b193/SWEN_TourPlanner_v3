@@ -8,15 +8,14 @@
 
 <VBox xmlns:fx="http://javafx.com/fxml">
     <MenuBar>
-        <Menu text="File">
-            <MenuItem text="New" />
-            <MenuItem text="Open" />
-            <MenuItem text="Save" />
-            <MenuItem text="Exit" />
+        <Menu text="%Menu_File">
+            <MenuItem text="%Menu_File_Import" />
+            <MenuItem text="%Menu_File_Export" />
+            <MenuItem text="%Menu_File_Quit" />
         </Menu>
-        <Menu text="Edit">
-            <MenuItem text="Cut" />
-            <MenuItem text="Copy" />
+        <Menu text="%Menu_Edit">
+            <MenuItem text="%Menu_Edit_Duplicate" />
+            <MenuItem text="%Menu_Options_Settings" />
             <MenuItem text="Paste" />
         </Menu>
     </MenuBar>

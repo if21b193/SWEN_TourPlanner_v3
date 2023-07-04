@@ -4,25 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="made it runnable again">
-      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/FXMLDependencyInjection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/AddTourController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/ControllerFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/ListViewViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/MainViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/gui_strings_de.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/gui_strings_en.properties" afterDir="false" />
+    <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="connected UI and DAL, now tours get shown">
+      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/MainWindowViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/BL/service/ImplTourService.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/BL/service/ImplTourService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/BL/service/TourService.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/BL/service/TourService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/listViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/ListViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/ControllerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/ControllerFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/ListViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/MainWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/ListViewViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/TourListViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/MainViewModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/BottomButtons.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/MainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/MainWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/NavBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/NavBar.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/TourList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/TourList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/addTourMask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/addTourMask.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +149,7 @@
       <workItem from="1688317555001" duration="7420000" />
       <workItem from="1688326492637" duration="116000" />
       <workItem from="1688363655710" duration="21784000" />
-      <workItem from="1688458386397" duration="10636000" />
+      <workItem from="1688458386397" duration="14056000" />
     </task>
     <task id="LOCAL-00001" summary="design update">
       <created>1686757115641</created>
@@ -267,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688460652139</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="connected UI and DAL, now tours get shown">
+      <option name="closed" value="true" />
+      <created>1688472196894</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1688472196894</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,7 +323,8 @@
     <MESSAGE value="cleanup, restructuring, basic first setup for mapquest APIs" />
     <MESSAGE value="added in fxml files" />
     <MESSAGE value="made it runnable again" />
-    <option name="LAST_COMMIT_MESSAGE" value="made it runnable again" />
+    <MESSAGE value="connected UI and DAL, now tours get shown" />
+    <option name="LAST_COMMIT_MESSAGE" value="connected UI and DAL, now tours get shown" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

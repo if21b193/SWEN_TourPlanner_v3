@@ -1,26 +1,30 @@
 package com.example.tourplanner.UI.View;
 
 import com.example.tourplanner.BL.service.ImplTourService;
-import com.example.tourplanner.UI.ViewModel.ListViewViewModel;
-import com.example.tourplanner.UI.ViewModel.MainViewModel;
-
-import java.util.List;
+import com.example.tourplanner.UI.ViewModel.AddTourViewModel;
+import com.example.tourplanner.UI.ViewModel.TourListViewModel;
+import com.example.tourplanner.UI.ViewModel.MainWindowViewModel;
 
 public class ControllerFactory {
-    private final ListViewViewModel listViewViewModel;
-    private final MainViewModel mainViewModel;
+    private final TourListViewModel tourListViewModel;
+    private final MainWindowViewModel mainWindowViewModel;
+    private final AddTourViewModel addTourViewModel;
 
     public ControllerFactory(){
         ImplTourService implTourService = new ImplTourService();
-        listViewViewModel = new ListViewViewModel(implTourService);
-        mainViewModel = new MainViewModel(listViewViewModel);
+        tourListViewModel = new TourListViewModel(implTourService);
+        addTourViewModel = new AddTourViewModel();
+        mainWindowViewModel = new MainWindowViewModel(tourListViewModel);
+
     }
 
     public Object create(Class<?> controllerClass){
-        if(controllerClass == ListViewController.class){
-            return new ListViewController(listViewViewModel);
-        } if(controllerClass == MainController.class){
-            return new MainController(mainViewModel);
+        if(controllerClass == TourListController.class){
+            return new TourListController(tourListViewModel);
+        } if(controllerClass == MainWindowController.class){
+            return new MainWindowController(mainWindowViewModel);
+        } if(controllerClass == AddTourController.class){
+            return new AddTourController(addTourViewModel);
         }
         throw new IllegalArgumentException("Unknown controller class: "+ controllerClass);
     }
