@@ -1,19 +1,14 @@
 package com.example.tourplanner.UI.View;
-import com.example.tourplanner.FXMLDependencyInjection;
+import com.example.tourplanner.UI.ViewModel.ShareData.EventListener;
+import com.example.tourplanner.UI.ViewModel.ShareData.SharedTourEvent;
 import com.example.tourplanner.UI.ViewModel.TourListViewModel;
 import com.example.tourplanner.models.Tour;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.util.Locale;
 
 public class TourListController {
 
@@ -39,12 +34,8 @@ public class TourListController {
         return this.tourListViewModel;
     }
 
-    //private ObservableList<String> tours;
-
     @FXML
     public void initialize() {
-        /*tours = FXCollections.observableArrayList("Tour 1", "Tour 2", "Tour 3");
-        listView.setItems(tours);*/
         listView.setItems(tourListViewModel.getObservableTours());
         listView.setCellFactory(param -> new ListCell<Tour>() {
             @Override
@@ -57,25 +48,21 @@ public class TourListController {
                 }
             }
         });
+        listView.getSelectionModel().selectedItemProperty().addListener(tourListViewModel.getChangeListener());
     }
 
     public void addTour(ActionEvent actionEvent) {
-        try {
-
-            Parent root = FXMLDependencyInjection.load("addTourMask.fxml", Locale.GERMAN);
-            Stage secondary = new Stage();
-            secondary.setTitle("Add Tour");
-            secondary.setScene(new Scene(root));
-            secondary.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
         tourListViewModel.addTour();
+        listView.getSelectionModel().selectLast();
     }
 
-    public void updateTour(ActionEvent actionEvent) {
+
+    public void modifyTour(ActionEvent actionEvent) {
+        tourListViewModel.modifyTour(listView.getSelectionModel().getSelectedItem());
     }
 
     public void deleteTour(ActionEvent actionEvent) {
+        tourListViewModel.deleteTour(listView.getSelectionModel().getSelectedItem());
     }
+
 }

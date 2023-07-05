@@ -18,6 +18,11 @@ public class ImplTourService implements TourService {
     }
 
     @Override
+    public Tour getById(int id) {
+        return tourDao.get(id).orElse(null);
+    }
+
+    @Override
     public void create(Tour tour) {
         tourDao.save(tour);
     }

@@ -34,9 +34,6 @@ public class AddTourController {
         this.addTourViewModel = addTourViewModel;
     }
 
-    public void setStage(Stage stage){
-        this.stage = stage;
-    }
 
     /*private void bindViewModel() {
         tourName.textProperty().bindBidirectional(addTourViewModel.tourNameProperty());
@@ -49,8 +46,6 @@ public class AddTourController {
     private void initialize(){
         //bindViewModel();
     }
-
-
 
     public void saveTour(ActionEvent actionEvent) throws IOException {
         String name = tourName.getText();

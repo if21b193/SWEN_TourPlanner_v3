@@ -13,14 +13,12 @@ import java.io.IOException;
 import java.util.Locale;
 
 
-
 public class HelloApplication extends Application {
 
     private static SessionFactory tourFactory;
     private static SessionFactory tourLogFactory;
 
     @Override
-
     public void start(Stage primaryStage) throws IOException {
         Parent root =FXMLDependencyInjection.load("MainWindow.fxml", Locale.GERMAN);
 
