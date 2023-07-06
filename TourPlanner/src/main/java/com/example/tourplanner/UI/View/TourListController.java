@@ -1,14 +1,23 @@
 package com.example.tourplanner.UI.View;
+import com.example.tourplanner.FXMLDependencyInjection;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventListener;
 import com.example.tourplanner.UI.ViewModel.ShareData.SharedTourEvent;
 import com.example.tourplanner.UI.ViewModel.TourListViewModel;
 import com.example.tourplanner.models.Tour;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+
+import java.io.IOException;
+import java.util.Locale;
 
 public class TourListController {
 
@@ -52,7 +61,21 @@ public class TourListController {
     }
 
     public void addTour(ActionEvent actionEvent) {
-        tourListViewModel.addTour();
+        FXMLLoader fxmlLoader = FXMLDependencyInjection.getLoader("addTourMask.fxml", Locale.GERMAN);
+        Scene newScene;
+        try {
+            newScene = new Scene(fxmlLoader.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Stage newStage = new Stage();
+        newStage.initOwner(listView.getScene().getWindow());
+        newStage.setScene(newScene);
+        newStage.showAndWait();
+        Tour tour = fxmlLoader.<AddTourController>getController().getTour();
+        if(tour != null){
+            tourListViewModel.addTour(tour);
+        }
         listView.getSelectionModel().selectLast();
     }
 

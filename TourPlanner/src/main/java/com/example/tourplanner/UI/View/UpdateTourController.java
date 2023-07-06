@@ -44,7 +44,6 @@ public class UpdateTourController {
         if(tour != null){
             fillInTourData(tour);
         }
-
     }
 
     private void fillInTourData(Tour tour) {

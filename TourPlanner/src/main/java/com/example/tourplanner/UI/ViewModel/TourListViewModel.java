@@ -2,6 +2,7 @@ package com.example.tourplanner.UI.ViewModel;
 
 import com.example.tourplanner.BL.service.TourService;
 import com.example.tourplanner.FXMLDependencyInjection;
+import com.example.tourplanner.UI.View.AddTourController;
 import com.example.tourplanner.UI.View.TourListController;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventListener;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventPublisher;
@@ -10,6 +11,7 @@ import com.example.tourplanner.models.Tour;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -43,27 +45,16 @@ public class TourListViewModel implements EventListener {
         return observableList;
     }
 
-    public void addTour(){
-        try {
-            Parent root = FXMLDependencyInjection.load("addTourMask.fxml", Locale.GERMAN);
-            Stage secondary = new Stage();
-            secondary.setTitle("Add Tour");
-            secondary.setScene(new Scene(root));
-            secondary.show();
-
-            //java fx dialog
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    public void addTour(Tour tour){
+        observableList.add(tour);
     }
+
 
     //adding tour to observable List works
     @Override
     public void updateFromDb(SharedTourEvent event) {
         Tour tour = event.returnTour();
         //observableList.add(tour);
-        observableList.add(tourService.getById(tour.getId()));
-        System.out.println(observableList.stream().toList());
     }
 
     public void deleteTour(Tour tour) {

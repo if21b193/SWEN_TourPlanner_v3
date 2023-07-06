@@ -18,8 +18,6 @@ public class UpdateTourViewModel implements EventListener {
     StringProperty transportType = new SimpleStringProperty();
     StringProperty start = new SimpleStringProperty();
     StringProperty end = new SimpleStringProperty();
-    StringProperty distance = new SimpleStringProperty();
-    StringProperty estimatedTime = new SimpleStringProperty();
     StringProperty description = new SimpleStringProperty();
     private EventPublisher publisher;
     private ImplTourService tourService;

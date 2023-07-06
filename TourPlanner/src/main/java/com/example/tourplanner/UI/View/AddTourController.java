@@ -1,15 +1,16 @@
 package com.example.tourplanner.UI.View;
 
+import com.example.tourplanner.FXMLDependencyInjection;
 import com.example.tourplanner.UI.ViewModel.AddTourViewModel;
 import com.example.tourplanner.models.Tour;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Locale;
 
 public class AddTourController {
     private Stage stage;
@@ -29,11 +30,11 @@ public class AddTourController {
     @FXML
     public TextField tourDescription;
 
+    private static Tour tour;
 
     public AddTourController(AddTourViewModel addTourViewModel){
         this.addTourViewModel = addTourViewModel;
     }
-
 
     /*private void bindViewModel() {
         tourName.textProperty().bindBidirectional(addTourViewModel.tourNameProperty());
@@ -42,7 +43,6 @@ public class AddTourController {
         to.textProperty().bindBidirectional(addTourViewModel.toProperty());
         transportationMode.valueProperty().bindBidirectional(addTourViewModel.transportationModeProperty());
     }*/
-
     private void initialize(){
         //bindViewModel();
     }
@@ -55,15 +55,16 @@ public class AddTourController {
             String transportation = transportationMode.getValue();
             String description = tourDescription.getText();
             validateTourData(name, start, end, transportation, description);
-            addTourViewModel.addTour(name, start, end, transportation, description);
-            clearTextFields();
+            tour = addTourViewModel.addTour(name, start, end, transportation, description);
+            close();
         } catch (Exception e) {
             System.out.println("Error miss girl");
         }
-
-
     }
 
+    public Tour getTour(){
+        return tour;
+    }
 
     private void clearTextFields() {
         tourName.clear();
@@ -74,11 +75,14 @@ public class AddTourController {
     }
 
     public void closeWindow(ActionEvent actionEvent) {
+        close();
+    }
+
+    private void close(){
         clearTextFields();
         Stage stage = (Stage)saveTour.getScene().getWindow();
         stage.close();
     }
-
 
     private boolean validateTourData(String name, String start, String end, String transportation, String description) {
         // Check if any field is empty
