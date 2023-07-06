@@ -50,6 +50,8 @@ public class TourListViewModel implements EventListener {
             secondary.setTitle("Add Tour");
             secondary.setScene(new Scene(root));
             secondary.show();
+
+            //java fx dialog
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -57,13 +59,16 @@ public class TourListViewModel implements EventListener {
 
     //adding tour to observable List works
     @Override
-    public void updateTour(SharedTourEvent event) {
+    public void updateFromDb(SharedTourEvent event) {
         Tour tour = event.returnTour();
-        observableList.add(tour);
+        //observableList.add(tour);
+        observableList.add(tourService.getById(tour.getId()));
+        System.out.println(observableList.stream().toList());
     }
 
     public void deleteTour(Tour tour) {
         tourService.delete(tour);
+        observableList.remove(tour);
     }
 
     public void modifyTour(Tour tour) {
@@ -71,7 +76,7 @@ public class TourListViewModel implements EventListener {
         try {
             Parent root = FXMLDependencyInjection.load("updateTourMask.fxml", Locale.GERMAN);
             Stage secondary = new Stage();
-            secondary.setTitle("Add Tour");
+            secondary.setTitle("Update Tour");
             secondary.setScene(new Scene(root));
             secondary.show();
         } catch (IOException e) {

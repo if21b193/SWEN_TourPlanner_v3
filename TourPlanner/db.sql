@@ -10,7 +10,6 @@ CREATE TABLE Tours(
     start_location VARCHAR(255),
     end_location VARCHAR(255),
     transport_type VARCHAR(50),
-
     distance FLOAT,
     estimated_time VARCHAR(20),
     route_info VARCHAR(500)

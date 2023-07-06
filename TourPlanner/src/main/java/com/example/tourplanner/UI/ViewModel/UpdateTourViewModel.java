@@ -55,7 +55,7 @@ public class UpdateTourViewModel implements EventListener {
     }
 
     @Override
-    public void updateTour(SharedTourEvent event) {
+    public void updateFromDb(SharedTourEvent event) {
         Tour tour = event.returnTour();
         searchedId = tour.getId();
     }

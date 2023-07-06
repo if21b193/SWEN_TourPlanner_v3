@@ -1,11 +1,10 @@
 package com.example.tourplanner.UI.View;
 
+import com.example.tourplanner.BL.service.ImplTourLogService;
 import com.example.tourplanner.BL.service.ImplTourService;
-import com.example.tourplanner.UI.ViewModel.AddTourViewModel;
+import com.example.tourplanner.UI.ViewModel.*;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventPublisher;
-import com.example.tourplanner.UI.ViewModel.TourListViewModel;
-import com.example.tourplanner.UI.ViewModel.MainWindowViewModel;
-import com.example.tourplanner.UI.ViewModel.UpdateTourViewModel;
+import com.example.tourplanner.UI.ViewModel.ShareData.TourLogEventPublisher;
 
 public class ControllerFactory {
     private final TourListViewModel tourListViewModel;
@@ -13,13 +12,20 @@ public class ControllerFactory {
     private final AddTourViewModel addTourViewModel;
     private final UpdateTourViewModel updateTourViewModel;
 
+    private final TourLogListViewModel tourLogListViewModel;
+    private final AddTourLogViewModel addTourLogViewModel;
+
     public ControllerFactory(){
         ImplTourService implTourService = new ImplTourService();
         EventPublisher eventPublisher = new EventPublisher();
+        TourLogEventPublisher tourLogEventPublisher = new TourLogEventPublisher();
+        ImplTourLogService tourLogService = new ImplTourLogService();
         this.addTourViewModel = new AddTourViewModel(eventPublisher, implTourService);
         this.updateTourViewModel = new UpdateTourViewModel(eventPublisher, implTourService);
         this.tourListViewModel = new TourListViewModel(eventPublisher, implTourService, addTourViewModel);
         this.mainWindowViewModel = new MainWindowViewModel(tourListViewModel, addTourViewModel);
+        this.addTourLogViewModel = new AddTourLogViewModel(tourLogEventPublisher, tourLogService);
+        this.tourLogListViewModel = new TourLogListViewModel(tourLogEventPublisher, tourLogService, addTourLogViewModel);
     }
 
     public Object create(Class<?> controllerClass){
@@ -31,6 +37,8 @@ public class ControllerFactory {
             return new AddTourController(this.addTourViewModel);
         } if(controllerClass == UpdateTourController.class){
             return new UpdateTourController(this.updateTourViewModel);
+        } if(controllerClass == TourLogController.class){
+            return new TourLogController(this.tourLogListViewModel);
         }
         throw new IllegalArgumentException("Unknown controller class: "+ controllerClass);
     }

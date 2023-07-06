@@ -1,4 +1,4 @@
-package com.example.tourplanner.UI.View;
+/*package com.example.tourplanner.UI.View;
 
 import com.example.tourplanner.UI.ViewModel.UpdateTourLogViewModel;
 import com.example.tourplanner.UI.ViewModel.UpdateTourViewModel;
@@ -77,5 +77,5 @@ public class UpdateTourLogController {
             close();
         }
 }
-
+*/
 

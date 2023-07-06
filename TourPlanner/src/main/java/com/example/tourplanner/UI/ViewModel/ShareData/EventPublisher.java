@@ -20,14 +20,14 @@ public class EventPublisher {
 
     public void publishEvent(SharedTourEvent event) {
         for (EventListener listener : listeners) {
-            listener.updateTour(event);
+            listener.updateFromDb(event);
         }
     }
 
     public void publishToSingle(SharedTourEvent event, String listener) {
         for(EventListener listener1 : listeners) {
             if(listener1.getClass().getName().endsWith(listener)){
-                listener1.updateTour(event);
+                listener1.updateFromDb(event);
             }
         }
     }
