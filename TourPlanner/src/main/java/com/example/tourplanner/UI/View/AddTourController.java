@@ -37,14 +37,14 @@ public class AddTourController {
     }
 
     /*private void bindViewModel() {
-        tourName.textProperty().bindBidirectional(addTourViewModel.tourNameProperty());
-        tourDescription.textProperty().bindBidirectional(addTourViewModel.tourDescriptionProperty());
-        from.textProperty().bindBidirectional(addTourViewModel.fromProperty());
-        to.textProperty().bindBidirectional(addTourViewModel.toProperty());
-        transportationMode.valueProperty().bindBidirectional(addTourViewModel.transportationModeProperty());
+        tourName.textProperty().bindBidirectional(addTourViewModel.nameProperty());
+        tourDescription.textProperty().bindBidirectional(addTourViewModel.descriptionProperty());
+        from.textProperty().bindBidirectional(addTourViewModel.startProperty());
+        to.textProperty().bindBidirectional(addTourViewModel.endProperty());
+        transportationMode.valueProperty().bindBidirectional(addTourViewModel.transportTypeProperty());
     }*/
     private void initialize(){
-        //bindViewModel();
+    //    bindViewModel();
     }
 // saveTour nimmt als parameter ein actions event, mit getText() kriegen wir den User Input. Dann wird mittels AddTourViewmodel die Tour in die Datebank reingegeben
     public void saveTour(ActionEvent actionEvent) throws IOException {
@@ -56,6 +56,7 @@ public class AddTourController {
             String description = tourDescription.getText();
             validateTourData(name, start, end, transportation, description);
             tour = addTourViewModel.addTour(name, start, end, transportation, description);
+            //tour = addTourViewModel.addTour();
             close();
         } catch (Exception e) {
             System.out.println("Error miss girl");

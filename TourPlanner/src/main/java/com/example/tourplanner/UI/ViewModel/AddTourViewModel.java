@@ -56,19 +56,6 @@ public class AddTourViewModel {
         this.tourService = tourService;
     }
 
-    public void openDialog(){
-        Dialog<ButtonType> dialogWindow = new Dialog<>();
-        dialogWindow.setTitle("Add new Tour");
-        try {
-            GridPane gridPane = (GridPane) FXMLDependencyInjection.load("addTourMask.fxml", Locale.GERMAN);
-            dialogWindow.getDialogPane().setContent(gridPane);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        dialogWindow.initModality(Modality.WINDOW_MODAL);
-        dialogWindow.show();
-    }
-
     //
     public Tour addTour(String name, String start, String end, String transportation, String description) throws IOException {
         Map map = new MapQuestDirectionsAPI().getTourInformation(start, end);
@@ -83,6 +70,20 @@ public class AddTourViewModel {
         tourService.create(tour);
         return tour;
     }
+
+    /*public Tour addTour() throws IOException {
+        Map map = new MapQuestDirectionsAPI().getTourInformation(start.get(), end.get());
+        Tour tour = new Tour();
+        tour.setTransportType(transportType.get());
+        tour.setTo(end.get());
+        tour.setDescription(description.get());
+        tour.setDistance(Float.parseFloat(map.get("distance").toString()));
+        tour.setFrom(start.get());
+        tour.setName(name.get());
+        tour.setEstimatedTime(map.get("time").toString());
+        tourService.create(tour);
+        return tour;
+    }*/
 
 
 }

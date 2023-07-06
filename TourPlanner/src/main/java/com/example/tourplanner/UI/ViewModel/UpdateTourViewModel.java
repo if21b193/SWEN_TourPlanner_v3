@@ -21,8 +21,8 @@ public class UpdateTourViewModel implements EventListener {
     StringProperty description = new SimpleStringProperty();
     private EventPublisher publisher;
     private ImplTourService tourService;
-
     static int searchedId;
+
 
     public StringProperty nameProperty() {
         return name;
@@ -58,7 +58,7 @@ public class UpdateTourViewModel implements EventListener {
         searchedId = tour.getId();
     }
 
-    public void saveTour(String transport, String end, String start, String description, String name) throws IOException {
+    public Tour saveTour(String transport, String end, String start, String description, String name) throws IOException {
         Map map = new MapQuestDirectionsAPI().getTourInformation(start, end);
         Tour tour = new Tour();
         tour.setId(searchedId);
@@ -72,5 +72,11 @@ public class UpdateTourViewModel implements EventListener {
         tourService.update(tour);
         SharedTourEvent sharedTourEvent = new SharedTourEvent(tour);
         publisher.publishToSingle(sharedTourEvent, "TourListViewModel");
+        return tour;
     }
+
+    public static int getSearchedId() {
+        return searchedId;
+    }
+
 }

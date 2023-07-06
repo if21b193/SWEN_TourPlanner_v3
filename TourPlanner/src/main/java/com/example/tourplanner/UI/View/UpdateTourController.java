@@ -28,10 +28,16 @@ public class UpdateTourController {
     @FXML
     public TextField tourName;
 
+    private static Tour tour;
+
     private final UpdateTourViewModel updateTourViewModel;
 
     public UpdateTourController(UpdateTourViewModel updateTourViewModel) {
         this.updateTourViewModel = updateTourViewModel;
+    }
+
+    public UpdateTourViewModel getUpdateTourViewModel() {
+        return updateTourViewModel;
     }
 
     public void initialize(){
@@ -60,8 +66,12 @@ public class UpdateTourController {
         String start = from.getText();
         String description = tourDescription.getText();
         String name = tourName.getText();
-        updateTourViewModel.saveTour(transport, end, start, description, name);
+        tour = updateTourViewModel.saveTour(transport, end, start, description, name);
         close();
+    }
+
+    public Tour getTour(){
+        return tour;
     }
 
     private void close(){

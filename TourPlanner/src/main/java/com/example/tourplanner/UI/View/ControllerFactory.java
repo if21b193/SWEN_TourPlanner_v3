@@ -5,6 +5,7 @@ import com.example.tourplanner.BL.service.ImplTourService;
 import com.example.tourplanner.UI.ViewModel.*;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventPublisher;
 import com.example.tourplanner.UI.ViewModel.ShareData.TourLogEventPublisher;
+import org.w3c.dom.events.Event;
 
 public class ControllerFactory {
     private final TourListViewModel tourListViewModel;
@@ -12,12 +13,14 @@ public class ControllerFactory {
     private final AddTourViewModel addTourViewModel;
     private final UpdateTourViewModel updateTourViewModel;
 
+    private final EventPublisher eventPublisher;
+
     private final TourLogListViewModel tourLogListViewModel;
     private final AddTourLogViewModel addTourLogViewModel;
 
     public ControllerFactory(){
         ImplTourService implTourService = new ImplTourService();
-        EventPublisher eventPublisher = new EventPublisher();
+        this.eventPublisher = new EventPublisher();
         TourLogEventPublisher tourLogEventPublisher = new TourLogEventPublisher();
         ImplTourLogService tourLogService = new ImplTourLogService();
         this.addTourViewModel = new AddTourViewModel(eventPublisher, implTourService);
@@ -30,7 +33,7 @@ public class ControllerFactory {
 
     public Object create(Class<?> controllerClass){
         if(controllerClass == TourListController.class){
-            return new TourListController(this.tourListViewModel);
+            return new TourListController(this.tourListViewModel, eventPublisher);
         } if(controllerClass == MainWindowController.class){
             return new MainWindowController(this.mainWindowViewModel);
         } if(controllerClass == AddTourController.class){

@@ -63,16 +63,7 @@ public class TourListViewModel implements EventListener {
     }
 
     public void modifyTour(Tour tour) {
-        publisher.publishToSingle(new SharedTourEvent(tour), "UpdateTourViewModel");
-        try {
-            Parent root = FXMLDependencyInjection.load("updateTourMask.fxml", Locale.GERMAN);
-            Stage secondary = new Stage();
-            secondary.setTitle("Update Tour");
-            secondary.setScene(new Scene(root));
-            secondary.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        setTours(this.tourService.getAll());
     }
 
     public interface SelectionChangedListener {
