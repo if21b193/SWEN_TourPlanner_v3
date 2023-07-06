@@ -11,7 +11,6 @@ import javafx.beans.property.StringProperty;
 
 import java.io.IOException;
 import java.util.Map;
-import java.util.concurrent.Flow;
 
 public class UpdateTourViewModel implements EventListener {
     StringProperty  name = new SimpleStringProperty();

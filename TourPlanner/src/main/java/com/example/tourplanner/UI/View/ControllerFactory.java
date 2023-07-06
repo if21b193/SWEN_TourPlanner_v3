@@ -5,7 +5,6 @@ import com.example.tourplanner.BL.service.ImplTourService;
 import com.example.tourplanner.UI.ViewModel.*;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventPublisher;
 import com.example.tourplanner.UI.ViewModel.ShareData.TourLogEventPublisher;
-import org.w3c.dom.events.Event;
 
 public class ControllerFactory {
     private final TourListViewModel tourListViewModel;
@@ -40,8 +39,10 @@ public class ControllerFactory {
             return new AddTourController(this.addTourViewModel);
         } if(controllerClass == UpdateTourController.class){
             return new UpdateTourController(this.updateTourViewModel);
-        } if(controllerClass == TourLogController.class){
-            return new TourLogController(this.tourLogListViewModel);
+        } if(controllerClass == TourLogListController.class){
+            return new TourLogListController(this.tourLogListViewModel);
+        } if(controllerClass == AddTourLogController.class){
+            return new AddTourLogController(this.addTourLogViewModel);
         }
         throw new IllegalArgumentException("Unknown controller class: "+ controllerClass);
     }

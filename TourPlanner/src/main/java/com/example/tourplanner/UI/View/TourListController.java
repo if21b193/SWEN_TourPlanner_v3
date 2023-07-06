@@ -13,7 +13,6 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.hibernate.sql.Update;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -63,16 +62,6 @@ public class TourListController {
     }
 
     public void addTour(ActionEvent actionEvent) {
-        /*FXMLLoader fxmlLoader = FXMLDependencyInjection.getLoader("addTourMask.fxml", Locale.GERMAN);
-        Scene newScene;
-        try {
-            newScene = new Scene(fxmlLoader.load());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        Stage newStage = new Stage();
-        newStage.initOwner(listView.getScene().getWindow());
-        newStage.setScene(newScene);*/
         FXMLLoader fxmlLoader = FXMLDependencyInjection.getLoader("addTourMask.fxml", Locale.GERMAN);
         Stage stage = setUpScene(fxmlLoader);
         stage.setTitle("Add a new tour");

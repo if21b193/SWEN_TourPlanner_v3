@@ -1,10 +1,8 @@
 package com.example.tourplanner.UI.ViewModel;
 
 import com.example.tourplanner.BL.service.TourLogService;
-import com.example.tourplanner.BL.service.TourService;
 import com.example.tourplanner.FXMLDependencyInjection;
 import com.example.tourplanner.UI.ViewModel.ShareData.*;
-import com.example.tourplanner.models.Tour;
 import com.example.tourplanner.models.TourLog;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
@@ -38,16 +36,8 @@ import java.util.Locale;
     }
 
     // TODO ADD TOURLOG MASK
-    public void addTourLog(){
-        try {
-            Parent root = FXMLDependencyInjection.load("addTourLogMask.fxml", Locale.GERMAN);
-            Stage secondary = new Stage();
-            secondary.setTitle("Add TourLog");
-            secondary.setScene(new Scene(root));
-            secondary.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    public void addTourLog(TourLog tourLog){
+        observableList.add(tourLog);
     }
 
     // TODO UPDATE TOURLOG VIEW MODEL

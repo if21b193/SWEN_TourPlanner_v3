@@ -23,7 +23,7 @@ public class AddTourLogViewModel {
         this.tourLogService = tourLogService;
     }
 
-    public void addTourLog(String dateTime, String comment, Float difficulty, String totalTime, Float rating) throws IOException {
+    public TourLog addTourLog(String dateTime, String comment, Float difficulty, String totalTime, Float rating) throws IOException {
 
         TourLog tourLog = new TourLog();
 
@@ -33,9 +33,10 @@ public class AddTourLogViewModel {
         tourLog.setTotalTime(totalTime);
         tourLog.setRating(rating);
         tourLogService.create(tourLog);
+        return tourLog;
         //IMPLEMENT TOURLOG LIST VIEW MODEL
-        SharedTourLogEvent sharedTourLogEvent = new SharedTourLogEvent(tourLog);
-        eventPublisher.publishToSingle(sharedTourLogEvent, "TourLogListViewModel");
+        //SharedTourLogEvent sharedTourLogEvent = new SharedTourLogEvent(tourLog);
+        //eventPublisher.publishToSingle(sharedTourLogEvent, "TourLogListViewModel");
 
     }
 }

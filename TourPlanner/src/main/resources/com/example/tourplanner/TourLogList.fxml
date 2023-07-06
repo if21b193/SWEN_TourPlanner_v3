@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="tourLogView" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.tourplanner.UI.View.TourLogController">
-
-        <ListView fx:id="listView" VBox.vgrow="SOMETIMES"/>
-        <HBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml">
-            <Button text="Add TourLog" fx:id="addTourLogButton" onAction="#addTourLog" />
-            <Button text="Delete TourLog" fx:id="deleteTourLogButton" onAction="#deleteTourLog"/>
-        </HBox>
-    </VBox>
+<VBox fx:id="tourLogView" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.tourplanner.UI.View.TourLogListController">
+    <ListView fx:id="listView" VBox.vgrow="SOMETIMES"/>
+    <HBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml">
+        <Button text="Add TourLog" fx:id="addTourLogButton" onAction="#addTourLog" />
+        <Button text="Delete TourLog" fx:id="deleteTourLogButton" onAction="#deleteTourLog"/>
+    </HBox>
+</VBox>

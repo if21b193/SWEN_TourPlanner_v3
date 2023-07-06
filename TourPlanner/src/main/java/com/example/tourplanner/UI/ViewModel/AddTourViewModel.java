@@ -2,17 +2,10 @@ package com.example.tourplanner.UI.ViewModel;
 
 import com.example.tourplanner.BL.service.TourService;
 import com.example.tourplanner.DAL.dal.Repository.MapQuestDirectionsAPI;
-import com.example.tourplanner.FXMLDependencyInjection;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventPublisher;
-import com.example.tourplanner.UI.ViewModel.ShareData.SharedTourEvent;
 import com.example.tourplanner.models.Tour;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.DialogPane;
-import javafx.scene.layout.GridPane;
-import javafx.stage.Modality;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -20,7 +13,7 @@ import java.util.Map;
 
 public class AddTourViewModel {
 
-    StringProperty name = new SimpleStringProperty();
+    /*StringProperty name = new SimpleStringProperty();
     StringProperty transportType = new SimpleStringProperty();
     StringProperty start = new SimpleStringProperty();
     StringProperty end = new SimpleStringProperty();
@@ -44,6 +37,7 @@ public class AddTourViewModel {
     public StringProperty descriptionProperty() {
         return description;
     }
+    */
 
     // In event-driven programming, components can publish events (such as user interactions or system events),
     // and other components can subscribe to those events and react accordingly. That is what the event publisher is there for.

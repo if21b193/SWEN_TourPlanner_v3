@@ -1,21 +1,22 @@
 package com.example.tourplanner.UI.View;
 
-import com.example.tourplanner.UI.ViewModel.TourListViewModel;
+import com.example.tourplanner.FXMLDependencyInjection;
 import com.example.tourplanner.UI.ViewModel.TourLogListViewModel;
-import com.example.tourplanner.models.Tour;
 import com.example.tourplanner.models.TourLog;
-import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
+import java.util.Locale;
 
-public class TourLogController {
+public class TourLogListController {
     @FXML
     public VBox tourLogView;
     @FXML
@@ -30,7 +31,7 @@ public class TourLogController {
 
     private final TourLogListViewModel tourLogListViewModel;
 
-    public TourLogController(TourLogListViewModel tourLogListViewModel){
+    public TourLogListController(TourLogListViewModel tourLogListViewModel){
         this.tourLogListViewModel = tourLogListViewModel;
     }
 
@@ -56,9 +57,30 @@ public class TourLogController {
         listView.getSelectionModel().selectedItemProperty().addListener(tourLogListViewModel.getChangeListener());
     }
 
+    private Stage setUpScene(FXMLLoader fxmlLoader){
+        Scene newScene;
+        try {
+            newScene = new Scene(fxmlLoader.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Stage newStage = new Stage();
+        newStage.initOwner(listView.getScene().getWindow());
+        newStage.setScene(newScene);
+        return newStage;
+    }
+
     public void addTourLog(ActionEvent actionEvent) {
-        tourLogListViewModel.addTourLog();
+        FXMLLoader loader = FXMLDependencyInjection.getLoader("addTourLogMask.fxml", Locale.GERMAN);
+        Stage stage = setUpScene(loader);
+        stage.setTitle("Add TourLog");
+        stage.showAndWait();
+        TourLog tourLog = loader.<AddTourLogController>getController().getTourLog();
+        if(tourLog != null){
+            tourLogListViewModel.addTourLog(tourLog);
+        }
         listView.getSelectionModel().selectLast();
+        stage.close();
     }
 
 

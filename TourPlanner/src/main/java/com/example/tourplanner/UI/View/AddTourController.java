@@ -1,16 +1,14 @@
 package com.example.tourplanner.UI.View;
 
-import com.example.tourplanner.FXMLDependencyInjection;
+
 import com.example.tourplanner.UI.ViewModel.AddTourViewModel;
 import com.example.tourplanner.models.Tour;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Locale;
 
 public class AddTourController {
     private Stage stage;

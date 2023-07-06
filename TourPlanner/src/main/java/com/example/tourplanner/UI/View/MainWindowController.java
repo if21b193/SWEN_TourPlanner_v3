@@ -8,6 +8,7 @@ public class MainWindowController {
 
     @FXML
     public VBox TourList;
+    public VBox TourLogList;
     @FXML
     private TourListController tourListController;
 

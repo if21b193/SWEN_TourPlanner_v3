@@ -1,9 +1,6 @@
 package com.example.tourplanner.UI.ViewModel;
 
 import com.example.tourplanner.BL.service.TourService;
-import com.example.tourplanner.FXMLDependencyInjection;
-import com.example.tourplanner.UI.View.AddTourController;
-import com.example.tourplanner.UI.View.TourListController;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventListener;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventPublisher;
 import com.example.tourplanner.UI.ViewModel.ShareData.SharedTourEvent;
@@ -11,15 +8,10 @@ import com.example.tourplanner.models.Tour;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class TourListViewModel implements EventListener {
     private final TourService tourService;
