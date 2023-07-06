@@ -18,13 +18,13 @@ public class TourLog {
     @JoinColumn(name="tour_id")
     private Tour tour_id;
     @Column(name="date_time")
-    private Timestamp dateTime;
+    private String dateTime;
     @Column(name = "comment")
     private String comment;
     @Column(name = "difficulty")
     private Float difficulty;
     @Column(name ="total_time")
-    private Time totalTime;
+    private String totalTime;
     @Column(name = "rating")
     private Float rating;
 
@@ -48,11 +48,11 @@ public class TourLog {
         this.tour_id = tour_id;
     }
 
-    public Timestamp getDateTime() {
+    public String getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(Timestamp dateTime) {
+    public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
     }
 
@@ -72,11 +72,11 @@ public class TourLog {
         this.difficulty = difficulty;
     }
 
-    public Time getTotalTime() {
+    public String getTotalTime() {
         return totalTime;
     }
 
-    public void setTotalTime(Time totalTime) {
+    public void setTotalTime(String totalTime) {
         this.totalTime = totalTime;
     }
 
@@ -88,7 +88,7 @@ public class TourLog {
         this.rating = rating;
     }
 
-    public TourLog(Tour tourID, Timestamp dateTime, String comment, Float difficulty, Time totalTime, Float rating){
+    public TourLog(Tour tourID, String dateTime, String comment, Float difficulty, String totalTime, Float rating){
         this.tour_id = tourID;
         this.dateTime = dateTime;
         this.comment = comment;

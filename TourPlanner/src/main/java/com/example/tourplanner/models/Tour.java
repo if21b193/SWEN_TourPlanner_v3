@@ -112,6 +112,57 @@ public class Tour {
         this.estimatedTime = estimatedTime;
         this.routeInfo = routeInfo;
     }
+
+
+    private String calculateChildFriendliness(float distance) {
+        if (distance < 3.0f) {
+            return "Very High";
+        } else if (distance < 5.0f){
+            return "High";
+        } else if (distance < 7.0f) {
+            return "Middle";
+        } else if (distance < 9.0f) {
+            return "Low";
+        } else {
+            return "Very low";
+        }
+    }
+
+    public static String calculateAccessibility(String transportation, float distance) {
+        if (transportation.equals("by car")) {
+            if (distance < 5.00f) {
+                return "Very High Accessibility";
+            } else if (distance < 7.00f) {
+                return "High Accessibility";
+            } else {
+                return "Moderate Accessibility";
+            }
+        } else if (transportation.equals("Bicycle")) {
+            if (distance < 3.00f) {
+                return "High Accessibility";
+            } else if (distance < 5.00f) {
+                return "Moderate Accessibility";
+            } else {
+                return "Low Accessibility";
+            }
+        } else if (transportation.equals("Pedestrian")) {
+            if (distance < 3.00f) {
+                return "Moderate Accessibility";
+            } else if (distance < 5.00f) {
+                return "Low Accessibility";
+            } else {
+                return "Very Low Accessibility";
+            }
+        } else {
+            return "Invalid transportation";
+        }
+    }
+
+
+    // float tourDistance = tour.getDistance();
+    // boolean isChildFriendly = calculateChildFriendliness(tourDistance);
+    // tour.setChildFriendly(isChildFriendly);//
+
     // no-arg constructor
     public Tour() {}
 }

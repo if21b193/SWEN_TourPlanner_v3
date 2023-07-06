@@ -13,7 +13,13 @@ import java.util.Optional;
 public class TourLogDao implements Dao<TourLog>{
 
     private List<TourLog> tourLogs = new ArrayList<>();
+    // The class has a SessionFactory named tourLogFactory which is used to manage Hibernate sessions.
+    // The SessionFactory is obtained from the HibernateUtil class, which is responsible for
+    // initializing and providing the Hibernate session factory.
     private static SessionFactory tourLogFactory;
+    // HibernateUtil is a utility class that provides access to the Hibernate session factory.
+    // The getSessionFactory() method returns an instance of SessionFactory,
+    // which is responsible for creating and managing Hibernate sessions.
     public TourLogDao(){
         tourLogFactory = HibernateUtil.getSessionFactory();
     }
@@ -55,7 +61,7 @@ public class TourLogDao implements Dao<TourLog>{
 
         return tourLogs;
     }
-
+    //
     @Override
     public void save(TourLog tourLog) {
         Session session = tourLogFactory.openSession();

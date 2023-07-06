@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.tourplanner.UI.View.AddTourLogController"
+            prefHeight="400.0" prefWidth="600.0">
+
+
+        <padding><Insets bottom="25" left="10" right="10" top="25" /></padding>
+
+        <Label text="Datetime: " GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Label text="Comment: " GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Label text="Difficulty: " GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <Label text="Total time: " GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <Label text="Rating: " GridPane.columnIndex="0" GridPane.rowIndex="5" />
+
+        <TextField fx:id="Datetime" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <TextField fx:id="Comment" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <TextField fx:id="Total time" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+
+        <ChoiceBox fx:id="Difficulty" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <Float fx:value="1.00" />
+                    <Float fx:value="2.00" />
+                    <Float fx:value="3.00" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+
+    <ChoiceBox fx:id="Rating" GridPane.columnIndex="1" GridPane.rowIndex="5">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <Float fx:value="1.00" />
+                <Float fx:value="2.00" />
+                <Float fx:value="3.00" />
+                <Float fx:value="4.00" />
+                <Float fx:value="5.00" />
+            </FXCollections>
+        </items>
+    </ChoiceBox>
+
+        <HBox GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="5">
+            <Button text="Save" fx:id="saveTourLog" onAction="#saveTourLog">
+                <HBox.margin>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </HBox.margin>
+            </Button>
+            <Button text="Cancel" fx:id="cancel" onAction="#closeWindow">
+                <HBox.margin>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </HBox.margin>
+            </Button>
+        </HBox>
+
+
+</AnchorPane>

@@ -12,7 +12,7 @@
         <SplitPane dividerPositions="0.3" prefHeight="200.0" prefWidth="160.0">
             <items>
                 <fx:include fx:id="TourList" source="TourList.fxml"/>
-                <fx:include source="Details.fxml" />
+                <fx:include fx:id="TourLogList" source="TourLogList.fxml" />
             </items>
         </SplitPane>
     </center>

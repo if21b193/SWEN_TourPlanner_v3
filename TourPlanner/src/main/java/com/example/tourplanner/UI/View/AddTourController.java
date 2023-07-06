@@ -46,16 +46,24 @@ public class AddTourController {
     private void initialize(){
         //bindViewModel();
     }
-
+// saveTour nimmt als parameter ein actions event, mit getText() kriegen wir den User Input. Dann wird mittels AddTourViewmodel die Tour in die Datebank reingegeben
     public void saveTour(ActionEvent actionEvent) throws IOException {
-        String name = tourName.getText();
-        String start = from.getText();
-        String end = to.getText();
-        String transportation = transportationMode.getValue();
-        String description = tourDescription.getText();
-        addTourViewModel.addTour(name, start, end, transportation, description);
-        clearTextFields();
+        try {
+            String name = tourName.getText();
+            String start = from.getText();
+            String end = to.getText();
+            String transportation = transportationMode.getValue();
+            String description = tourDescription.getText();
+            validateTourData(name, start, end, transportation, description);
+            addTourViewModel.addTour(name, start, end, transportation, description);
+            clearTextFields();
+        } catch (Exception e) {
+            System.out.println("Error miss girl");
+        }
+
+
     }
+
 
     private void clearTextFields() {
         tourName.clear();
@@ -70,4 +78,19 @@ public class AddTourController {
         Stage stage = (Stage)saveTour.getScene().getWindow();
         stage.close();
     }
+
+
+    private boolean validateTourData(String name, String start, String end, String transportation, String description) {
+        // Check if any field is empty
+        if (name.isEmpty() || start.isEmpty() || end.isEmpty() || transportation.isEmpty() || description.isEmpty()) {
+            return false;
+        }
+        // Validate specific criteria for each field
+        if (name.length() > 50) {
+            return false; // Name exceeds maximum length
+        }
+
+        return true; // Input is valid
+    }
+
 }
