@@ -40,6 +40,7 @@ public class UpdateTourController {
         return updateTourViewModel;
     }
 
+    //for some reason binding works here, but far be it from me to change a running system
     public void initialize(){
         transportationMode.valueProperty().bindBidirectional(updateTourViewModel.transportTypeProperty());
         to.textProperty().bindBidirectional(updateTourViewModel.endProperty());
@@ -51,6 +52,7 @@ public class UpdateTourController {
             fillInTourData(tour);
         }
     }
+
 
     private void fillInTourData(Tour tour) {
         transportationMode.setValue(tour.getTransportType());

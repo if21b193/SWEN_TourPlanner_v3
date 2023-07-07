@@ -13,40 +13,15 @@ import java.util.Map;
 
 public class AddTourViewModel {
 
-    /*StringProperty name = new SimpleStringProperty();
-    StringProperty transportType = new SimpleStringProperty();
-    StringProperty start = new SimpleStringProperty();
-    StringProperty end = new SimpleStringProperty();
-    StringProperty description = new SimpleStringProperty();
-
-    public StringProperty nameProperty() {
-        return name;
-    }
-
-    public StringProperty transportTypeProperty() {
-        return transportType;
-    }
-    public StringProperty startProperty() {
-        return start;
-    }
-
-    public StringProperty endProperty() {
-        return end;
-    }
-
-    public StringProperty descriptionProperty() {
-        return description;
-    }
-    */
 
     // In event-driven programming, components can publish events (such as user interactions or system events),
     // and other components can subscribe to those events and react accordingly. That is what the event publisher is there for.
-    private final EventPublisher eventPublisher;
+
     private final TourService tourService;
 
     // Constructor for the class, uses an event publisher and the tour service as parameters
-    public AddTourViewModel(EventPublisher eventPublisher, TourService tourService) {
-        this.eventPublisher = eventPublisher;
+    public AddTourViewModel(TourService tourService) {
+
         this.tourService = tourService;
     }
 
@@ -64,20 +39,5 @@ public class AddTourViewModel {
         tourService.create(tour);
         return tour;
     }
-
-    /*public Tour addTour() throws IOException {
-        Map map = new MapQuestDirectionsAPI().getTourInformation(start.get(), end.get());
-        Tour tour = new Tour();
-        tour.setTransportType(transportType.get());
-        tour.setTo(end.get());
-        tour.setDescription(description.get());
-        tour.setDistance(Float.parseFloat(map.get("distance").toString()));
-        tour.setFrom(start.get());
-        tour.setName(name.get());
-        tour.setEstimatedTime(map.get("time").toString());
-        tourService.create(tour);
-        return tour;
-    }*/
-
 
 }

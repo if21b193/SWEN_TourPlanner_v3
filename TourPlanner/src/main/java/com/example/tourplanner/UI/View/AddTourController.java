@@ -34,17 +34,13 @@ public class AddTourController {
         this.addTourViewModel = addTourViewModel;
     }
 
-    /*private void bindViewModel() {
-        tourName.textProperty().bindBidirectional(addTourViewModel.nameProperty());
-        tourDescription.textProperty().bindBidirectional(addTourViewModel.descriptionProperty());
-        from.textProperty().bindBidirectional(addTourViewModel.startProperty());
-        to.textProperty().bindBidirectional(addTourViewModel.endProperty());
-        transportationMode.valueProperty().bindBidirectional(addTourViewModel.transportTypeProperty());
-    }*/
+    //TODO: LOOK INTO WHY BINDING DIDN'T WORK
+
     private void initialize(){
-    //    bindViewModel();
     }
-// saveTour nimmt als parameter ein actions event, mit getText() kriegen wir den User Input. Dann wird mittels AddTourViewmodel die Tour in die Datebank reingegeben
+
+    //because binding didn't work user input is gotten via getMethods
+    //addTourViewModel returns a tour which then can be added to the observableList in the TourListViewModel
     public void saveTour(ActionEvent actionEvent) throws IOException {
         try {
             String name = tourName.getText();
@@ -54,7 +50,6 @@ public class AddTourController {
             String description = tourDescription.getText();
             validateTourData(name, start, end, transportation, description);
             tour = addTourViewModel.addTour(name, start, end, transportation, description);
-            //tour = addTourViewModel.addTour();
             close();
         } catch (Exception e) {
             System.out.println("Error miss girl");

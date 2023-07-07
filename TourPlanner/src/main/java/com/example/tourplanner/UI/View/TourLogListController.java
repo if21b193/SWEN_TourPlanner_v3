@@ -60,7 +60,6 @@ public class TourLogListController {
     public void initialize() {
         listView.setItems(tourLogListViewModel.getObservableTourLogs());
 
-
         listView.setCellFactory(param -> new ListCell<TourLog>() {
             @Override
             protected void updateItem(TourLog tourLog, boolean empty) {
@@ -88,8 +87,8 @@ public class TourLogListController {
         return newStage;
     }
 
+    //creating a new window and getting pack the new tourLog so it can be added to the listView
     public void addTourLog(ActionEvent actionEvent) {
-        //publisher.publishToSingle(new SharedTourEvent(tourLogListViewModel.getTour()), "AddTourLogViewModel");
         FXMLLoader loader = FXMLDependencyInjection.getLoader("addTourLogMask.fxml", Locale.GERMAN);
         Stage stage = setUpScene(loader);
         stage.setTitle("Add TourLog");

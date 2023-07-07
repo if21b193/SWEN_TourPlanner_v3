@@ -13,6 +13,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.util.EntityUtils;
 
 public class MapQuestDirectionsAPI {
+
+    //TODO: ADD IN ANOTHER RETURN TYPE THAN MAP (OWN CLASS)
     public static final String key = "0ciJA4jyfcyvaC3eIYj7OCVOlhW3O5rn";
     public MapQuestDirectionsAPI() { }
 

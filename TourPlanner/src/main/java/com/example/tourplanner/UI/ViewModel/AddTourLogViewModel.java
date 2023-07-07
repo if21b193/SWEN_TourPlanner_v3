@@ -30,7 +30,6 @@ public class AddTourLogViewModel implements EventListener {
     public TourLog addTourLog(Date dateTime, String comment, Float difficulty, String totalTime, Float rating) throws IOException {
 
         TourLog tourLog = new TourLog();
-
         tourLog.setTour_id(tour);
         tourLog.setComment(comment);
         tourLog.setDateTime(dateTime);
@@ -39,10 +38,6 @@ public class AddTourLogViewModel implements EventListener {
         tourLog.setRating(rating);
         tourLogService.create(tourLog);
         return tourLog;
-        //IMPLEMENT TOURLOG LIST VIEW MODEL
-        //SharedTourLogEvent sharedTourLogEvent = new SharedTourLogEvent(tourLog);
-        //eventPublisher.publishToSingle(sharedTourLogEvent, "TourLogListViewModel");
-
     }
 
     @Override

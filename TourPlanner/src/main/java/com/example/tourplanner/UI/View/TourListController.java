@@ -33,14 +33,11 @@ public class TourListController {
     private ListView<Tour> listView;
 
     private final TourListViewModel tourListViewModel;
-    private final TourLogListViewModel tourLogListViewModel;
-
     private final EventPublisher publisher;
 
-    public TourListController(TourListViewModel tourListViewModel, TourLogListViewModel tourLogListViewModel, EventPublisher publisher){
+    public TourListController(TourListViewModel tourListViewModel, EventPublisher publisher){
         this.tourListViewModel = tourListViewModel;
         this.publisher = publisher;
-        this.tourLogListViewModel = tourLogListViewModel;
     }
 
     public TourListViewModel getListViewViewModel(){
@@ -49,6 +46,7 @@ public class TourListController {
 
     @FXML
     public void initialize() {
+        //setup the view so the name of the tours is shown
         listView.setItems(tourListViewModel.getObservableTours());
         listView.setCellFactory(param -> new ListCell<Tour>() {
             @Override
@@ -61,18 +59,24 @@ public class TourListController {
                 }
             }
         });
+
+        //make sure selection is usable in this list
         listView.getSelectionModel().selectedItemProperty().addListener(tourListViewModel.getChangeListener());
+        //send out an event whenever selection is changed, so the AddTourLogViewModel knows which tour it is supposed to work with
+
+        //TODO: Still needs work to figure out whether there's a more elegant solution
         listView.getSelectionModel().selectedItemProperty().addListener((observableValue, tour, t1) -> {
             publisher.publishToSingle(new SharedTourEvent(t1), "AddTourLogViewModel");
         });
-        //listView.getSelectionModel().selectedItemProperty().addListener(tourLogListViewModel.getChangeListener());
     }
 
     public void addTour(ActionEvent actionEvent) {
+        //opens up a new window
         FXMLLoader fxmlLoader = FXMLDependencyInjection.getLoader("addTourMask.fxml", Locale.GERMAN);
         Stage stage = setUpScene(fxmlLoader);
         stage.setTitle("Add a new tour");
-        stage.showAndWait(); //allows us to wait for a result from the stage
+        stage.showAndWait();
+        //allows us to wait for a result from the stage
         Tour tour = fxmlLoader.<AddTourController>getController().getTour();
         if(tour != null){
             tourListViewModel.addTour(tour);
@@ -94,6 +98,7 @@ public class TourListController {
         return newStage;
     }
 
+    //works similar to the addTour, with the help of the publisher, the selected tour is shown to the UpdateTourViewModel
     public void modifyTour(ActionEvent actionEvent) {
         Tour tour = listView.getSelectionModel().getSelectedItem();
         publisher.publishToSingle(new SharedTourEvent(tour), "UpdateTourViewModel");

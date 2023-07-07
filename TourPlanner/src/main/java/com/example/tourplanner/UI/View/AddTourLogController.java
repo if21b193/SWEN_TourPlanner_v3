@@ -34,12 +34,13 @@ public class AddTourLogController {
     @FXML
     public Button cancel;
     private final AddTourLogViewModel addTourLogViewModel;
-
     static TourLog tourLog;
 
     public AddTourLogController(AddTourLogViewModel addTourLogViewModel){
         this.addTourLogViewModel = addTourLogViewModel;
     }
+
+    //saving a TourLog in the database, works similar/the same as the AddTourController
     public void saveTourLog(ActionEvent actionEvent) throws IOException {
         try {
             Date dateTimeText = Date.valueOf(datePicker.getValue());
@@ -47,7 +48,7 @@ public class AddTourLogController {
             Float difficultyInput = Float.parseFloat(difficulty.getValue());
             String totalTimeValue = totalTime.getText();
             Float ratingInput = Float.parseFloat(rating.getValue());
-            //validateTourData(dateTimeText, commentText, difficultyInput, totalTimeValue, ratingInput);
+            validateTourData(dateTimeText, commentText, difficultyInput, totalTimeValue, ratingInput);
             tourLog = addTourLogViewModel.addTourLog(dateTimeText, commentText, difficultyInput, totalTimeValue, ratingInput);
 
             clearTextFields();
@@ -58,7 +59,7 @@ public class AddTourLogController {
 
     }
 
-    private boolean validateTourData(Timestamp dateTimeText, String comment, Float difficultyInput, Time totalTime, Float ratingInput) {
+    private boolean validateTourData(Date dateTimeText, String comment, Float difficultyInput, String totalTime, Float ratingInput) {
         // Check if any field is empty
         if (dateTimeText == null || comment.isEmpty() || Float.toString(difficultyInput).isEmpty() || totalTime == null || Float.toString(ratingInput).isEmpty()) {
             return false;

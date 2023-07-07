@@ -44,7 +44,6 @@ public class TourLogListViewModel implements ITourLogEventListener {
         publisher.addEventListener(this);
     }
 
-
     public Tour getTour(){
         return tour;
     }
@@ -54,7 +53,7 @@ public class TourLogListViewModel implements ITourLogEventListener {
         observableList.addAll(tourLogs);
     }
 
-    // TODO ADD TOURLOG MASK
+
     public void addTourLog(TourLog tourLog){
         observableList.add(tourLog);
     }
@@ -73,6 +72,7 @@ public class TourLogListViewModel implements ITourLogEventListener {
         }
     }
 
+    //to add a new tour
     @Override
     public void updateTourLog(SharedTourLogEvent event) {
         TourLog tourLog = event.returnTourLog();

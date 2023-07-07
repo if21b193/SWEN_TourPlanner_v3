@@ -22,7 +22,7 @@ public class ControllerFactory {
         this.eventPublisher = new EventPublisher();
         TourLogEventPublisher tourLogEventPublisher = new TourLogEventPublisher();
         ImplTourLogService tourLogService = new ImplTourLogService();
-        this.addTourViewModel = new AddTourViewModel(eventPublisher, implTourService);
+        this.addTourViewModel = new AddTourViewModel(implTourService);
         this.updateTourViewModel = new UpdateTourViewModel(eventPublisher, implTourService);
         this.tourListViewModel = new TourListViewModel(eventPublisher, implTourService, addTourViewModel);
         this.mainWindowViewModel = new MainWindowViewModel(tourListViewModel, addTourViewModel);
@@ -32,7 +32,7 @@ public class ControllerFactory {
 
     public Object create(Class<?> controllerClass){
         if(controllerClass == TourListController.class){
-            return new TourListController(this.tourListViewModel, this.tourLogListViewModel, eventPublisher);
+            return new TourListController(this.tourListViewModel, eventPublisher);
         } if(controllerClass == MainWindowController.class){
             return new MainWindowController(this.mainWindowViewModel, this.tourLogListViewModel, this.tourListViewModel);
         } if(controllerClass == AddTourController.class){
