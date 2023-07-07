@@ -43,6 +43,10 @@ public class ControllerFactory {
             return new TourLogListController(this.tourLogListViewModel, this.tourListViewModel, eventPublisher);
         } if(controllerClass == AddTourLogController.class){
             return new AddTourLogController(this.addTourLogViewModel);
+        } if(controllerClass == DetailsController.class){
+            return new DetailsController();
+        } if(controllerClass == TourDetails.class){
+            return new TourDetails();
         }
         throw new IllegalArgumentException("Unknown controller class: "+ controllerClass);
     }
