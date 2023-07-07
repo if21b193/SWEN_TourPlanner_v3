@@ -30,9 +30,9 @@
         <ChoiceBox fx:id="difficulty" GridPane.columnIndex="1" GridPane.rowIndex="3">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <Float fx:value="1.00" />
-                    <Float fx:value="2.00" />
-                    <Float fx:value="3.00" />
+                    <String fx:value="1.00" />
+                    <String fx:value="2.00" />
+                    <String fx:value="3.00" />
                 </FXCollections>
             </items>
         </ChoiceBox>
@@ -40,11 +40,11 @@
     <ChoiceBox fx:id="rating" GridPane.columnIndex="1" GridPane.rowIndex="5">
         <items>
             <FXCollections fx:factory="observableArrayList">
-                <Float fx:value="1.00" />
-                <Float fx:value="2.00" />
-                <Float fx:value="3.00" />
-                <Float fx:value="4.00" />
-                <Float fx:value="5.00" />
+                <String fx:value="1.00" />
+                <String fx:value="2.00" />
+                <String fx:value="3.00" />
+                <String fx:value="4.00" />
+                <String fx:value="5.00" />
             </FXCollections>
         </items>
     </ChoiceBox>

@@ -12,8 +12,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 public class AddTourLogController {
     @FXML
@@ -40,24 +42,25 @@ public class AddTourLogController {
     }
     public void saveTourLog(ActionEvent actionEvent) throws IOException {
         try {
-            String dateTimeText = datePicker.getAccessibleText();
+            Date dateTimeText = Date.valueOf(datePicker.getValue());
             String commentText = comment.getText();
             Float difficultyInput = Float.parseFloat(difficulty.getValue());
             String totalTimeValue = totalTime.getText();
             Float ratingInput = Float.parseFloat(rating.getValue());
-            validateTourData(dateTimeText, commentText, difficultyInput, totalTimeValue, ratingInput);
+            //validateTourData(dateTimeText, commentText, difficultyInput, totalTimeValue, ratingInput);
             tourLog = addTourLogViewModel.addTourLog(dateTimeText, commentText, difficultyInput, totalTimeValue, ratingInput);
+
             clearTextFields();
-        } catch (Exception e) {
-            System.out.println("Error miss girl");
+        } catch (IOException e) {
+            System.out.println("Error miss girl" + e);
         }
 
 
     }
 
-    private boolean validateTourData(String dateTimeText, String comment, Float difficultyInput, String totalTime, Float ratingInput) {
+    private boolean validateTourData(Timestamp dateTimeText, String comment, Float difficultyInput, Time totalTime, Float ratingInput) {
         // Check if any field is empty
-        if (dateTimeText.isEmpty() || comment.isEmpty() || Float.toString(difficultyInput).isEmpty() || totalTime.isEmpty() || Float.toString(ratingInput).isEmpty()) {
+        if (dateTimeText == null || comment.isEmpty() || Float.toString(difficultyInput).isEmpty() || totalTime == null || Float.toString(ratingInput).isEmpty()) {
             return false;
         }
         // Validate specific criteria for each field

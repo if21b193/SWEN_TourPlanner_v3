@@ -1,9 +1,14 @@
 package com.example.tourplanner.UI.View;
 
 import com.example.tourplanner.FXMLDependencyInjection;
+import com.example.tourplanner.UI.ViewModel.ShareData.EventPublisher;
+import com.example.tourplanner.UI.ViewModel.ShareData.SharedTourEvent;
+import com.example.tourplanner.UI.ViewModel.TourListViewModel;
 import com.example.tourplanner.UI.ViewModel.TourLogListViewModel;
+import com.example.tourplanner.models.Tour;
 import com.example.tourplanner.models.TourLog;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,6 +20,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Locale;
+import java.util.concurrent.Flow;
 
 public class TourLogListController {
     @FXML
@@ -29,10 +35,21 @@ public class TourLogListController {
     @FXML
     private ListView<TourLog> listView;
 
-    private final TourLogListViewModel tourLogListViewModel;
+    private ListView<Tour> tourListView;
 
-    public TourLogListController(TourLogListViewModel tourLogListViewModel){
+    private final TourLogListViewModel tourLogListViewModel;
+    private final TourListViewModel tourListViewModel;
+
+    private final EventPublisher publisher;
+
+    public TourLogListController(TourLogListViewModel tourLogListViewModel, TourListViewModel tourListViewModel, EventPublisher publisher){
         this.tourLogListViewModel = tourLogListViewModel;
+        this.tourListViewModel = tourListViewModel;
+        this.publisher = publisher;
+    }
+
+    public void setTourListView(ListView<Tour> listView){
+        this.tourListView = listView;
     }
 
     public TourLogListViewModel getTourLogListViewViewModel(){
@@ -42,6 +59,7 @@ public class TourLogListController {
     @FXML
     public void initialize() {
         listView.setItems(tourLogListViewModel.getObservableTourLogs());
+
 
         listView.setCellFactory(param -> new ListCell<TourLog>() {
             @Override
@@ -54,7 +72,7 @@ public class TourLogListController {
                 }
             }
         });
-        listView.getSelectionModel().selectedItemProperty().addListener(tourLogListViewModel.getChangeListener());
+
     }
 
     private Stage setUpScene(FXMLLoader fxmlLoader){
@@ -71,6 +89,7 @@ public class TourLogListController {
     }
 
     public void addTourLog(ActionEvent actionEvent) {
+        //publisher.publishToSingle(new SharedTourEvent(tourLogListViewModel.getTour()), "AddTourLogViewModel");
         FXMLLoader loader = FXMLDependencyInjection.getLoader("addTourLogMask.fxml", Locale.GERMAN);
         Stage stage = setUpScene(loader);
         stage.setTitle("Add TourLog");

@@ -3,6 +3,7 @@ import com.example.tourplanner.FXMLDependencyInjection;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventPublisher;
 import com.example.tourplanner.UI.ViewModel.ShareData.SharedTourEvent;
 import com.example.tourplanner.UI.ViewModel.TourListViewModel;
+import com.example.tourplanner.UI.ViewModel.TourLogListViewModel;
 import com.example.tourplanner.models.Tour;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,12 +33,14 @@ public class TourListController {
     private ListView<Tour> listView;
 
     private final TourListViewModel tourListViewModel;
+    private final TourLogListViewModel tourLogListViewModel;
 
     private final EventPublisher publisher;
 
-    public TourListController(TourListViewModel tourListViewModel, EventPublisher publisher){
+    public TourListController(TourListViewModel tourListViewModel, TourLogListViewModel tourLogListViewModel, EventPublisher publisher){
         this.tourListViewModel = tourListViewModel;
         this.publisher = publisher;
+        this.tourLogListViewModel = tourLogListViewModel;
     }
 
     public TourListViewModel getListViewViewModel(){
@@ -59,6 +62,10 @@ public class TourListController {
             }
         });
         listView.getSelectionModel().selectedItemProperty().addListener(tourListViewModel.getChangeListener());
+        listView.getSelectionModel().selectedItemProperty().addListener((observableValue, tour, t1) -> {
+            publisher.publishToSingle(new SharedTourEvent(t1), "AddTourLogViewModel");
+        });
+        //listView.getSelectionModel().selectedItemProperty().addListener(tourLogListViewModel.getChangeListener());
     }
 
     public void addTour(ActionEvent actionEvent) {
@@ -100,6 +107,9 @@ public class TourListController {
     }
 
     public void deleteTour(ActionEvent actionEvent) {
+        if(listView.getSelectionModel().getSelectedItem() == null){
+            return;
+        }
         tourListViewModel.deleteTour(listView.getSelectionModel().getSelectedItem());
     }
 

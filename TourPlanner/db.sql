@@ -18,11 +18,11 @@ CREATE TABLE Tours(
 CREATE TABLE TourLogs(
     log_id SERIAL PRIMARY KEY,
     tour_id INT NOT NULL,
-    date_time TIMESTAMP NOT NULL,
+    date_time DATE NOT NULL,
     rating FLOAT NOT NULL,
     comment VARCHAR(500),
     difficulty FlOAT,
-    total_time TIME,
+    total_time VARCHAR(200),
     FOREIGN KEY (tour_id) REFERENCES Tours(tour_id)
     );
 

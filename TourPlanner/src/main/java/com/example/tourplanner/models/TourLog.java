@@ -4,6 +4,7 @@ package com.example.tourplanner.models;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
+import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
 
@@ -18,7 +19,7 @@ public class TourLog {
     @JoinColumn(name="tour_id")
     private Tour tour_id;
     @Column(name="date_time")
-    private String dateTime;
+    private Date dateTime;
     @Column(name = "comment")
     private String comment;
     @Column(name = "difficulty")
@@ -48,11 +49,11 @@ public class TourLog {
         this.tour_id = tour_id;
     }
 
-    public String getDateTime() {
+    public Date getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(String dateTime) {
+    public void setDateTime(Date dateTime) {
         this.dateTime = dateTime;
     }
 
@@ -88,7 +89,7 @@ public class TourLog {
         this.rating = rating;
     }
 
-    public TourLog(Tour tourID, String dateTime, String comment, Float difficulty, String totalTime, Float rating){
+    public TourLog(Tour tourID, Date dateTime, String comment, Float difficulty, String totalTime, Float rating){
         this.tour_id = tourID;
         this.dateTime = dateTime;
         this.comment = comment;

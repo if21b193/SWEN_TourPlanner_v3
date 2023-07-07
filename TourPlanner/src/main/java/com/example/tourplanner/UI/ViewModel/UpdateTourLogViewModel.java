@@ -1,4 +1,4 @@
-package com.example.tourplanner.UI.ViewModel;
+/*package com.example.tourplanner.UI.ViewModel;
 
 import com.example.tourplanner.BL.service.ImplTourLogService;
 import com.example.tourplanner.BL.service.ImplTourService;
@@ -75,3 +75,4 @@ public class UpdateTourLogViewModel implements ITourLogEventListener {
         }
 }
 
+*/
