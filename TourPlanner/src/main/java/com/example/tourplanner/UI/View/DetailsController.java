@@ -3,6 +3,7 @@ package com.example.tourplanner.UI.View;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -11,7 +12,7 @@ public class DetailsController {
     @FXML
     public VBox tourLogList;
     @FXML
-    public TableView tourDetails;
+    public GridPane tourDetails;
     @FXML
     public Pane tourMap;
 

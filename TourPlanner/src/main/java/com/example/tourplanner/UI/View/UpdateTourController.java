@@ -52,8 +52,6 @@ public class UpdateTourController {
             fillInTourData(tour);
         }
     }
-
-
     private void fillInTourData(Tour tour) {
         transportationMode.setValue(tour.getTransportType());
         to.setText(tour.getTo());
