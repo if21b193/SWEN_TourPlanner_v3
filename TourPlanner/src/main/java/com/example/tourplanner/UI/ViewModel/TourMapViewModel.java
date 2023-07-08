@@ -18,6 +18,9 @@ public class TourMapViewModel implements EventListener {
         publisher.addEventListener(this);
     }
     public String getMapDetails() {
+        if(tour== null){
+            return null;
+        }
         String from = tour.getFrom();
         String to = tour.getTo();
         return new MapQuestStaticImageAPI().getStaticImage(from, to);

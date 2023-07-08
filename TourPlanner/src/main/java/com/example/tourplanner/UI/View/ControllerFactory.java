@@ -21,6 +21,7 @@ public class ControllerFactory {
     private final TourMapViewModel tourMapViewModel;
     private final ReportService reportService;
     private final MapQuestStaticImageAPI mapQuestStaticImageAPI;
+    private final TourDetailsViewModel tourDetailsViewModel;
 
 
     public ControllerFactory(){
@@ -37,6 +38,7 @@ public class ControllerFactory {
         this.tourMapViewModel = new TourMapViewModel(eventPublisher);
         this.mapQuestStaticImageAPI = new MapQuestStaticImageAPI();
         this.reportService = new ReportService(mapQuestStaticImageAPI);
+        this.tourDetailsViewModel = new TourDetailsViewModel(eventPublisher);
     }
 
     public Object create(Class<?> controllerClass){
@@ -53,7 +55,7 @@ public class ControllerFactory {
         } if(controllerClass == AddTourLogController.class) {
             return new AddTourLogController(this.addTourLogViewModel);
         } if(controllerClass == TourDetailsController.class){
-            return new TourDetailsController();
+            return new TourDetailsController(tourDetailsViewModel);
         } if(controllerClass == TourMapController.class){
             return new TourMapController(tourMapViewModel);
         } if(controllerClass == DetailsController.class){

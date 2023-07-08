@@ -16,6 +16,8 @@ public class MainWindowController {
     @FXML
     public TabPane details;
 
+    @FXML
+    private DetailsController detailsController;
     private TourListViewModel tourListViewModel;
     private TourLogListViewModel tourLogListViewModel;
 

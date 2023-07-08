@@ -6,7 +6,7 @@
 
 <GridPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tourplanner.UI.View.TourDetailsController">
     <rowConstraints>
-        <RowConstraints vgrow="SOMETIMES" minHeight="5"/>
+        <RowConstraints vgrow="NEVER" minHeight="30"/>
     </rowConstraints>
     <Label fx:id="tourName" GridPane.columnIndex="1" GridPane.rowIndex="0">
       <font>
@@ -23,22 +23,76 @@
             <Font name="System Bold"/>
         </font>
     </Label>
+    <Label text="Transportation Mode: " GridPane.columnIndex="2" GridPane.rowIndex="4">
+        <font>
+            <Font name="System Bold"/>
+        </font>
+    </Label>
     <Label text="Description" GridPane.columnIndex="2" GridPane.rowIndex="5">
+        <font>
+            <Font name="System Bold"/>
+        </font>
+    </Label>
+    <Label text="Accessibility" GridPane.columnIndex="2" GridPane.rowIndex="6">
+        <font>
+            <Font name="System Bold"/>
+        </font>
+    </Label>
+    <Label text="Child friendliness" GridPane.columnIndex="2" GridPane.rowIndex="7">
+        <font>
+            <Font name="System Bold"/>
+        </font>
+    </Label>
+    <Label text="Time" GridPane.columnIndex="2" GridPane.rowIndex="8">
+        <font>
+            <Font name="System Bold"/>
+        </font>
+    </Label>
+    <Label text="Distance" GridPane.columnIndex="2" GridPane.rowIndex="9">
         <font>
             <Font name="System Bold"/>
         </font>
     </Label>
 
 
-    <!--columns>
-        <TableColumn fx:id="descriptionColumn" text="Description" />
-        <TableColumn fx:id="fromColumn" text="From" />
-        <TableColumn fx:id="toColumn" text="To" />
-        <TableColumn fx:id="transportationColumn" text="Transportation Mode" />
-        <TableColumn fx:id="distanceColumn" text="Distance" />
-        <TableColumn fx:id="estTimeColumn" text="Estimated Time" />
-        <TableColumn fx:id="childFriendlinessColumn" text="Child Friendliness" />
-        <TableColumn fx:id="accessibilityColumn" text="Accessibility" />
-   </columns-->
-
+    <Label fx:id="fromInsert" GridPane.columnIndex="3" GridPane.rowIndex="2">
+        <font>
+            <Font name="System Italic"/>
+        </font>
+    </Label>
+    <Label fx:id="toInsert" GridPane.columnIndex="3" GridPane.rowIndex="3">
+        <font>
+            <Font name="System Italic"/>
+        </font>
+    </Label>
+    <Label fx:id="transportationInsert" GridPane.columnIndex="3" GridPane.rowIndex="4">
+        <font>
+            <Font name="System Italic"/>
+        </font>
+    </Label>
+    <Label fx:id="descriptionInsert" GridPane.columnIndex="3" GridPane.rowIndex="5">
+        <font>
+            <Font name="System Italic"/>
+        </font>
+    </Label>
+    <Label fx:id="accessibilityInsert" GridPane.columnIndex="3" GridPane.rowIndex="6">
+        <font>
+            <Font name="System Italic"/>
+        </font>
+    </Label>
+    <Label fx:id="childFriendlinessInsert" GridPane.columnIndex="3" GridPane.rowIndex="7">
+        <font>
+            <Font name="System Italic"/>
+        </font>
+    </Label>
+    <Label fx:id="timeInsert" GridPane.columnIndex="3" GridPane.rowIndex="8">
+        <font>
+            <Font name="System Italic"/>
+        </font>
+    </Label>
+    <Label fx:id="distanceInsert" GridPane.columnIndex="3" GridPane.rowIndex="9">
+        <font>
+            <Font name="System Italic"/>
+        </font>
+    </Label>
 </GridPane>

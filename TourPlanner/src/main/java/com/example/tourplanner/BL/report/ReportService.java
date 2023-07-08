@@ -32,7 +32,6 @@ public class ReportService {
 
             PDPageContentStream contentStream = new PDPageContentStream(document, page);
 
-
             contentStream.beginText();
             contentStream.newLineAtOffset(25, 450);
             contentStream.setFont(PDType1Font.COURIER_BOLD, 20);

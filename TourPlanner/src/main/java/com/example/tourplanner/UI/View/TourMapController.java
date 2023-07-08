@@ -24,10 +24,11 @@ public class TourMapController {
 
     public void setMapImage() {
         String newUrl = tourMapViewModel.getMapDetails();
-        imageView.setImage(new Image(newUrl));
-        imageView.fitHeightProperty().bind(imageView.getScene().getWindow().heightProperty());
-        imageView.fitWidthProperty().bind(imageView.getScene().getWindow().widthProperty());
-
+        if(newUrl != null){
+            imageView.setImage(new Image(newUrl));
+            imageView.fitHeightProperty().bind(imageView.getScene().getWindow().heightProperty());
+            imageView.fitWidthProperty().bind(imageView.getScene().getWindow().widthProperty());
+        }
     }
 
 }

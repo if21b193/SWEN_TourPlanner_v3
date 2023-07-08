@@ -8,8 +8,6 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.util.EntityUtils;
 
@@ -27,11 +25,12 @@ public class MapQuestDirectionsAPI {
         HttpEntity entity = response.getEntity();
         String json = EntityUtils.toString(entity);
 
-
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(json);
+
         Float distance = jsonNode.get("route").get("distance").floatValue();
         String time = jsonNode.get("route").get("time").toString();
+
         return new MapQuestDirectionsReturn(distance, time);
     }
 }
