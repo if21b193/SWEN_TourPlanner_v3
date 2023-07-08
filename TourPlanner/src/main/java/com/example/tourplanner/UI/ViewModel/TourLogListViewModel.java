@@ -4,12 +4,9 @@ import com.example.tourplanner.BL.service.TourLogService;
 import com.example.tourplanner.FXMLDependencyInjection;
 import com.example.tourplanner.UI.ViewModel.ShareData.*;
 import com.example.tourplanner.models.Tour;
-import com.example.tourplanner.models.TourLog;
+import com.example.tourplanner.models.TourLogs;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Parent;
@@ -17,7 +14,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -32,9 +28,9 @@ public class TourLogListViewModel implements ITourLogEventListener {
     private boolean isInit = false;
 
     private static Tour tour;
-    private static TourLog tourLog;
+    private static TourLogs tourLogs;
 
-    private ObservableList<TourLog> observableList = FXCollections.observableArrayList();
+    private ObservableList<TourLogs> observableList = FXCollections.observableArrayList();
 
     public TourLogListViewModel(TourLogEventPublisher eventPublisher, TourLogService tourLogService, AddTourLogViewModel addTourLogViewModel){
         this.publisher = eventPublisher;
@@ -48,19 +44,19 @@ public class TourLogListViewModel implements ITourLogEventListener {
         return tour;
     }
 
-    private void setTourLogs(List<TourLog> tourLogs) {
+    private void setTourLogs(List<TourLogs> tourLogs) {
         observableList.clear();
         observableList.addAll(tourLogs);
     }
 
 
-    public void addTourLog(TourLog tourLog){
-        observableList.add(tourLog);
+    public void addTourLog(TourLogs tourLogs){
+        observableList.add(tourLogs);
     }
 
     // TODO UPDATE TOURLOG VIEW MODEL
-    public void modifyTourLog(TourLog tourLog) {
-        publisher.publishToSingle(new SharedTourLogEvent(tourLog), "UpdateTourLogViewModel");
+    public void modifyTourLog(TourLogs tourLogs) {
+        publisher.publishToSingle(new SharedTourLogEvent(tourLogs), "UpdateTourLogViewModel");
         try {
             Parent root = FXMLDependencyInjection.load("updateLogTourMask.fxml", Locale.GERMAN);
             Stage secondary = new Stage();
@@ -75,15 +71,15 @@ public class TourLogListViewModel implements ITourLogEventListener {
     //to add a new tour
     @Override
     public void updateTourLog(SharedTourLogEvent event) {
-        TourLog tourLog = event.returnTourLog();
-        observableList.add(tourLog);
+        TourLogs tourLogs = event.returnTourLog();
+        observableList.add(tourLogs);
     }
 
-    public void deleteTourLog(TourLog tourLog) {
-        tourLogService.delete(tourLog);
-        observableList.remove(tourLog);
+    public void deleteTourLog(TourLogs tourLogs) {
+        tourLogService.delete(tourLogs);
+        observableList.remove(tourLogs);
     }
-    public ObservableList<TourLog> getObservableTourLogs() {
+    public ObservableList<TourLogs> getObservableTourLogs() {
         return observableList;
     }
 

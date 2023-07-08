@@ -1,18 +1,12 @@
 package com.example.tourplanner.UI.ViewModel;
 
 import com.example.tourplanner.BL.service.TourLogService;
-import com.example.tourplanner.BL.service.TourService;
-import com.example.tourplanner.DAL.dal.Repository.MapQuestDirectionsAPI;
 import com.example.tourplanner.UI.ViewModel.ShareData.*;
 import com.example.tourplanner.models.Tour;
-import com.example.tourplanner.models.TourLog;
+import com.example.tourplanner.models.TourLogs;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.sql.Time;
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.util.Map;
 
 public class AddTourLogViewModel implements EventListener {
     private final TourLogEventPublisher eventPublisher;
@@ -27,17 +21,17 @@ public class AddTourLogViewModel implements EventListener {
         this.publisher.addEventListener(this);
     }
 
-    public TourLog addTourLog(Date dateTime, String comment, Float difficulty, String totalTime, Float rating) throws IOException {
+    public TourLogs addTourLog(Date dateTime, String comment, Float difficulty, String totalTime, Float rating) throws IOException {
 
-        TourLog tourLog = new TourLog();
-        tourLog.setTour_id(tour);
-        tourLog.setComment(comment);
-        tourLog.setDateTime(dateTime);
-        tourLog.setDifficulty(difficulty);
-        tourLog.setTotalTime(totalTime);
-        tourLog.setRating(rating);
-        tourLogService.create(tourLog);
-        return tourLog;
+        TourLogs tourLogs = new TourLogs();
+        tourLogs.setTour_id(tour);
+        tourLogs.setComment(comment);
+        tourLogs.setDateTime(dateTime);
+        tourLogs.setDifficulty(difficulty);
+        tourLogs.setTotalTime(totalTime);
+        tourLogs.setRating(rating);
+        tourLogService.create(tourLogs);
+        return tourLogs;
     }
 
     @Override

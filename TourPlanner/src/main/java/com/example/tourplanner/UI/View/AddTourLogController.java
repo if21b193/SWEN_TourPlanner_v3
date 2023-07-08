@@ -1,8 +1,7 @@
 package com.example.tourplanner.UI.View;
 
 import com.example.tourplanner.UI.ViewModel.AddTourLogViewModel;
-import com.example.tourplanner.UI.ViewModel.AddTourViewModel;
-import com.example.tourplanner.models.TourLog;
+import com.example.tourplanner.models.TourLogs;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,9 +12,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.sql.Time;
-import java.sql.Timestamp;
-import java.time.LocalDate;
 
 public class AddTourLogController {
     @FXML
@@ -34,7 +30,7 @@ public class AddTourLogController {
     @FXML
     public Button cancel;
     private final AddTourLogViewModel addTourLogViewModel;
-    static TourLog tourLog;
+    static TourLogs tourLogs;
 
     public AddTourLogController(AddTourLogViewModel addTourLogViewModel){
         this.addTourLogViewModel = addTourLogViewModel;
@@ -49,7 +45,7 @@ public class AddTourLogController {
             String totalTimeValue = totalTime.getText();
             Float ratingInput = Float.parseFloat(rating.getValue());
             validateTourData(dateTimeText, commentText, difficultyInput, totalTimeValue, ratingInput);
-            tourLog = addTourLogViewModel.addTourLog(dateTimeText, commentText, difficultyInput, totalTimeValue, ratingInput);
+            tourLogs = addTourLogViewModel.addTourLog(dateTimeText, commentText, difficultyInput, totalTimeValue, ratingInput);
 
             clearTextFields();
         } catch (IOException e) {
@@ -82,7 +78,7 @@ public class AddTourLogController {
         totalTime.clear();
     }
 
-    public TourLog getTourLog() {
-        return tourLog;
+    public TourLogs getTourLog() {
+        return tourLogs;
     }
 }

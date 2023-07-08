@@ -5,12 +5,10 @@ package com.example.tourplanner.models;
 import javax.persistence.Entity;
 import javax.persistence.*;
 import java.sql.Date;
-import java.sql.Time;
-import java.sql.Timestamp;
 
 @Entity
 @Table(name = "tourLogs")
-public class TourLog {
+public class TourLogs {
     @Id
     @GeneratedValue
     @Column(name = "log_id")
@@ -29,7 +27,7 @@ public class TourLog {
     @Column(name = "rating")
     private Float rating;
 
-    public TourLog() {
+    public TourLogs() {
 
     }
 
@@ -89,12 +87,24 @@ public class TourLog {
         this.rating = rating;
     }
 
-    public TourLog(Tour tourID, Date dateTime, String comment, Float difficulty, String totalTime, Float rating){
+    public TourLogs(Tour tourID, Date dateTime, String comment, Float difficulty, String totalTime, Float rating){
         this.tour_id = tourID;
         this.dateTime = dateTime;
         this.comment = comment;
         this.difficulty = difficulty;
         this.totalTime = totalTime;
         this.rating = rating;
+    }
+    @Override
+    public String toString() {
+        return "TourLog{" +
+                "id=" + id +
+                ", tourId=" + (tour_id != null ? tour_id.getId() : "null") +
+                ", dateTime=" + dateTime +
+                ", comment='" + comment + '\'' +
+                ", difficulty=" + difficulty +
+                ", totalTime='" + totalTime + '\'' +
+                ", rating=" + rating +
+                '}';
     }
 }

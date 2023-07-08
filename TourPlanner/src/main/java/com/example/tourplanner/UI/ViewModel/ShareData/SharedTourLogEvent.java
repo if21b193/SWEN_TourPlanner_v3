@@ -1,17 +1,17 @@
 package com.example.tourplanner.UI.ViewModel.ShareData;
 
-import com.example.tourplanner.models.TourLog;
+import com.example.tourplanner.models.TourLogs;
 
 public class SharedTourLogEvent {
-    private final TourLog tourLog;
+    private final TourLogs tourLogs;
 
-    public SharedTourLogEvent(TourLog tourLog) {
+    public SharedTourLogEvent(TourLogs tourLogs) {
         super();
-        this.tourLog = tourLog;
+        this.tourLogs = tourLogs;
     }
 
-    public TourLog returnTourLog(){
-        return tourLog;
+    public TourLogs returnTourLog(){
+        return tourLogs;
     }
 }
 

@@ -2,7 +2,7 @@ package com.example.tourplanner.BL.service;
 
 import com.example.tourplanner.DAL.dal.dao.TourLogDao;
 
-import com.example.tourplanner.models.TourLog;
+import com.example.tourplanner.models.TourLogs;
 
 import java.util.List;
 
@@ -12,20 +12,20 @@ public class ImplTourLogService implements TourLogService {
     public ImplTourLogService(){}
 
     @Override
-    public List<TourLog> getAll() { return tourLogDao.getAll();}
+    public List<TourLogs> getAll() { return tourLogDao.getAll();}
 
     @Override
-    public TourLog getById(int id) { return  tourLogDao.get(id).orElse(null);}
+    public TourLogs getById(int id) { return  tourLogDao.get(id).orElse(null);}
     @Override
-    public void create (TourLog tourLog){ tourLogDao.save(tourLog);}
+    public void create (TourLogs tourLogs){ tourLogDao.save(tourLogs);}
 
     @Override
-    public void delete(TourLog tourLog) {
-        tourLogDao.delete(tourLog);
+    public void delete(TourLogs tourLogs) {
+        tourLogDao.delete(tourLogs);
     }
 
     @Override
-    public void update(TourLog tourLog) {
-        tourLogDao.update(tourLog);
+    public void update(TourLogs tourLogs) {
+        tourLogDao.update(tourLogs);
     }
 }

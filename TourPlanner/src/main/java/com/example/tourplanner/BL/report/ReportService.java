@@ -2,7 +2,7 @@ package com.example.tourplanner.BL.report;
 
 import com.example.tourplanner.DAL.dal.Repository.MapQuestStaticImageAPI;
 import com.example.tourplanner.models.Tour;
-import com.example.tourplanner.models.TourLog;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -10,15 +10,11 @@ import java.net.URL;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory;
 import java.io.IOException;
-import java.util.List;
+
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
-
-import java.awt.image.BufferedImage;
-
-import java.io.IOException;
 
 public class ReportService {
     private final MapQuestStaticImageAPI mapQuestStaticImageAPI;

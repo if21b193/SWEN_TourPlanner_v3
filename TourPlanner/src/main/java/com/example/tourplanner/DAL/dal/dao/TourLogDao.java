@@ -1,18 +1,20 @@
 package com.example.tourplanner.DAL.dal.dao;
 
 import com.example.tourplanner.DAL.dal.config.HibernateUtil;
-import com.example.tourplanner.models.TourLog;
+import com.example.tourplanner.models.Tour;
+import com.example.tourplanner.models.TourLogs;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import javax.persistence.criteria.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class TourLogDao implements Dao<TourLog>{
+public class TourLogDao implements Dao<TourLogs>{
 
-    private List<TourLog> tourLogs = new ArrayList<>();
+    private List<TourLogs> tourLogs = new ArrayList<>();
     // The class has a SessionFactory named tourLogFactory which is used to manage Hibernate sessions.
     // The SessionFactory is obtained from the HibernateUtil class, which is responsible for
     // initializing and providing the Hibernate session factory.
@@ -26,12 +28,12 @@ public class TourLogDao implements Dao<TourLog>{
 
 
     @Override
-    public Optional<TourLog> get(int id) {
+    public Optional<TourLogs> get(int id) {
         Session session = tourLogFactory.openSession();
         Transaction tx = session.beginTransaction();
-        TourLog tourLog = null;
+        TourLogs tourLogs = null;
         try {
-            tourLog = session.get(TourLog.class, id);
+            tourLogs = session.get(TourLogs.class, id);
             tx.commit();
         } catch (Exception e) {
             if (tx != null) {
@@ -40,16 +42,16 @@ public class TourLogDao implements Dao<TourLog>{
             e.printStackTrace();
         }
         session.close();
-        return Optional.of(tourLog);
+        return Optional.of(tourLogs);
     }
 
     @Override
-    public List<TourLog> getAll() {
+    public List<TourLogs> getAll() {
         Session session = tourLogFactory.openSession();
         Transaction tx = session.beginTransaction();
-        List<TourLog> tourLogs = null;
+        List<TourLogs> tourLogs = null;
         try {
-            tourLogs = session.createQuery("from TourLog", TourLog.class).getResultList();
+            tourLogs = session.createQuery("from TourLogs", TourLogs.class).getResultList();
             tx.commit();
         } catch (Exception e) {
             if (tx != null) {
@@ -63,11 +65,11 @@ public class TourLogDao implements Dao<TourLog>{
     }
     //
     @Override
-    public void save(TourLog tourLog) {
+    public void save(TourLogs tourLogs) {
         Session session = tourLogFactory.openSession();
         Transaction tx = session.beginTransaction();
         try {
-            session.save(tourLog);
+            session.save(tourLogs);
             tx.commit();
         } catch (Exception e){
             if(tx != null){
@@ -79,11 +81,11 @@ public class TourLogDao implements Dao<TourLog>{
     }
 
     @Override
-    public void update(TourLog tourLog) {
+    public void update(TourLogs tourLogs) {
         Session session = tourLogFactory.openSession();
         Transaction tx = session.beginTransaction();
         try {
-            session.update(tourLog);
+            session.update(tourLogs);
             tx.commit();
         } catch (Exception e){
             if(tx != null){
@@ -95,11 +97,11 @@ public class TourLogDao implements Dao<TourLog>{
     }
 
     @Override
-    public void delete(TourLog tourLog) {
+    public void delete(TourLogs tourLogs) {
         Session session = tourLogFactory.openSession();
         Transaction tx = session.beginTransaction();
         try {
-            session.delete(tourLog);
+            session.delete(tourLogs);
             tx.commit();
         } catch (Exception e){
             if(tx != null){
@@ -108,5 +110,31 @@ public class TourLogDao implements Dao<TourLog>{
             e.printStackTrace();
         }
         session.close();
+    }
+    public List<TourLogs> getAllFromTour(int tourID) {
+        Session session = tourLogFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        List<TourLogs> tourLogs = new ArrayList<>();
+
+        try {
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<TourLogs> criteriaQuery = builder.createQuery(TourLogs.class);
+            Root<TourLogs> root = criteriaQuery.from(TourLogs.class);
+            Join<TourLogs, Tour> tourJoin = root.join("tour_id");
+
+            Predicate tourIdPredicate = builder.equal(tourJoin.get("id"), tourID);
+            criteriaQuery.where(tourIdPredicate);
+
+            tourLogs = session.createQuery(criteriaQuery).getResultList();
+            tx.commit();
+        } catch (Exception e){
+            if(tx != null){
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return tourLogs;
     }
 }

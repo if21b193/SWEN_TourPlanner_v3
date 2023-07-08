@@ -1,7 +1,7 @@
 package com.example.tourplanner.DAL.dal.config;
 
 import com.example.tourplanner.models.Tour;
-import com.example.tourplanner.models.TourLog;
+import com.example.tourplanner.models.TourLogs;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -18,7 +18,7 @@ public class HibernateUtil {
         try {
             Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
             configuration.addAnnotatedClass(Tour.class);
-            configuration.addAnnotatedClass(TourLog.class);
+            configuration.addAnnotatedClass(TourLogs.class);
 
             StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties()).build();
