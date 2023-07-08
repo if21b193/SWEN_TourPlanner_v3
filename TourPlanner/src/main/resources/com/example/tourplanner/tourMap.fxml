@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.tourplanner.UI.View.TourMapController">
+    <ImageView fx:id="imageView" preserveRatio="true">
+        <Image fx:id="mapImage" url="https://img.freepik.com/premium-vector/no-data-concept-illustration_203587-28.jpg?w=826"/>
+    </ImageView>
+
+</Pane>

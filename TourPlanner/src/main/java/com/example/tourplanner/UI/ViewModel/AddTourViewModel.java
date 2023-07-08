@@ -3,6 +3,7 @@ package com.example.tourplanner.UI.ViewModel;
 import com.example.tourplanner.BL.service.TourService;
 import com.example.tourplanner.DAL.dal.Repository.MapQuestDirectionsAPI;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventPublisher;
+import com.example.tourplanner.models.MapQuestDirectionsReturn;
 import com.example.tourplanner.models.Tour;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -27,14 +28,14 @@ public class AddTourViewModel {
 
     //
     public Tour addTour(String name, String start, String end, String transportation, String description) throws IOException {
-        Map map = new MapQuestDirectionsAPI().getTourInformation(start, end);
+        MapQuestDirectionsReturn directionsReturn = new MapQuestDirectionsAPI().getTourInformation(start, end, transportation);
         Tour tour = new Tour();
         tour.setTransportType(transportation);
         tour.setName(name);
         tour.setTo(end);
         tour.setFrom(start);
-        tour.setDistance(Float.parseFloat(map.get("distance").toString()));
-        tour.setEstimatedTime(map.get("time").toString());
+        tour.setDistance(directionsReturn.getDistance());
+        tour.setEstimatedTime(directionsReturn.getTime());
         tour.setDescription(description);
         tourService.create(tour);
         return tour;

@@ -44,8 +44,8 @@ public class AddTourController {
     public void saveTour(ActionEvent actionEvent) throws IOException {
         try {
             String name = tourName.getText();
-            String start = from.getText();
-            String end = to.getText();
+            String start = from.getText().replace(" ", "+");
+            String end = to.getText().replace(" ", "+");
             String transportation = transportationMode.getValue();
             String description = tourDescription.getText();
             validateTourData(name, start, end, transportation, description);

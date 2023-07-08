@@ -66,7 +66,7 @@ public class TourListController {
 
         //TODO: Still needs work to figure out whether there's a more elegant solution
         listView.getSelectionModel().selectedItemProperty().addListener((observableValue, tour, t1) -> {
-            publisher.publishToSingle(new SharedTourEvent(t1), "AddTourLogViewModel");
+            publisher.publishEvent(new SharedTourEvent(t1));
         });
     }
 

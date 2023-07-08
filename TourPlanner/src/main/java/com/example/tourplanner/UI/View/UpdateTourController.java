@@ -64,8 +64,8 @@ public class UpdateTourController {
 
     public void saveTour(ActionEvent actionEvent) throws IOException {
         String transport = transportationMode.getValue();
-        String end = to.getText();
-        String start = from.getText();
+        String end = to.getText().replace(" ", "+");
+        String start = from.getText().replace(" ", "+");
         String description = tourDescription.getText();
         String name = tourName.getText();
         tour = updateTourViewModel.saveTour(transport, end, start, description, name);

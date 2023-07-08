@@ -2,7 +2,7 @@ package com.example.tourplanner.UI.View;
 
 import javafx.scene.control.TableColumn;
 
-public class TourDetails {
+public class TourDetailsController {
     public TableColumn descriptionColumn;
     public TableColumn fromColumn;
     public TableColumn toColumn;

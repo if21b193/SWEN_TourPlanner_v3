@@ -5,6 +5,7 @@ import com.example.tourplanner.DAL.dal.Repository.MapQuestDirectionsAPI;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventListener;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventPublisher;
 import com.example.tourplanner.UI.ViewModel.ShareData.SharedTourEvent;
+import com.example.tourplanner.models.MapQuestDirectionsReturn;
 import com.example.tourplanner.models.Tour;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -58,15 +59,15 @@ public class UpdateTourViewModel implements EventListener {
     }
 
     public Tour saveTour(String transport, String end, String start, String description, String name) throws IOException {
-        Map map = new MapQuestDirectionsAPI().getTourInformation(start, end);
+        MapQuestDirectionsReturn mapQuestDirectionsReturn = new MapQuestDirectionsAPI().getTourInformation(start, end, transport);
         Tour tour = new Tour();
         tour.setId(searchedId);
         tour.setTransportType(transport);
         tour.setName(name);
         tour.setTo(end);
         tour.setFrom(start);
-        tour.setDistance(Float.parseFloat(map.get("distance").toString()));
-        tour.setEstimatedTime(map.get("time").toString());
+        tour.setDistance(mapQuestDirectionsReturn.getDistance());
+        tour.setEstimatedTime(mapQuestDirectionsReturn.getTime());
         tour.setDescription(description);
         tourService.update(tour);
         SharedTourEvent sharedTourEvent = new SharedTourEvent(tour);

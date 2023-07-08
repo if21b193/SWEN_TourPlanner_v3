@@ -13,10 +13,9 @@ public class MapQuestStaticImageAPI {
     public MapQuestStaticImageAPI(){
     }
 
-    public void getStaticImage(String from, String to) throws IOException {
+    public String getStaticImage(String from, String to) {
         String url = "https://www.mapquestapi.com/staticmap/v5/map?start=" + from + "&end=" + to + "&size=@2x&key=" + key;
-        HttpClient httpClient = HttpClientSingleton.getInstance();
-        HttpGet request = new HttpGet(url);
-        HttpResponse response = httpClient.execute(request);
+        return url;
+
     }
 }
