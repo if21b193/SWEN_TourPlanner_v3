@@ -1,7 +1,9 @@
 package com.example.tourplanner.UI.View;
 
+import com.example.tourplanner.BL.report.ReportService;
 import com.example.tourplanner.BL.service.ImplTourLogService;
 import com.example.tourplanner.BL.service.ImplTourService;
+import com.example.tourplanner.DAL.dal.Repository.MapQuestStaticImageAPI;
 import com.example.tourplanner.UI.ViewModel.*;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventPublisher;
 import com.example.tourplanner.UI.ViewModel.ShareData.TourLogEventPublisher;
@@ -17,6 +19,9 @@ public class ControllerFactory {
     private final TourLogListViewModel tourLogListViewModel;
     private final AddTourLogViewModel addTourLogViewModel;
     private final TourMapViewModel tourMapViewModel;
+    private final ReportService reportService;
+    private final MapQuestStaticImageAPI mapQuestStaticImageAPI;
+
 
     public ControllerFactory(){
         ImplTourService implTourService = new ImplTourService();
@@ -30,11 +35,13 @@ public class ControllerFactory {
         this.addTourLogViewModel = new AddTourLogViewModel(eventPublisher, tourLogEventPublisher, tourLogService);
         this.tourLogListViewModel = new TourLogListViewModel(tourLogEventPublisher, tourLogService, addTourLogViewModel);
         this.tourMapViewModel = new TourMapViewModel(eventPublisher);
+        this.mapQuestStaticImageAPI = new MapQuestStaticImageAPI();
+        this.reportService = new ReportService(mapQuestStaticImageAPI);
     }
 
     public Object create(Class<?> controllerClass){
         if(controllerClass == TourListController.class){
-            return new TourListController(this.tourListViewModel, eventPublisher);
+            return new TourListController(this.tourListViewModel, eventPublisher, reportService);
         } if(controllerClass == MainWindowController.class){
             return new MainWindowController(this.mainWindowViewModel, this.tourLogListViewModel, this.tourListViewModel);
         } if(controllerClass == AddTourController.class){

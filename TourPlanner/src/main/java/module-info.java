@@ -8,6 +8,8 @@ module com.example.tourplanner {
     requires org.apache.httpcomponents.httpcore;
     requires org.apache.httpcomponents.httpclient;
     requires com.fasterxml.jackson.databind;
+    requires org.apache.pdfbox;
+    requires java.desktop;
 
 
     exports com.example.tourplanner.UI.View to javafx.fxml;

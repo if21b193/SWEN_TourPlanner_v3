@@ -114,7 +114,7 @@ public class Tour {
     }
 
 
-    private String calculateChildFriendliness(float distance) {
+    public String calculateChildFriendliness(float distance) {
         if (distance < 3.0f) {
             return "Very High";
         } else if (distance < 5.0f){

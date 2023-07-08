@@ -1,4 +1,5 @@
 package com.example.tourplanner.UI.View;
+import com.example.tourplanner.BL.report.ReportService;
 import com.example.tourplanner.FXMLDependencyInjection;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventPublisher;
 import com.example.tourplanner.UI.ViewModel.ShareData.SharedTourEvent;
@@ -34,10 +35,12 @@ public class TourListController {
 
     private final TourListViewModel tourListViewModel;
     private final EventPublisher publisher;
+    private final ReportService reportService;
 
-    public TourListController(TourListViewModel tourListViewModel, EventPublisher publisher){
+    public TourListController(TourListViewModel tourListViewModel, EventPublisher publisher, ReportService reportService){
         this.tourListViewModel = tourListViewModel;
         this.publisher = publisher;
+        this.reportService = reportService;
     }
 
     public TourListViewModel getListViewViewModel(){
@@ -116,6 +119,17 @@ public class TourListController {
             return;
         }
         tourListViewModel.deleteTour(listView.getSelectionModel().getSelectedItem());
+    }
+
+    public void generateReportForSelectedTour() {
+        Tour selectedTour = listView.getSelectionModel().getSelectedItem();
+        if(selectedTour != null) {
+            try {
+                reportService.generateReport(selectedTour);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

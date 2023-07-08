@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="tourplanner@localhost">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.45">
+    <root id="1">
+      <ServerVersion>15.1</ServerVersion>
+      <StartupTime>1688398665</StartupTime>
+    </root>
+    <database id="2" parent="1" name="postgres">
+      <Comment>default administrative connection database</Comment>
+      <ObjectId>5</ObjectId>
+      <OwnerName>tourplanner_admin</OwnerName>
+    </database>
+    <database id="3" parent="1" name="tourplanner">
+      <Current>1</Current>
+      <ObjectId>16384</ObjectId>
+      <OwnerName>tourplanner_admin</OwnerName>
+    </database>
+    <schema id="4" parent="3" name="information_schema">
+      <ObjectId>13186</ObjectId>
+      <StateNumber>524</StateNumber>
+      <OwnerName>tourplanner_admin</OwnerName>
+    </schema>
+    <schema id="5" parent="3" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <ObjectId>11</ObjectId>
+      <StateNumber>518</StateNumber>
+      <OwnerName>tourplanner_admin</OwnerName>
+    </schema>
+    <schema id="6" parent="3" name="public">
+      <Comment>standard public schema</Comment>
+      <Current>1</Current>
+      <ObjectId>2200</ObjectId>
+      <StateNumber>518</StateNumber>
+      <OwnerName>pg_database_owner</OwnerName>
+    </schema>
+  </database-model>
+</dataSource>

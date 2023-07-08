@@ -1,4 +1,6 @@
 package com.example.tourplanner;
+import com.example.tourplanner.BL.report.ReportService;
+import com.example.tourplanner.models.Tour;
 import javafx.application.Application;
 
 
@@ -32,5 +34,6 @@ public class HelloApplication extends Application {
     public static void main(String[] args) {
 
         launch();
+
     }
 }

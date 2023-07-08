@@ -10,6 +10,8 @@
         <Button text="Add Tour" fx:id="addTourButton" onAction="#addTour" />
         <Button text="Update Tour" fx:id="updateTourButton" onAction="#modifyTour" />
         <Button text="Delete Tour" fx:id="deleteTourButton" onAction="#deleteTour"/>
+        <Button fx:id="generateReportButton" text="Generate Report" onAction="#generateReportForSelectedTour" />
+
     </HBox>
 </VBox>
 
