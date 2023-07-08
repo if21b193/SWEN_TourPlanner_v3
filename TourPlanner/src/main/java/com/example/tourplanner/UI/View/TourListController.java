@@ -1,11 +1,13 @@
 package com.example.tourplanner.UI.View;
 import com.example.tourplanner.BL.report.ReportService;
+import com.example.tourplanner.DAL.dal.dao.TourLogDao;
 import com.example.tourplanner.FXMLDependencyInjection;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventPublisher;
 import com.example.tourplanner.UI.ViewModel.ShareData.SharedTourEvent;
 import com.example.tourplanner.UI.ViewModel.TourListViewModel;
 import com.example.tourplanner.UI.ViewModel.TourLogListViewModel;
 import com.example.tourplanner.models.Tour;
+import com.example.tourplanner.models.TourLogs;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Locale;
 
 public class TourListController {
@@ -36,11 +39,13 @@ public class TourListController {
     private final TourListViewModel tourListViewModel;
     private final EventPublisher publisher;
     private final ReportService reportService;
+    private final TourLogDao tourLogDao;
 
-    public TourListController(TourListViewModel tourListViewModel, EventPublisher publisher, ReportService reportService){
+    public TourListController(TourListViewModel tourListViewModel, EventPublisher publisher, ReportService reportService, TourLogDao tourLogDao){
         this.tourListViewModel = tourListViewModel;
         this.publisher = publisher;
         this.reportService = reportService;
+        this.tourLogDao = tourLogDao;
     }
 
     public TourListViewModel getListViewViewModel(){
@@ -124,12 +129,13 @@ public class TourListController {
     public void generateReportForSelectedTour() {
         Tour selectedTour = listView.getSelectionModel().getSelectedItem();
         if(selectedTour != null) {
+            List<TourLogs> tourLogs = tourLogDao.getAllFromTour(selectedTour.getId());
             try {
-                reportService.generateReport(selectedTour);
+                reportService.generateReport(selectedTour, tourLogs);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
+    }
 
-}

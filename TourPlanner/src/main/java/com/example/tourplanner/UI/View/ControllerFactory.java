@@ -4,6 +4,7 @@ import com.example.tourplanner.BL.report.ReportService;
 import com.example.tourplanner.BL.service.ImplTourLogService;
 import com.example.tourplanner.BL.service.ImplTourService;
 import com.example.tourplanner.DAL.dal.Repository.MapQuestStaticImageAPI;
+import com.example.tourplanner.DAL.dal.dao.TourLogDao;
 import com.example.tourplanner.UI.ViewModel.*;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventPublisher;
 import com.example.tourplanner.UI.ViewModel.ShareData.TourLogEventPublisher;
@@ -22,6 +23,7 @@ public class ControllerFactory {
     private final ReportService reportService;
     private final MapQuestStaticImageAPI mapQuestStaticImageAPI;
     private final TourDetailsViewModel tourDetailsViewModel;
+    private final TourLogDao tourLogDao;
 
 
     public ControllerFactory(){
@@ -39,11 +41,12 @@ public class ControllerFactory {
         this.mapQuestStaticImageAPI = new MapQuestStaticImageAPI();
         this.reportService = new ReportService(mapQuestStaticImageAPI);
         this.tourDetailsViewModel = new TourDetailsViewModel(eventPublisher);
+        this.tourLogDao = new TourLogDao();
     }
 
     public Object create(Class<?> controllerClass){
         if(controllerClass == TourListController.class){
-            return new TourListController(this.tourListViewModel, eventPublisher, reportService);
+            return new TourListController(this.tourListViewModel, eventPublisher, reportService, tourLogDao);
         } if(controllerClass == MainWindowController.class){
             return new MainWindowController(this.mainWindowViewModel, this.tourLogListViewModel, this.tourListViewModel);
         } if(controllerClass == AddTourController.class){
