@@ -23,7 +23,7 @@ public class TourMapController {
 
     public TourMapController(TourMapViewModel tourMapViewModel) {
         this.tourMapViewModel = tourMapViewModel;
-    }
+        }
 
     public void initialize(){
     }
@@ -31,6 +31,9 @@ public class TourMapController {
     public void setMapImage() {
         String newUrl = tourMapViewModel.getMapDetails();
         imageView.setImage(new Image(newUrl));
+        imageView.fitHeightProperty().bind(imageView.getScene().getWindow().heightProperty());
+        imageView.fitWidthProperty().bind(imageView.getScene().getWindow().widthProperty());
+
     }
 
 }
