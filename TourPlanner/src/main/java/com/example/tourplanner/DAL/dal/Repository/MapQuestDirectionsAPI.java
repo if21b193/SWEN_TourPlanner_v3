@@ -15,7 +15,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 public class MapQuestDirectionsAPI {
 
-    //TODO: get key from a config file
     private static final Logger logger = LogManager.getLogger(MapQuestDirectionsAPI.class);
     public MapQuestDirectionsAPI() { }
 
