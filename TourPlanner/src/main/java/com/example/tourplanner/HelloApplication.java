@@ -27,7 +27,7 @@ public class HelloApplication extends Application {
 
         Parent root =FXMLDependencyInjection.load("MainWindow.fxml", Locale.GERMAN);
 
-        Scene scene = new Scene(root, 620, 540);
+        Scene scene = new Scene(root, 600, 700);
         primaryStage.setTitle("Tourplanner");
         primaryStage.setScene(scene);
         primaryStage.show();

@@ -5,8 +5,8 @@
 
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.tourplanner.UI.View.TourCSVExportController">
+      fx:controller="com.example.tourplanner.UI.View.TourCSVExportController" stylesheets="@buttonOrange.css">
 
-    <Button fx:id="exportButton" text="Export to CSV" onAction="#exportToCSV" />
+    <Button fx:id="exportButton" text="Export to CSV" onAction="#exportToCSV" styleClass="myButton" />
 
 </VBox>
