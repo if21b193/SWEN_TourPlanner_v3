@@ -3,6 +3,8 @@ package com.example.tourplanner.models;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /* We add @Entity to show hibernate that this whole class is a table in the DB and then we say @table and specify which one
 * Hibernate needs an ID so we specify that with our tourid thingy, and with column we state the corresponding name of the column in the table
@@ -101,6 +103,7 @@ public class Tour {
     public void setRouteInfo (String routeInfo){
         this.routeInfo = routeInfo;
     }
+    private static final Logger logger = LogManager.getLogger(Tour.class);
 
     public Tour(String name, String description, String from, String to, String transportType, float distance, String estimatedTime, String routeInfo) {
         this.name = name;
@@ -129,6 +132,8 @@ public class Tour {
     }
 
     public static String calculateAccessibility(String transportation, float distance) {
+        logger.info("Calculating accessibility for transportation {} and distance {}", transportation, distance);
+
         if (transportation.equals("by car") || transportation.equals("fastest")) {
             if (distance < 5.00f) {
                 return "Very High Accessibility";

@@ -18,13 +18,18 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ReportService {
     private final MapQuestStaticImageAPI mapQuestStaticImageAPI;
+    private static final Logger logger = LogManager.getLogger(ReportService.class);
+
     public ReportService(MapQuestStaticImageAPI mapQuestStaticImageAPI) {
         this.mapQuestStaticImageAPI = mapQuestStaticImageAPI;
     }
     public void generateReport(Tour tour, List<TourLogs> tourLogs) throws IOException {
+        logger.info("Generating report for tour: {}", tour.getName());
         try (PDDocument document = new PDDocument()) {
             PDPage page = new PDPage();
             document.addPage(page);
@@ -95,8 +100,12 @@ public class ReportService {
             contentStream.stroke();
 
             contentStream.close();
-
+            logger.info("Finished generating report for tour: {}", tour.getName());
             document.save("TourReport_" + tour.getName() + ".pdf");
+        } catch (IOException e){
+            logger.error("Failed to generate report for tour: {}", tour.getName(), e);
+            throw e;
+
         }
     }
 

@@ -10,6 +10,7 @@ module com.example.tourplanner {
     requires com.fasterxml.jackson.databind;
     requires org.apache.pdfbox;
     requires java.desktop;
+    requires org.apache.logging.log4j;
 
 
     exports com.example.tourplanner.UI.View to javafx.fxml;
