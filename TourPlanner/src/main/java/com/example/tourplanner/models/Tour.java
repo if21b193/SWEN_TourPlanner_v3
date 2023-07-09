@@ -129,7 +129,7 @@ public class Tour {
     }
 
     public static String calculateAccessibility(String transportation, float distance) {
-        if (transportation.equals("by car")) {
+        if (transportation.equals("by car") || transportation.equals("fastest")) {
             if (distance < 5.00f) {
                 return "Very High Accessibility";
             } else if (distance < 7.00f) {
@@ -145,7 +145,7 @@ public class Tour {
             } else {
                 return "Low Accessibility";
             }
-        } else if (transportation.equals("Pedestrian")) {
+        } else if (transportation.equals("Pedestrian") || transportation.equals("slowest")) {
             if (distance < 3.00f) {
                 return "Moderate Accessibility";
             } else if (distance < 5.00f) {
@@ -157,6 +157,7 @@ public class Tour {
             return "Invalid transportation";
         }
     }
+
 
 
     // float tourDistance = tour.getDistance();

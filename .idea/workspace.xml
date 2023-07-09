@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="implemented fetching tourlog by tour_id">
+    <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="implemented tourlogs in report, no styling yet">
+      <change afterPath="$PROJECT_DIR$/TourPlanner/src/test/java/com/example/tourplanner/models/TourTest/TourTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/BL/report/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/BL/report/ReportService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/ControllerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/ControllerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/models/Tour.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/models/Tour.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +21,7 @@
         <option value="FxmlFile" />
         <option value="Class" />
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -66,31 +66,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;azul-17&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/mprue/Documents/Studium/4_Semester_Sommer23/SWEN/SWEN_TourPlanner/SWEN_TourPlanner/TourPlanner/src/main/java/com/example/tourplanner&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mprue/Documents/Studium/4_Semester_Sommer23/SWEN/classwork&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "jdk.selected.JAVA_MODULE": "azul-17",
+    "last_directory_selection": "/Users/tijana/Documents/GitHub/SWEN_TourPlanner_v7/TourPlanner/src/test/java/com/example/tourplanner/models",
+    "last_opened_file_path": "C:/Users/mprue/Documents/Studium/4_Semester_Sommer23/SWEN/classwork",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.tourplanner" />
@@ -108,9 +111,15 @@
       <recent name="$PROJECT_DIR$/TourPlanner/src/main/java/com" />
       <recent name="$PROJECT_DIR$/TourPlanner/src/main/java/com/example" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.tourplanner" />
       <recent name="com.example.tourplanner.DAL.dal" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.tourplanner.models" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -119,7 +128,7 @@
       <command value="mvn clean install -U" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.TourTest">
     <configuration name="console.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
       <script-file value="$APPLICATION_CONFIG_DIR$/consoles/db/4b78888a-ec78-4e88-9d1d-a469d053b1f1/console.sql" />
       <script-mode>FILE</script-mode>
@@ -130,6 +139,26 @@
       <script-mode>FILE</script-mode>
       <method v="2" />
     </configuration>
+    <configuration name="TourTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TourPlanner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.tourplanner.models.TourTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.tourplanner.models.TourTest" />
+      <option name="MAIN_CLASS_NAME" value="com.example.tourplanner.models.TourTest.TourTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TourTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -159,7 +188,7 @@
       <workItem from="1688541453168" duration="18827000" />
       <workItem from="1688710247576" duration="15253000" />
       <workItem from="1688804284197" duration="8529000" />
-      <workItem from="1688848620580" duration="5884000" />
+      <workItem from="1688848620580" duration="10989000" />
     </task>
     <task id="LOCAL-00001" summary="design update">
       <created>1686757115641</created>
@@ -390,7 +419,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688853907580</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="implemented tourlogs in report, no styling yet">
+      <created>1688855265227</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1688855265228</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,7 +466,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adding lombok in the dependencies" />
     <MESSAGE value="adding some classes vor MVVP" />
     <MESSAGE value="found a weird mistake, split the main window" />
     <MESSAGE value="splitting fxml files and making sure it looks somewhat good" />
@@ -455,7 +490,8 @@
     <MESSAGE value="MapImage is shown if it's selected" />
     <MESSAGE value="mapImage resizable" />
     <MESSAGE value="implemented fetching tourlog by tour_id" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented fetching tourlog by tour_id" />
+    <MESSAGE value="implemented tourlogs in report, no styling yet" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented tourlogs in report, no styling yet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
