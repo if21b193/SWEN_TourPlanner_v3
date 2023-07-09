@@ -18,17 +18,17 @@ public class HibernateUtil {
 
     private static SessionFactory buildSessionFactory() {
         try {
-            logger.info("Building session factory...");
+
             Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
             configuration.addAnnotatedClass(Tour.class);
             configuration.addAnnotatedClass(TourLogs.class);
 
             StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties()).build();
-            logger.info("Session factory built successfully.");
+
             return configuration.buildSessionFactory(serviceRegistry);
         } catch (Throwable ex) {
-            logger.error("Initial SessionFactory creation failed.", ex);
+
             throw new ExceptionInInitializerError(ex);
         }
     }
@@ -39,9 +39,9 @@ public class HibernateUtil {
 
     public static void shutdown() {
 
-        logger.info("Shutting down session factory...");
+
         getSessionFactory().close();
-        logger.info("Session factory shut down successfully.");
+
 
     }
 }

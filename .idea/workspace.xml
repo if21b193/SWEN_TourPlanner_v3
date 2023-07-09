@@ -4,15 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="Added Unit Tests">
-      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/log4j2.xml" afterDir="false" />
+    <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="Included log4j2, added logging to reportService and TourDao">
+      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/BL/report/TourCSVExport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/BL/report/TourCSVImportService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourCSVExportController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourCSVImportController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/TourCSVExport.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/TourCSVImport.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/BL/report/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/BL/report/ReportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/DAL/dal/Repository/MapQuestDirectionsAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/DAL/dal/Repository/MapQuestDirectionsAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/DAL/dal/config/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/DAL/dal/config/HibernateUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/DAL/dal/dao/TourDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/DAL/dal/dao/TourDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/models/Tour.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/models/Tour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/DAL/dal/dao/TourLogDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/DAL/dal/dao/TourLogDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/ControllerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/ControllerFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/MainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/MainWindow.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,11 +27,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
-        <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
         <option value="Tag Library Descriptor" />
+        <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -92,6 +96,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -194,7 +199,7 @@
       <workItem from="1688541453168" duration="18827000" />
       <workItem from="1688710247576" duration="15253000" />
       <workItem from="1688804284197" duration="8529000" />
-      <workItem from="1688848620580" duration="13201000" />
+      <workItem from="1688848620580" duration="27014000" />
     </task>
     <task id="LOCAL-00001" summary="design update">
       <created>1686757115641</created>
@@ -439,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688900626367</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Included log4j2, added logging to reportService and TourDao">
+      <created>1688908196704</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1688908196704</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -479,7 +491,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="found a weird mistake, split the main window" />
     <MESSAGE value="splitting fxml files and making sure it looks somewhat good" />
     <MESSAGE value="added a dao interface and a first implementation" />
     <MESSAGE value="db.sql implementation" />
@@ -504,7 +515,8 @@
     <MESSAGE value="implemented fetching tourlog by tour_id" />
     <MESSAGE value="implemented tourlogs in report, no styling yet" />
     <MESSAGE value="Added Unit Tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Unit Tests" />
+    <MESSAGE value="Included log4j2, added logging to reportService and TourDao" />
+    <option name="LAST_COMMIT_MESSAGE" value="Included log4j2, added logging to reportService and TourDao" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

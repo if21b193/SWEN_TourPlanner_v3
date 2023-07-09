@@ -1,6 +1,8 @@
 package com.example.tourplanner.UI.View;
 
 import com.example.tourplanner.BL.report.ReportService;
+import com.example.tourplanner.BL.report.TourCSVExport;
+import com.example.tourplanner.BL.report.TourCSVImportService;
 import com.example.tourplanner.BL.service.ImplTourLogService;
 import com.example.tourplanner.BL.service.ImplTourService;
 import com.example.tourplanner.DAL.dal.Repository.MapQuestStaticImageAPI;
@@ -24,6 +26,8 @@ public class ControllerFactory {
     private final MapQuestStaticImageAPI mapQuestStaticImageAPI;
     private final TourDetailsViewModel tourDetailsViewModel;
     private final TourLogDao tourLogDao;
+    private final TourCSVExportController tourCSVExportController;
+    private final TourCSVImportController tourCSVImportController;
 
 
     public ControllerFactory(){
@@ -42,6 +46,8 @@ public class ControllerFactory {
         this.reportService = new ReportService(mapQuestStaticImageAPI);
         this.tourDetailsViewModel = new TourDetailsViewModel(eventPublisher);
         this.tourLogDao = new TourLogDao();
+        this.tourCSVExportController = new TourCSVExportController();
+        this.tourCSVImportController = new TourCSVImportController();
     }
 
     public Object create(Class<?> controllerClass){
@@ -63,6 +69,10 @@ public class ControllerFactory {
             return new TourMapController(tourMapViewModel);
         } if(controllerClass == DetailsController.class){
             return new DetailsController();
+        } if(controllerClass == TourCSVExportController.class){
+            return new TourCSVExportController();
+        } if (controllerClass ==  TourCSVImportController.class){
+            return new TourCSVImportController();
         }
         throw new IllegalArgumentException("Unknown controller class: "+ controllerClass);
     }

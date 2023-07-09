@@ -10,14 +10,17 @@ import org.apache.http.client.methods.HttpGet;
 import java.io.IOException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.util.EntityUtils;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 public class MapQuestDirectionsAPI {
 
     //TODO: get key from a config file
     public static final String key = "0ciJA4jyfcyvaC3eIYj7OCVOlhW3O5rn";
+    private static final Logger logger = LogManager.getLogger(MapQuestDirectionsAPI.class);
     public MapQuestDirectionsAPI() { }
 
     public MapQuestDirectionsReturn getTourInformation(String from, String to, String transportation) throws IOException {
+        logger.info("Getting tour information from {} to {} using transportation mode {}", from, to, transportation);
         String url="https://www.mapquestapi.com/directions/v2/route?key=" + key + "&from=" + from +"&to=" + to + "&routeType=" + transportation ;
         HttpClient httpClient = HttpClientSingleton.getInstance();
         HttpGet request = new HttpGet(url);

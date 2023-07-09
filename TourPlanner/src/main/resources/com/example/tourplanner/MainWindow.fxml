@@ -13,6 +13,8 @@
             <items>
                 <fx:include fx:id="TourList" source="TourList.fxml"/>
                 <fx:include fx:id="details" source="details.fxml" />
+                <fx:include fx:id="exportButton" source="TourCSVExport.fxml" />
+                <fx:include fx:id="importButton" source="TourCSVImport.fxml" />
             </items>
         </SplitPane>
     </center>

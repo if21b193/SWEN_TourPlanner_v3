@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 public class TourLogDao implements Dao<TourLogs>{
 
     private List<TourLogs> tourLogs = new ArrayList<>();
@@ -22,6 +24,8 @@ public class TourLogDao implements Dao<TourLogs>{
     // HibernateUtil is a utility class that provides access to the Hibernate session factory.
     // The getSessionFactory() method returns an instance of SessionFactory,
     // which is responsible for creating and managing Hibernate sessions.
+    private static final Logger logger = LogManager.getLogger(TourLogDao.class);
+
     public TourLogDao(){
         tourLogFactory = HibernateUtil.getSessionFactory();
     }
@@ -33,13 +37,14 @@ public class TourLogDao implements Dao<TourLogs>{
         Transaction tx = session.beginTransaction();
         TourLogs tourLogs = null;
         try {
+            logger.info("Getting tour log with id {}", id);
             tourLogs = session.get(TourLogs.class, id);
             tx.commit();
         } catch (Exception e) {
             if (tx != null) {
                 tx.rollback();
             }
-            e.printStackTrace();
+            logger.error("Error getting tour log with id {}", id, e);
         }
         session.close();
         return Optional.of(tourLogs);
@@ -51,13 +56,14 @@ public class TourLogDao implements Dao<TourLogs>{
         Transaction tx = session.beginTransaction();
         List<TourLogs> tourLogs = null;
         try {
+            logger.info("Getting all tour logs");
             tourLogs = session.createQuery("from TourLogs", TourLogs.class).getResultList();
             tx.commit();
         } catch (Exception e) {
             if (tx != null) {
                 tx.rollback();
             }
-            e.printStackTrace();
+            logger.error("Error getting all tour logs", e);
         }
         session.close();
 
@@ -69,13 +75,14 @@ public class TourLogDao implements Dao<TourLogs>{
         Session session = tourLogFactory.openSession();
         Transaction tx = session.beginTransaction();
         try {
+            logger.info("Saving tour log with id {}", tourLogs.getId());
             session.save(tourLogs);
             tx.commit();
         } catch (Exception e){
             if(tx != null){
                 tx.rollback();
             }
-            e.printStackTrace();
+            logger.error("Error saving tour log");
         }
         session.close();
     }
@@ -85,13 +92,14 @@ public class TourLogDao implements Dao<TourLogs>{
         Session session = tourLogFactory.openSession();
         Transaction tx = session.beginTransaction();
         try {
+            logger.info("Updating tour log with id {}", tourLogs.getId());
             session.update(tourLogs);
             tx.commit();
         } catch (Exception e){
             if(tx != null){
                 tx.rollback();
             }
-            e.printStackTrace();
+            logger.error("Error updating tour log with id {}", tourLogs.getId(), e);
         }
         session.close();
     }
@@ -101,13 +109,14 @@ public class TourLogDao implements Dao<TourLogs>{
         Session session = tourLogFactory.openSession();
         Transaction tx = session.beginTransaction();
         try {
+            logger.info("Deleting tour log with id {}", tourLogs.getId());
             session.delete(tourLogs);
             tx.commit();
         } catch (Exception e){
             if(tx != null){
                 tx.rollback();
             }
-            e.printStackTrace();
+            logger.error("Error deleting tour log with id {}", tourLogs.getId(), e);
         }
         session.close();
     }
@@ -117,6 +126,7 @@ public class TourLogDao implements Dao<TourLogs>{
         List<TourLogs> tourLogs = new ArrayList<>();
 
         try {
+            logger.info("Getting all tour logs for tour id {}", tourID);
             CriteriaBuilder builder = session.getCriteriaBuilder();
             CriteriaQuery<TourLogs> criteriaQuery = builder.createQuery(TourLogs.class);
             Root<TourLogs> root = criteriaQuery.from(TourLogs.class);
@@ -131,7 +141,7 @@ public class TourLogDao implements Dao<TourLogs>{
             if(tx != null){
                 tx.rollback();
             }
-            e.printStackTrace();
+            logger.error("Error getting all tour logs for tour id {}", tourID, e);
         } finally {
             session.close();
         }
