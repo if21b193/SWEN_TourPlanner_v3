@@ -16,13 +16,13 @@ import org.apache.logging.log4j.Logger;
 public class MapQuestDirectionsAPI {
 
     //TODO: get key from a config file
-    public static final String key = HibernateUtil.getConfiguration().getProperty("api.key");
     private static final Logger logger = LogManager.getLogger(MapQuestDirectionsAPI.class);
     public MapQuestDirectionsAPI() { }
 
     public MapQuestDirectionsReturn getTourInformation(String from, String to, String transportation) throws IOException {
+        String key = HibernateUtil.getConfiguration().getProperty("api.key");
         logger.info("Getting tour information from {} to {} using transportation mode {}", from, to, transportation);
-        String url="https://www.mapquestapi.com/directions/v2/route?key=" + key + "&from=" + from +"&to=" + to + "&routeType=" + transportation ;
+        String url="https://www.mapquestapi.com/directions/v2/route?key=" + key + "&from=" + from +"&to=" + to + "&routeType=" + transportation + "&unit=k";
         HttpClient httpClient = HttpClientSingleton.getInstance();
         HttpGet request = new HttpGet(url);
         HttpResponse response = httpClient.execute(request);

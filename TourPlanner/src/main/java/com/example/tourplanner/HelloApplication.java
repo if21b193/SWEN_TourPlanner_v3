@@ -36,12 +36,6 @@ public class HelloApplication extends Application {
 
 
     public static void main(String[] args) {
-
-
         launch();
-        List<TourLogs> tourLogs = tourLogDao.getAllFromTour(1);
-        for (TourLogs log : tourLogs) {
-            System.out.println(log);
-        }
     }
 }

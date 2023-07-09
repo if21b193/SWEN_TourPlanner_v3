@@ -5,6 +5,8 @@ import com.example.tourplanner.models.Tour;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+import java.text.DecimalFormat;
+
 public class TourDetailsController {
     @FXML
     public Label tourName;
@@ -35,13 +37,18 @@ public class TourDetailsController {
     }
     public void fillInTourDetails() {
         Tour tour = tourDetailsViewModel.getSelectedTour();
+
+        DecimalFormat decimalFormat = new DecimalFormat("#.###");
+
         tourName.setText(tour.getName());
-        fromInsert.setText(tour.getFrom());
-        toInsert.setText(tour.getTo());
+        fromInsert.setText(tour.getFrom().replace("+", " "));
+        toInsert.setText(tour.getTo().replace("+", " "));
         transportationInsert.setText(tour.getTransportType());
         descriptionInsert.setText(tour.getDescription());
         accessibilityInsert.setText(Tour.calculateAccessibility(tour.getTransportType(), (float) tour.getDistance()));
         childFriendlinessInsert.setText(tour.calculateChildFriendliness((float) tour.getDistance()));
+        timeInsert.setText(tour.getEstimatedTime());
+        distanceInsert.setText(decimalFormat.format(tour.getDistance()) + " km");
     }
 
 }
