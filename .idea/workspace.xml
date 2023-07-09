@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="single config file with database config and key that is accessible from MapQuestAPIs">
-      <change afterPath="$PROJECT_DIR$/TourPlanner/src/test/java/com/example/tourplanner/UI/ViewModel/TourListViewModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8494843f-16f5-4851-9645-a73208aee948.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8494843f-16f5-4851-9645-a73208aee948.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/test/java/com/example/tourplanner/models/TourTest/TourTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/test/java/com/example/tourplanner/models/TourTest/TourTest.java" afterDir="false" />
+    <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="added UnitTests for the TourListViewModel">
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/TourListViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/TourListViewModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +227,7 @@
       <workItem from="1688804284197" duration="8529000" />
       <workItem from="1688848620580" duration="28538000" />
       <workItem from="1688935079764" duration="2709000" />
-      <workItem from="1688937881037" duration="964000" />
+      <workItem from="1688937881037" duration="1353000" />
     </task>
     <task id="LOCAL-00001" summary="design update">
       <created>1686757115641</created>
@@ -506,7 +502,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688937467860</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="added UnitTests for the TourListViewModel">
+      <option name="closed" value="true" />
+      <created>1688939192748</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1688939192748</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +550,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="db.sql implementation and working on the TourLog class for hibernate" />
     <MESSAGE value="TourLog modified for hibernate and TOurDao overrides written" />
     <MESSAGE value="TourLogDao overrides written for hibernate" />
     <MESSAGE value="cleanup, restructuring, basic first setup for mapquest APIs" />
@@ -571,7 +574,8 @@
     <MESSAGE value="Implemented import and export from/to csv files" />
     <MESSAGE value="fixed a little bug which didn't allow for an empty database to be at the source when the Application is started" />
     <MESSAGE value="single config file with database config and key that is accessible from MapQuestAPIs" />
-    <option name="LAST_COMMIT_MESSAGE" value="single config file with database config and key that is accessible from MapQuestAPIs" />
+    <MESSAGE value="added UnitTests for the TourListViewModel" />
+    <option name="LAST_COMMIT_MESSAGE" value="added UnitTests for the TourListViewModel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
