@@ -55,7 +55,11 @@ public class UpdateTourViewModel implements EventListener {
     @Override
     public void updateFromDb(SharedTourEvent event) {
         Tour tour = event.returnTour();
-        searchedId = tour.getId();
+        if(tour != null){
+            searchedId = tour.getId();
+        } else {
+            searchedId = 0;
+        }
     }
 
     public Tour saveTour(String transport, String end, String start, String description, String name) throws IOException {

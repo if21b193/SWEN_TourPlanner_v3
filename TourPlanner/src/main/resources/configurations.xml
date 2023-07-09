@@ -13,5 +13,8 @@
         <property name="hibernate.hikari.dataSource.databaseName">tourplanner</property>
         <property name="hibernate.hikari.dataSource.portNumber">5432</property>
         <property name="hibernate.hikari.dataSource.serverName">localhost</property>
+        
+        <!-- custom key property -->
+        <property name="api.key">0ciJA4jyfcyvaC3eIYj7OCVOlhW3O5rn</property>
     </session-factory>
 </hibernate-configuration>

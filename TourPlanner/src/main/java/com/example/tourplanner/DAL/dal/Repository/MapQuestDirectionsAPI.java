@@ -1,5 +1,6 @@
 package com.example.tourplanner.DAL.dal.Repository;
 
+import com.example.tourplanner.DAL.dal.config.HibernateUtil;
 import com.example.tourplanner.DAL.dal.config.HttpClientSingleton;
 import com.example.tourplanner.models.MapQuestDirectionsReturn;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -15,7 +16,7 @@ import org.apache.logging.log4j.Logger;
 public class MapQuestDirectionsAPI {
 
     //TODO: get key from a config file
-    public static final String key = "0ciJA4jyfcyvaC3eIYj7OCVOlhW3O5rn";
+    public static final String key = HibernateUtil.getConfiguration().getProperty("api.key");
     private static final Logger logger = LogManager.getLogger(MapQuestDirectionsAPI.class);
     public MapQuestDirectionsAPI() { }
 
