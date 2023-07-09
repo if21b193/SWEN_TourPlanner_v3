@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="fixed a little bug which didn't allow for an empty database to be at the source when the Application is started">
+    <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="single config file with database config and key that is accessible from MapQuestAPIs">
+      <change afterPath="$PROJECT_DIR$/TourPlanner/src/test/java/com/example/tourplanner/UI/ViewModel/TourListViewModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8494843f-16f5-4851-9645-a73208aee948.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8494843f-16f5-4851-9645-a73208aee948.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/DAL/dal/Repository/MapQuestDirectionsAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/DAL/dal/Repository/MapQuestDirectionsAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/DAL/dal/Repository/MapQuestStaticImageAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/DAL/dal/Repository/MapQuestStaticImageAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/DAL/dal/config/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/DAL/dal/config/HibernateUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/UpdateTourViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/UpdateTourViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/configurations.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/hikari.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/test/java/com/example/tourplanner/models/TourTest/TourTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/test/java/com/example/tourplanner/models/TourTest/TourTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,11 +21,11 @@
       <list>
         <option value="AnnotationType" />
         <option value="Interface" />
-        <option value="JUnit5 Test Class" />
         <option value="Tag Library Descriptor" />
         <option value="FxmlFile" />
         <option value="Class" />
         <option value="CSS File" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -128,6 +126,7 @@
       <recent name="com.example.tourplanner.DAL.dal" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.tourplanner.UI.ViewModel" />
       <recent name="com.example.tourplanner.models" />
     </key>
   </component>
@@ -137,7 +136,7 @@
       <command value="mvn clean install -U" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.TourListViewModelTest">
     <configuration name="console.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
       <script-file value="$APPLICATION_CONFIG_DIR$/consoles/db/4b78888a-ec78-4e88-9d1d-a469d053b1f1/console.sql" />
       <script-mode>FILE</script-mode>
@@ -147,6 +146,37 @@
       <script-file value="$PROJECT_DIR$/TourPlanner/db.sql" />
       <script-mode>FILE</script-mode>
       <method v="2" />
+    </configuration>
+    <configuration name="TourListViewModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TourPlanner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.tourplanner.UI.ViewModel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.tourplanner.UI.ViewModel" />
+      <option name="MAIN_CLASS_NAME" value="com.example.tourplanner.UI.ViewModel.TourListViewModelTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TourListViewModelTest.testSetUpToursWorks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TourPlanner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.tourplanner.UI.ViewModel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.tourplanner.UI.ViewModel" />
+      <option name="MAIN_CLASS_NAME" value="com.example.tourplanner.UI.ViewModel.TourListViewModelTest" />
+      <option name="METHOD_NAME" value="testSetUpToursWorks" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="TourTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TourPlanner" />
@@ -165,6 +195,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TourListViewModelTest" />
+        <item itemvalue="JUnit.TourListViewModelTest.testSetUpToursWorks" />
         <item itemvalue="JUnit.TourTest" />
       </list>
     </recent_temporary>
@@ -198,7 +230,8 @@
       <workItem from="1688710247576" duration="15253000" />
       <workItem from="1688804284197" duration="8529000" />
       <workItem from="1688848620580" duration="28538000" />
-      <workItem from="1688935079764" duration="2319000" />
+      <workItem from="1688935079764" duration="2709000" />
+      <workItem from="1688937881037" duration="964000" />
     </task>
     <task id="LOCAL-00001" summary="design update">
       <created>1686757115641</created>
@@ -465,7 +498,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688935674209</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="single config file with database config and key that is accessible from MapQuestAPIs">
+      <option name="closed" value="true" />
+      <created>1688937467860</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1688937467860</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,7 +546,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="db.sql implementation" />
     <MESSAGE value="db.sql implementation and working on the TourLog class for hibernate" />
     <MESSAGE value="TourLog modified for hibernate and TOurDao overrides written" />
     <MESSAGE value="TourLogDao overrides written for hibernate" />
@@ -530,7 +570,8 @@
     <MESSAGE value="Included log4j2, added logging to reportService and TourDao" />
     <MESSAGE value="Implemented import and export from/to csv files" />
     <MESSAGE value="fixed a little bug which didn't allow for an empty database to be at the source when the Application is started" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed a little bug which didn't allow for an empty database to be at the source when the Application is started" />
+    <MESSAGE value="single config file with database config and key that is accessible from MapQuestAPIs" />
+    <option name="LAST_COMMIT_MESSAGE" value="single config file with database config and key that is accessible from MapQuestAPIs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

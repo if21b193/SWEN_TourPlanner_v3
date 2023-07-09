@@ -28,7 +28,7 @@ public class TourListViewModel implements EventListener {
         publisher.addEventListener(this);
     }
 
-    private void setTours(List<Tour> tours) {
+    void setTours(List<Tour> tours) {
         observableList.clear();
         if(tours != null){
             observableList.addAll(tours);

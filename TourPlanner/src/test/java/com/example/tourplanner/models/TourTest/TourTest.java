@@ -15,7 +15,6 @@ class TourTest {
     @Test
     void testCalculateHighChildFriendliness() {
         assertEquals("High", tour.calculateChildFriendliness(4.0f));
-
     }
     @Test
     void testCalculateMiddleChildFriendliness() {
@@ -105,4 +104,5 @@ class TourTest {
     public void testCalculateAccessibilityInvalid() {
         assertEquals("Invalid transportation", tour.calculateAccessibility("unicycle", 4.0f));
     }
+
 }
