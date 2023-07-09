@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="tourplanner@localhost">
-  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.45">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.48">
     <root id="1">
       <DateStyle>mdy</DateStyle>
       <Grants>1||-9223372036854775808|c|G
@@ -4828,18 +4828,24 @@ true posixrules
     <sequence id="263" parent="262" name="hibernate_sequence">
       <DasType>bigint|0s</DasType>
       <ObjectId>16541</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
       <StateNumber>862</StateNumber>
       <OwnerName>tourplanner_admin</OwnerName>
     </sequence>
     <sequence id="264" parent="262" name="tourlogs_log_id_seq">
       <DasType>integer|0s</DasType>
       <ObjectId>16527</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
       <StateNumber>861</StateNumber>
       <OwnerName>tourplanner_admin</OwnerName>
     </sequence>
     <sequence id="265" parent="262" name="tours_tour_id_seq">
       <DasType>integer|0s</DasType>
       <ObjectId>16518</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
       <StateNumber>860</StateNumber>
       <OwnerName>tourplanner_admin</OwnerName>
     </sequence>

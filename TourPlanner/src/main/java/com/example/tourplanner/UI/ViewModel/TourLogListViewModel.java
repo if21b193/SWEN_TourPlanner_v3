@@ -46,7 +46,9 @@ public class TourLogListViewModel implements ITourLogEventListener {
 
     private void setTourLogs(List<TourLogs> tourLogs) {
         observableList.clear();
-        observableList.addAll(tourLogs);
+        if(tourLogs != null){
+            observableList.addAll(tourLogs);
+        }
     }
 
 

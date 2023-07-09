@@ -30,7 +30,9 @@ public class TourListViewModel implements EventListener {
 
     private void setTours(List<Tour> tours) {
         observableList.clear();
-        observableList.addAll(tours);
+        if(tours != null){
+            observableList.addAll(tours);
+        }
     }
 
     public ObservableList<Tour> getObservableTours() {
