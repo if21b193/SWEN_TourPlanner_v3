@@ -13,6 +13,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -28,20 +30,20 @@ public class TourLogListController {
     public Button updateTourLogButton;
     @FXML
     public Button deleteTourLogButton;
+    @FXML
+    public Pane tourLogTable;
+    @FXML
+    public TourLogTableController tourLogTableController;
 
     @FXML
     private ListView<TourLogs> listView;
 
-    private ListView<Tour> tourListView;
-
     private final TourLogListViewModel tourLogListViewModel;
-    private final TourListViewModel tourListViewModel;
 
     private final EventPublisher publisher;
 
-    public TourLogListController(TourLogListViewModel tourLogListViewModel, TourListViewModel tourListViewModel, EventPublisher publisher){
+    public TourLogListController(TourLogListViewModel tourLogListViewModel, EventPublisher publisher){
         this.tourLogListViewModel = tourLogListViewModel;
-        this.tourListViewModel = tourListViewModel;
         this.publisher = publisher;
     }
 
@@ -49,15 +51,9 @@ public class TourLogListController {
         return tourLogListViewModel;
     }
 
-    public void setTourListView(ListView<Tour> listView){
-        this.tourListView = listView;
-    }
-
-
     @FXML
     public void initialize() {
         listView.setItems(tourLogListViewModel.getObservableTourLogs());
-
         listView.setCellFactory(param -> new ListCell<TourLogs>() {
             @Override
             protected void updateItem(TourLogs tourLogs, boolean empty) {
@@ -69,7 +65,6 @@ public class TourLogListController {
                 }
             }
         });
-
     }
 
     private Stage setUpScene(FXMLLoader fxmlLoader){
@@ -87,7 +82,7 @@ public class TourLogListController {
 
     //creating a new window and getting pack the new tourLog so it can be added to the listView
     public void addTourLog(ActionEvent actionEvent) {
-        FXMLLoader loader = FXMLDependencyInjection.getLoader("addTourLogMask.fxml", Locale.GERMAN);
+        FXMLLoader loader = FXMLDependencyInjection.getLoader("View/addTourLogMask.fxml", Locale.GERMAN);
         Stage stage = setUpScene(loader);
         stage.setTitle("Add TourLog");
         stage.showAndWait();
@@ -99,7 +94,6 @@ public class TourLogListController {
         stage.close();
     }
 
-
     public void modifyTourLog(ActionEvent actionEvent) {
         tourLogListViewModel.modifyTourLog(listView.getSelectionModel().getSelectedItem());
     }
@@ -108,6 +102,7 @@ public class TourLogListController {
         tourLogListViewModel.deleteTourLog(listView.getSelectionModel().getSelectedItem());
     }
 
-
-
+    public void fillInTourLogs() {
+        tourLogTableController.addToursFromTour();
+    }
 }

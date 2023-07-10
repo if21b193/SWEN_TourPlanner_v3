@@ -80,7 +80,7 @@ public class TourListController {
 
     public void addTour(ActionEvent actionEvent) {
         //opens up a new window
-        FXMLLoader fxmlLoader = FXMLDependencyInjection.getLoader("addTourMask.fxml", Locale.GERMAN);
+        FXMLLoader fxmlLoader = FXMLDependencyInjection.getLoader("View/addTourMask.fxml", Locale.GERMAN);
         Stage stage = setUpScene(fxmlLoader);
         stage.setTitle("Add a new tour");
         stage.showAndWait();
@@ -110,7 +110,7 @@ public class TourListController {
     public void modifyTour(ActionEvent actionEvent) {
         Tour tour = listView.getSelectionModel().getSelectedItem();
         publisher.publishToSingle(new SharedTourEvent(tour), "UpdateTourViewModel");
-        FXMLLoader fxmlLoader = FXMLDependencyInjection.getLoader("UpdateTourMask.fxml", Locale.GERMAN);
+        FXMLLoader fxmlLoader = FXMLDependencyInjection.getLoader("View/UpdateTourMask.fxml", Locale.GERMAN);
         Stage stage = setUpScene(fxmlLoader);
         stage.setTitle("Modify tour");
         stage.showAndWait();
