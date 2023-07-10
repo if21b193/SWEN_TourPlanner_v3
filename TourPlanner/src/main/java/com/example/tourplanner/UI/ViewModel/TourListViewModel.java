@@ -1,10 +1,12 @@
 package com.example.tourplanner.UI.ViewModel;
 
+import com.example.tourplanner.BL.service.TourLogService;
 import com.example.tourplanner.BL.service.TourService;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventListener;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventPublisher;
 import com.example.tourplanner.UI.ViewModel.ShareData.SharedTourEvent;
 import com.example.tourplanner.models.Tour;
+import com.example.tourplanner.models.TourLogs;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,17 +17,19 @@ import java.util.List;
 
 public class TourListViewModel implements EventListener {
     private final TourService tourService;
+    private final TourLogService tourLogService;
     private AddTourViewModel addTourViewModel;
     private final EventPublisher publisher;
 
     private ObservableList<Tour> observableList = FXCollections.observableArrayList();
 
-    public TourListViewModel(EventPublisher eventPublisher, TourService tourService, AddTourViewModel addTourViewModel){
+    public TourListViewModel(EventPublisher eventPublisher, TourService tourService, TourLogService tourLogService, AddTourViewModel addTourViewModel){
         this.publisher = eventPublisher;
         this.tourService = tourService;
         this.addTourViewModel = addTourViewModel;
         setTours(this.tourService.getAll());
         publisher.addEventListener(this);
+        this.tourLogService = tourLogService;
     }
 
     public void setTours(List<Tour> tours) {
@@ -58,6 +62,10 @@ public class TourListViewModel implements EventListener {
 
     public void modifyTour(Tour tour) {
         setTours(this.tourService.getAll());
+    }
+
+    public List<TourLogs> getTourLogsFromTour(int id) {
+        return tourLogService.getAllFromTour(id);
     }
 
     public interface SelectionChangedListener {

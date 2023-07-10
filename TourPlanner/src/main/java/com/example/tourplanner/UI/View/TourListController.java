@@ -129,7 +129,7 @@ public class TourListController {
     public void generateReportForSelectedTour() {
         Tour selectedTour = listView.getSelectionModel().getSelectedItem();
         if(selectedTour != null) {
-            List<TourLogs> tourLogs = tourLogDao.getAllFromTour(selectedTour.getId());
+            List<TourLogs> tourLogs = tourListViewModel.getTourLogsFromTour(selectedTour.getId());
             try {
                 reportService.generateReport(selectedTour, tourLogs);
             } catch (IOException e) {

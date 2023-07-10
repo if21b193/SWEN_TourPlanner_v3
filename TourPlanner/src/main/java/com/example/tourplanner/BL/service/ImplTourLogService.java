@@ -28,4 +28,9 @@ public class ImplTourLogService implements TourLogService {
     public void update(TourLogs tourLogs) {
         tourLogDao.update(tourLogs);
     }
+
+    @Override
+    public List<TourLogs> getAllFromTour(int tourID) {
+        return tourLogDao.getAllFromTour(tourID);
+    }
 }

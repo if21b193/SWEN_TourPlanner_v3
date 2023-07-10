@@ -10,4 +10,5 @@ public interface TourLogService {
     void create(TourLogs tourLogs);
     void delete(TourLogs tourLogs);
     void update(TourLogs tourLogs);
+    List<TourLogs> getAllFromTour(int tourID);
 }

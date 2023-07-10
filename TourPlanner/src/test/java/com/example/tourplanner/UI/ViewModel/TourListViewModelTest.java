@@ -1,5 +1,6 @@
 package com.example.tourplanner.UI.ViewModel;
 
+import com.example.tourplanner.BL.service.TourLogService;
 import com.example.tourplanner.BL.service.TourService;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventPublisher;
 import com.example.tourplanner.models.Tour;
@@ -26,12 +27,14 @@ class TourListViewModelTest {
     private AddTourViewModel mockAddTourViewModel;
     @Mock
     private ObservableList<Tour> mockObservableList;
+    @Mock
+    private TourLogService mockTourLogService;
 
 
     @BeforeEach
     public void setUp(){
         MockitoAnnotations.openMocks(this);
-        tourListViewModel = new TourListViewModel(mockEventPublisher, mockTourService, mockAddTourViewModel);
+        tourListViewModel = new TourListViewModel(mockEventPublisher, mockTourService, mockTourLogService, mockAddTourViewModel);
         tours = Arrays.asList(new Tour(), new Tour(), new Tour());
     }
 

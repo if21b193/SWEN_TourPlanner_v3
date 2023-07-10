@@ -28,6 +28,7 @@ public class ControllerFactory {
     private final TourLogDao tourLogDao;
     private final TourCSVExportController tourCSVExportController;
     private final TourCSVImportController tourCSVImportController;
+    private final TourLogTableViewModel tourLogTableViewModel;
 
 
     public ControllerFactory(){
@@ -37,7 +38,7 @@ public class ControllerFactory {
         ImplTourLogService tourLogService = new ImplTourLogService();
         this.addTourViewModel = new AddTourViewModel(implTourService);
         this.updateTourViewModel = new UpdateTourViewModel(eventPublisher, implTourService);
-        this.tourListViewModel = new TourListViewModel(eventPublisher, implTourService, addTourViewModel);
+        this.tourListViewModel = new TourListViewModel(eventPublisher, implTourService, tourLogService, addTourViewModel);
         this.mainWindowViewModel = new MainWindowViewModel(tourListViewModel, addTourViewModel);
         this.addTourLogViewModel = new AddTourLogViewModel(eventPublisher, tourLogEventPublisher, tourLogService);
         this.tourLogListViewModel = new TourLogListViewModel(tourLogEventPublisher, tourLogService, addTourLogViewModel);
@@ -48,6 +49,7 @@ public class ControllerFactory {
         this.tourLogDao = new TourLogDao();
         this.tourCSVExportController = new TourCSVExportController();
         this.tourCSVImportController = new TourCSVImportController();
+        this.tourLogTableViewModel = new TourLogTableViewModel(eventPublisher);
     }
 
     public Object create(Class<?> controllerClass){
@@ -71,8 +73,10 @@ public class ControllerFactory {
             return new DetailsController();
         } if(controllerClass == TourCSVExportController.class){
             return new TourCSVExportController();
-        } if (controllerClass ==  TourCSVImportController.class){
+        } if(controllerClass == TourCSVImportController.class){
             return new TourCSVImportController();
+        } if(controllerClass == TourLogTableController.class){
+            return new TourLogTableController(tourLogTableViewModel);
         }
         throw new IllegalArgumentException("Unknown controller class: "+ controllerClass);
     }
