@@ -1,11 +1,13 @@
 package com.example.tourplanner.UI.View;
 
+import com.example.tourplanner.BL.service.CalculateTimeFromSeconds;
 import com.example.tourplanner.UI.ViewModel.TourDetailsViewModel;
 import com.example.tourplanner.models.Tour;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 import java.text.DecimalFormat;
+import java.util.concurrent.TimeUnit;
 
 public class TourDetailsController {
     @FXML
@@ -38,7 +40,7 @@ public class TourDetailsController {
     public void fillInTourDetails() {
         Tour tour = tourDetailsViewModel.getSelectedTour();
 
-        DecimalFormat decimalFormat = new DecimalFormat("#.###");
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
         tourName.setText(tour.getName());
         fromInsert.setText(tour.getFrom().replace("+", " "));
@@ -47,7 +49,7 @@ public class TourDetailsController {
         descriptionInsert.setText(tour.getDescription());
         accessibilityInsert.setText(Tour.calculateAccessibility(tour.getTransportType(), (float) tour.getDistance()));
         childFriendlinessInsert.setText(tour.calculateChildFriendliness((float) tour.getDistance()));
-        timeInsert.setText(tour.getEstimatedTime());
+        timeInsert.setText(CalculateTimeFromSeconds.getTimeInfo(tour.getEstimatedTime()));
         distanceInsert.setText(decimalFormat.format(tour.getDistance()) + " km");
     }
 

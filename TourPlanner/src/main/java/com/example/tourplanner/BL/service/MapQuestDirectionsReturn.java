@@ -1,4 +1,4 @@
-package com.example.tourplanner.models;
+package com.example.tourplanner.BL.service;
 
 public class MapQuestDirectionsReturn {
     private Float distance;

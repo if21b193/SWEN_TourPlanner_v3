@@ -18,5 +18,6 @@ module com.example.tourplanner {
     opens com.example.tourplanner to javafx.fxml;
     exports com.example.tourplanner;
     opens com.example.tourplanner.models to org.hibernate.orm.core;
+    opens com.example.tourplanner.BL.service to org.hibernate.orm.core;
 
 }

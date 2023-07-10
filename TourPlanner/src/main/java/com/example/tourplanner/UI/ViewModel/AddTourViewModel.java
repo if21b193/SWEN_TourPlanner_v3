@@ -2,15 +2,10 @@ package com.example.tourplanner.UI.ViewModel;
 
 import com.example.tourplanner.BL.service.TourService;
 import com.example.tourplanner.DAL.dal.Repository.MapQuestDirectionsAPI;
-import com.example.tourplanner.UI.ViewModel.ShareData.EventPublisher;
-import com.example.tourplanner.models.MapQuestDirectionsReturn;
+import com.example.tourplanner.BL.service.MapQuestDirectionsReturn;
 import com.example.tourplanner.models.Tour;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 
 import java.io.IOException;
-import java.util.Locale;
-import java.util.Map;
 
 public class AddTourViewModel {
 

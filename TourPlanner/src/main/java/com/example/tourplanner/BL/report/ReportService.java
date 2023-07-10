@@ -1,5 +1,6 @@
 package com.example.tourplanner.BL.report;
 
+import com.example.tourplanner.BL.service.CalculateTimeFromSeconds;
 import com.example.tourplanner.DAL.dal.Repository.MapQuestStaticImageAPI;
 import com.example.tourplanner.models.Tour;
 
@@ -12,6 +13,7 @@ import com.example.tourplanner.models.TourLogs;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.List;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -30,6 +32,7 @@ public class ReportService {
     }
     public void generateReport(Tour tour, List<TourLogs> tourLogs) throws IOException {
         logger.info("Generating report for tour: {}", tour.getName());
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
         try (PDDocument document = new PDDocument()) {
             PDPage page = new PDPage();
             document.addPage(page);
@@ -56,15 +59,15 @@ public class ReportService {
             contentStream.newLineAtOffset(0, -15);
             contentStream.showText("Description: " + tour.getDescription());
             contentStream.newLineAtOffset(0, -15);
-            contentStream.showText("Start Location: " + tour.getFrom());
+            contentStream.showText("Start Location: " + tour.getFrom().replace("+", " "));
             contentStream.newLineAtOffset(0, -15);
-            contentStream.showText("End Location: " + tour.getTo());
+            contentStream.showText("End Location: " + tour.getTo().replace("+", " "));
             contentStream.newLineAtOffset(0, -15);
             contentStream.showText("Transport Type: " + tour.getTransportType());
             contentStream.newLineAtOffset(0, -15);
-            contentStream.showText("Distance: " + tour.getDistance());
+            contentStream.showText("Distance: " + decimalFormat.format(tour.getDistance())  + " km");
             contentStream.newLineAtOffset(0, -15);
-            contentStream.showText("Estimated Time: " + tour.getEstimatedTime());
+            contentStream.showText("Estimated Time: " + CalculateTimeFromSeconds.getTimeInfo(tour.getEstimatedTime()));
             contentStream.newLineAtOffset(0, -15);
             contentStream.showText("Route Info: " + tour.getRouteInfo());
             contentStream.newLineAtOffset(0, -15);

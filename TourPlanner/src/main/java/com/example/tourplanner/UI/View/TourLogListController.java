@@ -45,13 +45,14 @@ public class TourLogListController {
         this.publisher = publisher;
     }
 
+    public TourLogListViewModel getTourLogListViewModel(){
+        return tourLogListViewModel;
+    }
+
     public void setTourListView(ListView<Tour> listView){
         this.tourListView = listView;
     }
 
-    public TourLogListViewModel getTourLogListViewViewModel(){
-        return this.tourLogListViewModel;
-    }
 
     @FXML
     public void initialize() {

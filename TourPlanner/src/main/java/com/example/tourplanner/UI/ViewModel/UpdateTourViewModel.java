@@ -5,13 +5,12 @@ import com.example.tourplanner.DAL.dal.Repository.MapQuestDirectionsAPI;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventListener;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventPublisher;
 import com.example.tourplanner.UI.ViewModel.ShareData.SharedTourEvent;
-import com.example.tourplanner.models.MapQuestDirectionsReturn;
+import com.example.tourplanner.BL.service.MapQuestDirectionsReturn;
 import com.example.tourplanner.models.Tour;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.io.IOException;
-import java.util.Map;
 
 public class UpdateTourViewModel implements EventListener {
     StringProperty  name = new SimpleStringProperty();

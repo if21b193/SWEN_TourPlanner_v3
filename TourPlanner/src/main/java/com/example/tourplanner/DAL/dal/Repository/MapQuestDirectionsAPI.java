@@ -2,7 +2,7 @@ package com.example.tourplanner.DAL.dal.Repository;
 
 import com.example.tourplanner.DAL.dal.config.HibernateUtil;
 import com.example.tourplanner.DAL.dal.config.HttpClientSingleton;
-import com.example.tourplanner.models.MapQuestDirectionsReturn;
+import com.example.tourplanner.BL.service.MapQuestDirectionsReturn;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;

@@ -70,8 +70,8 @@ public class TourListController {
 
         //make sure selection is usable in this list
         listView.getSelectionModel().selectedItemProperty().addListener(tourListViewModel.getChangeListener());
-        //send out an event whenever selection is changed, so the AddTourLogViewModel knows which tour it is supposed to work with
 
+        //send out an event whenever selection is changed, so the AddTourLogViewModel knows which tour it is supposed to work with
         //TODO: Still needs work to figure out whether there's a more elegant solution
         listView.getSelectionModel().selectedItemProperty().addListener((observableValue, tour, t1) -> {
             publisher.publishEvent(new SharedTourEvent(t1));

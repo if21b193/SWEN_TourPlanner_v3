@@ -24,9 +24,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         TourLogDao tourLogDao = new TourLogDao();
-
         Parent root =FXMLDependencyInjection.load("MainWindow.fxml", Locale.GERMAN);
-
         Scene scene = new Scene(root, 600, 700);
         primaryStage.setTitle("Tourplanner");
         primaryStage.setScene(scene);

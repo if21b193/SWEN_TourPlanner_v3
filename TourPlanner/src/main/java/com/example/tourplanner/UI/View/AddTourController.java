@@ -34,8 +34,6 @@ public class AddTourController {
         this.addTourViewModel = addTourViewModel;
     }
 
-    //TODO: LOOK INTO WHY BINDING DIDN'T WORK
-
     private void initialize(){
     }
 
