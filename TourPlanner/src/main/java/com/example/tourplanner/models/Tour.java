@@ -134,7 +134,7 @@ public class Tour {
     public static String calculateAccessibility(String transportation, float distance) {
         logger.info("Calculating accessibility for transportation {} and distance {}", transportation, distance);
 
-        if (transportation.equals("by car") || transportation.equals("fastest")) {
+        if (transportation.equals("fastest")) {
             if (distance < 5.00f) {
                 return "Very High Accessibility";
             } else if (distance < 7.00f) {

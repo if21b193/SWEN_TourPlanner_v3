@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="TourLogTable works and shows the correct TourLogs to the corresponding tour when re-loading the tab">
-      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/updateTourLogMask.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8494843f-16f5-4851-9645-a73208aee948.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/AddTourLogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/AddTourLogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/ControllerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/ControllerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogTableController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogTableViewEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogTableViewEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/UpdateTourLogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/UpdateTourLogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/TourLogTableViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/TourLogTableViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/UpdateTourLogViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/UpdateTourLogViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/UpdateTourViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/UpdateTourViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourLogList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourLogList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourLogTable.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourLogTable.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/addTourLogMask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/addTourLogMask.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/updateTourMask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/updateTourMask.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,6 +246,7 @@
       <workItem from="1689000750463" duration="2738000" />
       <workItem from="1689003714696" duration="7377000" />
       <workItem from="1689011107710" duration="8701000" />
+      <workItem from="1689115300216" duration="1235000" />
     </task>
     <task id="LOCAL-00001" summary="design update">
       <created>1686757115641</created>
@@ -619,11 +608,6 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="6df7cdda-5060-47d3-b980-70fe1ba316d6" value="TOOL_WINDOW" />
-      </map>
-    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="6df7cdda-5060-47d3-b980-70fe1ba316d6">
@@ -648,6 +632,11 @@
             </State>
           </value>
         </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="6df7cdda-5060-47d3-b980-70fe1ba316d6" value="TOOL_WINDOW" />
       </map>
     </option>
   </component>
