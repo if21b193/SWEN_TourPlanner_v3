@@ -6,6 +6,7 @@
 
 <VBox fx:id="tourLogView" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.tourplanner.UI.View.TourLogListController">
     <ListView fx:id="listView" VBox.vgrow="SOMETIMES"/>
+    <fx:include source="TourLogTable.fxml" fx:id="tourLogTable"/>
 
     <HBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml">
         <Button text="Add TourLog" fx:id="addTourLogButton" onAction="#addTourLog" />

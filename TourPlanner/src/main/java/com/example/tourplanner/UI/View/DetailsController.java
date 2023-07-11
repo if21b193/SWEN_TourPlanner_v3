@@ -38,7 +38,7 @@ public class DetailsController {
 
     private void handleTabSelection(Tab t1) {
         if(t1.getText().equals("TourLogs")){
-            //
+            tourLogListController.fillInTourLogs();
         } else if(t1.getText().equals("TourDetails")){
             tourDetailsController.fillInTourDetails();
         } else if(t1.getText().equals("Map")){

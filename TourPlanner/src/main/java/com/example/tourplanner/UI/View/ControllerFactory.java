@@ -37,6 +37,7 @@ public class ControllerFactory {
         TourLogEventPublisher tourLogEventPublisher = new TourLogEventPublisher();
         ImplTourLogService tourLogService = new ImplTourLogService();
         this.addTourViewModel = new AddTourViewModel(implTourService);
+        this.tourLogTableViewModel = new TourLogTableViewModel(eventPublisher, tourLogService);
         this.updateTourViewModel = new UpdateTourViewModel(eventPublisher, implTourService);
         this.tourListViewModel = new TourListViewModel(eventPublisher, implTourService, tourLogService, addTourViewModel);
         this.mainWindowViewModel = new MainWindowViewModel(tourListViewModel, addTourViewModel);
@@ -49,7 +50,6 @@ public class ControllerFactory {
         this.tourLogDao = new TourLogDao();
         this.tourCSVExportController = new TourCSVExportController();
         this.tourCSVImportController = new TourCSVImportController();
-        this.tourLogTableViewModel = new TourLogTableViewModel(eventPublisher);
     }
 
     public Object create(Class<?> controllerClass){
@@ -62,7 +62,7 @@ public class ControllerFactory {
         } if(controllerClass == UpdateTourController.class){
             return new UpdateTourController(this.updateTourViewModel);
         } if(controllerClass == TourLogListController.class){
-            return new TourLogListController(this.tourLogListViewModel, this.tourListViewModel, eventPublisher);
+            return new TourLogListController(this.tourLogListViewModel, eventPublisher);
         } if(controllerClass == AddTourLogController.class) {
             return new AddTourLogController(this.addTourLogViewModel);
         } if(controllerClass == TourDetailsController.class){

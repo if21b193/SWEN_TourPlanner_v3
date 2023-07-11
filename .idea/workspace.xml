@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="Report and Details now show Time and Distance in format">
+    <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="Making the whole thing runnable again after changing some filepaths">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/ControllerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/ControllerFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/DetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/DetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogTableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogTableViewEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogTableViewEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/TourLogTableViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/TourLogTableViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourLogList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourLogList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourLogTable.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourLogTable.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,11 +117,11 @@
       <recent name="C:\Users\mprue\Documents\Studium\4_Semester_Sommer23\SWEN\SWEN_TourPlanner21\SWEN_TourPlanner2\TourPlanner\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mprue\Documents\Studium\4_Semester_Sommer23\SWEN\SWEN_TourPlanner_TijanasWork\why\SWEN_TourPlanner_v3\TourPlanner\src\main\resources\com\example\tourplanner\View" />
       <recent name="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/" />
       <recent name="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/stylesheets" />
       <recent name="C:\Users\mprue\Documents\Studium\4_Semester_Sommer23\SWEN\SWEN_TourPlanner_Hibernate\SWEN_TourPlannerDB\TourPlanner\src\main\resources\com\example\tourplanner" />
       <recent name="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner" />
-      <recent name="$PROJECT_DIR$/TourPlanner/src/main/java/com" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -242,6 +250,8 @@
       <workItem from="1688968688655" duration="2968000" />
       <workItem from="1688972642561" duration="405000" />
       <workItem from="1689000750463" duration="2738000" />
+      <workItem from="1689003714696" duration="7377000" />
+      <workItem from="1689011107710" duration="1447000" />
     </task>
     <task id="LOCAL-00001" summary="design update">
       <created>1686757115641</created>
@@ -556,7 +566,39 @@
       <option name="project" value="LOCAL" />
       <updated>1689003262284</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="restructured a bit for readibility">
+      <option name="closed" value="true" />
+      <created>1689005923722</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1689005923722</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Working on TourLogTable classes and implementing a more accurate way for the layers">
+      <option name="closed" value="true" />
+      <created>1689005979200</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1689005979200</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Making the whole thing runnable again after changing some filepaths">
+      <option name="closed" value="true" />
+      <created>1689008191983</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1689008191983</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Making the whole thing runnable again after changing some filepaths">
+      <option name="closed" value="true" />
+      <created>1689010993566</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1689010993566</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -596,9 +638,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cleanup, restructuring, basic first setup for mapquest APIs" />
-    <MESSAGE value="added in fxml files" />
-    <MESSAGE value="made it runnable again" />
     <MESSAGE value="connected UI and DAL, now tours get shown" />
     <MESSAGE value="added functionality to the controllers" />
     <MESSAGE value="adding a tour works to the database and with api request" />
@@ -621,7 +660,10 @@
     <MESSAGE value="added UnitTests for the TourListViewModel" />
     <MESSAGE value="made MapQuestDirectionsAPI return km instead of miles and added some formations in TourDetailsController" />
     <MESSAGE value="Report and Details now show Time and Distance in format" />
-    <option name="LAST_COMMIT_MESSAGE" value="Report and Details now show Time and Distance in format" />
+    <MESSAGE value="restructured a bit for readibility" />
+    <MESSAGE value="Working on TourLogTable classes and implementing a more accurate way for the layers" />
+    <MESSAGE value="Making the whole thing runnable again after changing some filepaths" />
+    <option name="LAST_COMMIT_MESSAGE" value="Making the whole thing runnable again after changing some filepaths" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -634,11 +676,6 @@
           <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/AddTourViewModel.java</url>
           <line>30</line>
           <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/TourLogListViewModel.java</url>
-          <line>94</line>
-          <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/DetailsController.java</url>
@@ -659,6 +696,21 @@
           <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/DetailsController.java</url>
           <line>33</line>
           <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogTableController.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogTableController.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/TourLogTableViewModel.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="92" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

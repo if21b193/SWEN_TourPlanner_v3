@@ -84,18 +84,4 @@ public class TourLogListViewModel implements ITourLogEventListener {
     public ObservableList<TourLogs> getObservableTourLogs() {
         return observableList;
     }
-
-    /*public interface SelectionChangedListener {
-        void changeSelection(Tour tour);
-    }
-    private List<TourLogListViewModel.SelectionChangedListener> listeners = new ArrayList<>();
-
-    private void notifyListeners(Tour newTour){
-        for (var listener : listeners){
-            listener.changeSelection(newTour);
-        }
-    }
-    public ChangeListener<Tour> getChangeListener(){
-        return((observableValue, tourLog, tl1) -> notifyListeners(tourLog));
-    }*/
 }
