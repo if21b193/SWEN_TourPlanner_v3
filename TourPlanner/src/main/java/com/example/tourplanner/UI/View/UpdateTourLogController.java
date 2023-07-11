@@ -1,81 +1,87 @@
-/*package com.example.tourplanner.UI.View;
+package com.example.tourplanner.UI.View;
 
 import com.example.tourplanner.UI.ViewModel.UpdateTourLogViewModel;
 import com.example.tourplanner.UI.ViewModel.UpdateTourViewModel;
 import com.example.tourplanner.models.Tour;
-import com.example.tourplanner.models.TourLog;
+import com.example.tourplanner.models.TourLogs;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.sql.Date;
 
 public class UpdateTourLogController {
 
-        private Stage stage;
-        @FXML
-        public Button cancel;
+    private Stage stage;
+    @FXML
+    public DatePicker datePicker;
+    @FXML
+    public TextField comment;
+    @FXML
+    public ChoiceBox<String> difficulty;
+    @FXML
+    public TextField totalTime;
+    @FXML
+    public ChoiceBox<String> rating;
+    @FXML
+    public Button saveTourLog;
+    @FXML
+    public Button cancel;
+    private static TourLogs tourLog;
 
-        @FXML
-        public ChoiceBox<Float> difficulty;
-        @FXML
-        public ChoiceBox<Float> rating;
+    private final UpdateTourLogViewModel updateTourLogViewModel;
+    public UpdateTourLogController(UpdateTourLogViewModel updateTourLogViewModel) {
+        this.updateTourLogViewModel = updateTourLogViewModel;
+    }
 
-        @FXML
-        public TextField comment;
-
-        @FXML
-        public TextField dateTime;
-        @FXML
-        public TextField totalTime;
-
-        private final UpdateTourLogViewModel updateTourLogViewModel;
-
-        public UpdateTourLogController(UpdateTourLogViewModel updateTourLogViewModel) {
-            this.updateTourLogViewModel = updateTourLogViewModel;
+    @FXML
+    public void initialize(){
+        datePicker.valueProperty().bindBidirectional(updateTourLogViewModel.dateProperty());
+        comment.textProperty().bindBidirectional(updateTourLogViewModel.commentProperty());
+        difficulty.valueProperty().bindBidirectional(updateTourLogViewModel.difficultyProperty());
+        totalTime.textProperty().bindBidirectional(updateTourLogViewModel.totalTimeProperty());
+        rating.valueProperty().bindBidirectional(updateTourLogViewModel.ratingProperty());
+        TourLogs tourLog = updateTourLogViewModel.getTourLog();
+        if(tourLog != null){
+            fillInTourLogData(tourLog);
         }
+    }
 
-        public void initialize(){
-            difficulty.valueProperty().bindBidirectional(updateTourLogViewModel.difficultyProperty());
-            rating.valueProperty().bindBidirectional(updateTourLogViewModel.ratingProperty());
-            comment.textProperty().bindBidirectional(updateTourLogViewModel.commentProperty());
-            dateTime.textProperty().bindBidirectional(updateTourLogViewModel.dateTimeProperty());
-            totalTime.textProperty().bindBidirectional(updateTourLogViewModel.totalTimeProperty());
-            TourLog tourLog = updateTourLogViewModel.getSelectedTourLog();
-            if(tourLog != null){
-                fillInTourLogData(tourLog);
-            }
+    private void fillInTourLogData(TourLogs tourLog) {
+        datePicker.setValue(tourLog.getDateTime().toLocalDate());
+        comment.setText(tourLog.getComment());
+        difficulty.setValue(String.valueOf(tourLog.getDifficulty()));
+        totalTime.setText(tourLog.getTotalTime());
+        rating.setValue(String.valueOf(tourLog.getRating()));
+    }
 
-        }
+    public void saveTourLog(ActionEvent actionEvent) {
+        Date date = Date.valueOf(datePicker.getValue());
+        String commentary = comment.getText();
+        Float difficultyInput = Float.parseFloat(difficulty.getValue());
+        String time = totalTime.getText();
+        Float ratingInput = Float.parseFloat(rating.getValue());
+        tourLog = updateTourLogViewModel.saveTourLog(date, commentary, difficultyInput, time, ratingInput);
+        close();
+    }
 
-        private void fillInTourLogData(TourLog tourLog) {
-            difficulty.setValue(tourLog.getDifficulty());
-            rating.setValue(tourLog.getRating());
-            comment.setText(tourLog.getComment());
-            dateTime.setText(tourLog.getDateTime());
-            totalTime.setText(tourLog.getTotalTime());
-        }
+    private void close(){
+        Stage stage = (Stage) saveTourLog.getScene().getWindow();
+        stage.close();
+    }
 
-        public void saveTourLog(ActionEvent actionEvent) throws IOException {
-            String commentText = comment.getText();
-            String dateTimeValue = dateTime.getText();
-            String ratingValue = rating.getValue().toString();
-            String difficultyValue = difficulty.getValue().toString();
-            String totalTimeValue = totalTime.getText();
-            updateTourLogViewModel.saveTourLog(commentText, dateTimeValue, ratingValue, difficultyValue, totalTimeValue);
-            close();
-        }
+    public void closeWindow(ActionEvent actionEvent) {
+        close();
+    }
 
-        private void close(){
-            Stage stage = (Stage) modifyTourLog.getScene().getWindow();
-            stage.close();
-        }
-        public void closeWindow(ActionEvent actionEvent) {
-            close();
-        }
+    public TourLogs getTourLog(){
+        return tourLog;
+    }
 }
-*/
 

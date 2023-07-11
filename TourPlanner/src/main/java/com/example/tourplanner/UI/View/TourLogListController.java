@@ -27,20 +27,16 @@ public class TourLogListController {
     @FXML
     public Button addTourLogButton;
     @FXML
-    public Button updateTourLogButton;
-    @FXML
     public Button deleteTourLogButton;
     @FXML
     public Pane tourLogTable;
     @FXML
     public TourLogTableController tourLogTableController;
 
-    @FXML
-    private ListView<TourLogs> listView;
-
     private final TourLogListViewModel tourLogListViewModel;
 
     private final EventPublisher publisher;
+    public Button modifyTourLog;
 
     public TourLogListController(TourLogListViewModel tourLogListViewModel, EventPublisher publisher){
         this.tourLogListViewModel = tourLogListViewModel;
@@ -53,53 +49,21 @@ public class TourLogListController {
 
     @FXML
     public void initialize() {
-        listView.setItems(tourLogListViewModel.getObservableTourLogs());
-        listView.setCellFactory(param -> new ListCell<TourLogs>() {
-            @Override
-            protected void updateItem(TourLogs tourLogs, boolean empty) {
-                super.updateItem(tourLogs, empty);
-                if (empty || tourLogs == null) {
-                    setText(null);
-                } else {
-                    setText(tourLogs.getTour_id().toString());
-                }
-            }
-        });
     }
 
-    private Stage setUpScene(FXMLLoader fxmlLoader){
-        Scene newScene;
-        try {
-            newScene = new Scene(fxmlLoader.load());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        Stage newStage = new Stage();
-        newStage.initOwner(listView.getScene().getWindow());
-        newStage.setScene(newScene);
-        return newStage;
-    }
+
 
     //creating a new window and getting pack the new tourLog so it can be added to the listView
     public void addTourLog(ActionEvent actionEvent) {
-        FXMLLoader loader = FXMLDependencyInjection.getLoader("View/addTourLogMask.fxml", Locale.GERMAN);
-        Stage stage = setUpScene(loader);
-        stage.setTitle("Add TourLog");
-        stage.showAndWait();
-        TourLogs tourLogs = loader.<AddTourLogController>getController().getTourLog();
-        if(tourLogs != null){
-            tourLogListViewModel.addTourLog(tourLogs);
-        }
-        listView.getSelectionModel().selectLast();
-        stage.close();
+        tourLogTableController.addTourLog();
     }
 
     public void modifyTourLog(ActionEvent actionEvent) {
-        tourLogListViewModel.modifyTourLog(listView.getSelectionModel().getSelectedItem());
+        tourLogTableController.modifyTourLog();
     }
 
     public void deleteTourLog(ActionEvent actionEvent) {
-        tourLogListViewModel.deleteTourLog(listView.getSelectionModel().getSelectedItem());
+        tourLogTableController.deleteTourLog();
     }
 
     public void fillInTourLogs() {

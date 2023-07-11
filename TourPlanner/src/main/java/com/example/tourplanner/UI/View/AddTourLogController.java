@@ -49,7 +49,7 @@ public class AddTourLogController {
 
             clearTextFields();
         } catch (IOException e) {
-            System.out.println("Error miss girl" + e);
+            e.printStackTrace();
         }
 
 

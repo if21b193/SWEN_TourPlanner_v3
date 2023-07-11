@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.*?>
 
 <VBox fx:id="tourLogView" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.tourplanner.UI.View.TourLogListController">
-    <ListView fx:id="listView" VBox.vgrow="SOMETIMES"/>
     <fx:include source="TourLogTable.fxml" fx:id="tourLogTable"/>
 
     <HBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml">
         <Button text="Add TourLog" fx:id="addTourLogButton" onAction="#addTourLog" />
+        <Button text="Update TourLog" fx:id="modifyTourLog" onAction="#modifyTourLog" />
         <Button text="Delete TourLog" fx:id="deleteTourLogButton" onAction="#deleteTourLog"/>
     </HBox>
 </VBox>

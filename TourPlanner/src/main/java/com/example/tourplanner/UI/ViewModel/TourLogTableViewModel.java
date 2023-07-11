@@ -23,18 +23,25 @@ public class TourLogTableViewModel implements EventListener {
         this.publisher.addEventListener(this);
         this.tourLogService = tourLogService;
     }
+
+    public TourLogs getTourLogById(String id) {
+        return tourLogService.getById(Integer.parseInt(id));
+    }
+
     @Override
     public void updateFromDb(SharedTourEvent event) {
         tour = event.returnTour();
         setTourLogListToTour(tour);
     }
+
     private void setTourLogListToTour(Tour tour) {
         tourLogEntries.clear();
         List<TourLogs> logs = tourLogService.getAllFromTour(tour.getId());
         for(TourLogs log : logs){
-            tourLogEntries.add(new TourLogTableViewEntry(log.getDateTime(), log.getComment(), log.getDifficulty(), log.getTotalTime(), log.getRating()));
+            tourLogEntries.add(getEntryFromTourLog(log));
         }
     }
+
     public ObservableList<TourLogTableViewEntry> getTourLogEntries(){
         return tourLogEntries;
     }
@@ -42,8 +49,15 @@ public class TourLogTableViewModel implements EventListener {
         List<TourLogs> logs = tourLogService.getAllFromTour(tour.getId());
         List<TourLogTableViewEntry> tourLogEntry = new ArrayList<>();
         for(TourLogs log : logs){
-            tourLogEntry.add(new TourLogTableViewEntry(log.getDateTime(), log.getComment(), log.getDifficulty(), log.getTotalTime(), log.getRating()));
+            tourLogEntry.add(getEntryFromTourLog(log));
         }
         return tourLogEntry;
+    }
+
+    public TourLogTableViewEntry getEntryFromTourLog(TourLogs log) {
+        return new TourLogTableViewEntry(log.getId(), log.getDateTime(), log.getComment(), log.getDifficulty(), log.getTotalTime(), log.getRating());
+    }
+
+    public void modifyTourLog() {
     }
 }

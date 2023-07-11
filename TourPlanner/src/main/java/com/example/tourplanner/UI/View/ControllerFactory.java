@@ -29,12 +29,15 @@ public class ControllerFactory {
     private final TourCSVExportController tourCSVExportController;
     private final TourCSVImportController tourCSVImportController;
     private final TourLogTableViewModel tourLogTableViewModel;
+    private final UpdateTourLogViewModel updateTourLogViewModel;
+
+    private final TourLogEventPublisher tourLogEventPublisher;
 
 
     public ControllerFactory(){
         ImplTourService implTourService = new ImplTourService();
         this.eventPublisher = new EventPublisher();
-        TourLogEventPublisher tourLogEventPublisher = new TourLogEventPublisher();
+        this.tourLogEventPublisher = new TourLogEventPublisher();
         ImplTourLogService tourLogService = new ImplTourLogService();
         this.addTourViewModel = new AddTourViewModel(implTourService);
         this.tourLogTableViewModel = new TourLogTableViewModel(eventPublisher, tourLogService);
@@ -50,6 +53,7 @@ public class ControllerFactory {
         this.tourLogDao = new TourLogDao();
         this.tourCSVExportController = new TourCSVExportController();
         this.tourCSVImportController = new TourCSVImportController();
+        this.updateTourLogViewModel = new UpdateTourLogViewModel(tourLogEventPublisher, tourLogService);
     }
 
     public Object create(Class<?> controllerClass){
@@ -76,7 +80,9 @@ public class ControllerFactory {
         } if(controllerClass == TourCSVImportController.class){
             return new TourCSVImportController();
         } if(controllerClass == TourLogTableController.class){
-            return new TourLogTableController(tourLogTableViewModel);
+            return new TourLogTableController(tourLogTableViewModel, tourLogEventPublisher);
+        } if(controllerClass == UpdateTourLogController.class){
+            return new UpdateTourLogController(updateTourLogViewModel);
         }
         throw new IllegalArgumentException("Unknown controller class: "+ controllerClass);
     }

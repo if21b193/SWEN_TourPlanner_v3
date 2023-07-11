@@ -4,16 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="Making the whole thing runnable again after changing some filepaths">
+    <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="TourLogTable works and shows the correct TourLogs to the corresponding tour when re-loading the tab">
+      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/updateTourLogMask.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/AddTourLogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/AddTourLogController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/ControllerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/ControllerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/DetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/DetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogListController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogTableController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogTableViewEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogTableViewEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/UpdateTourLogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/UpdateTourLogController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/TourLogTableViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/TourLogTableViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/UpdateTourLogViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/UpdateTourLogViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/UpdateTourViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/UpdateTourViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourLogList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourLogList.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourLogTable.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourLogTable.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/addTourLogMask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/addTourLogMask.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/updateTourMask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/updateTourMask.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,10 +32,10 @@
         <option value="AnnotationType" />
         <option value="Interface" />
         <option value="Tag Library Descriptor" />
-        <option value="FxmlFile" />
         <option value="CSS File" />
         <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -251,7 +257,7 @@
       <workItem from="1688972642561" duration="405000" />
       <workItem from="1689000750463" duration="2738000" />
       <workItem from="1689003714696" duration="7377000" />
-      <workItem from="1689011107710" duration="1447000" />
+      <workItem from="1689011107710" duration="8701000" />
     </task>
     <task id="LOCAL-00001" summary="design update">
       <created>1686757115641</created>
@@ -598,7 +604,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689010993566</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="TourLogTable works and shows the correct TourLogs to the corresponding tour when re-loading the tab">
+      <option name="closed" value="true" />
+      <created>1689066752512</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1689066752512</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,7 +652,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="connected UI and DAL, now tours get shown" />
     <MESSAGE value="added functionality to the controllers" />
     <MESSAGE value="adding a tour works to the database and with api request" />
     <MESSAGE value="adding a tour now shows up after a bit without having to restart everything" />
@@ -663,7 +676,8 @@
     <MESSAGE value="restructured a bit for readibility" />
     <MESSAGE value="Working on TourLogTable classes and implementing a more accurate way for the layers" />
     <MESSAGE value="Making the whole thing runnable again after changing some filepaths" />
-    <option name="LAST_COMMIT_MESSAGE" value="Making the whole thing runnable again after changing some filepaths" />
+    <MESSAGE value="TourLogTable works and shows the correct TourLogs to the corresponding tour when re-loading the tab" />
+    <option name="LAST_COMMIT_MESSAGE" value="TourLogTable works and shows the correct TourLogs to the corresponding tour when re-loading the tab" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -698,19 +712,65 @@
           <option name="timeStamp" value="80" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogTableController.java</url>
+          <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/UpdateTourLogViewModel.java</url>
           <line>50</line>
-          <option name="timeStamp" value="89" />
+          <option name="timeStamp" value="94" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourLogTableController.java</url>
+          <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/UpdateTourLogViewModel.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/UpdateTourLogViewModel.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/UpdateTourLogController.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/UpdateTourLogController.java</url>
           <line>51</line>
-          <option name="timeStamp" value="90" />
+          <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/TourLogTableViewModel.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="92" />
+          <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/UpdateTourLogController.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/UpdateTourController.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/UpdateTourController.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/UpdateTourLogController.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/UpdateTourLogController.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/UpdateTourController.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/UpdateTourLogViewModel.java</url>
+          <line>18</line>
+          <properties field="tourLog" class="com.example.tourplanner.UI.ViewModel.UpdateTourLogViewModel" />
+          <option name="timeStamp" value="93" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

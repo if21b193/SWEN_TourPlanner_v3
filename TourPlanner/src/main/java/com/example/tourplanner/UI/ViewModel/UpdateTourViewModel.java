@@ -18,8 +18,8 @@ public class UpdateTourViewModel implements EventListener {
     StringProperty start = new SimpleStringProperty();
     StringProperty end = new SimpleStringProperty();
     StringProperty description = new SimpleStringProperty();
-    private EventPublisher publisher;
-    private ImplTourService tourService;
+    private final EventPublisher publisher;
+    private final ImplTourService tourService;
     static int searchedId;
 
 
