@@ -1,6 +1,7 @@
 package com.example.tourplanner.UI.View;
 
 import com.example.tourplanner.DAL.dal.dao.TourDao;
+import com.example.tourplanner.UI.ViewModel.TourListViewModel;
 import com.example.tourplanner.models.Tour;
 import javafx.stage.FileChooser;
 
@@ -11,9 +12,11 @@ import java.io.IOException;
 
 public class TourCSVImportController {
     private final TourDao tourDao;
+    private final TourListViewModel tourListViewModel;
 
-    public TourCSVImportController(){
+    public TourCSVImportController(TourListViewModel tourListViewModel){
         this.tourDao = new TourDao();
+        this.tourListViewModel = tourListViewModel;
     }
 
     public void importData() {
@@ -29,6 +32,7 @@ public class TourCSVImportController {
                     String[] data = row.split(",");
                     Tour tour = new Tour((data[0]), data[1], data[2], data[3], data[4], Float.parseFloat(data[5]), data[6], data[7]);
                     tourDao.save(tour);
+                    tourListViewModel.addTour(tour);
                 }
                 csvReader.close();
             } catch (IOException e){

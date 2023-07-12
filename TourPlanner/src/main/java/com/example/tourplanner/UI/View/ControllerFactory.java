@@ -67,7 +67,7 @@ public class ControllerFactory {
         } if(controllerClass == TourCSVExportController.class){
             return new TourCSVExportController();
         } if(controllerClass == TourCSVImportController.class){
-            return new TourCSVImportController();
+            return new TourCSVImportController(tourListViewModel);
         } if(controllerClass == TourLogTableController.class){
             return new TourLogTableController(tourLogTableViewModel, tourLogEventPublisher);
         } if(controllerClass == UpdateTourLogController.class){
