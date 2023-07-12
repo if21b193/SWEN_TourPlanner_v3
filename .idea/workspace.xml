@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="Clearing the search works">
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/View/TourDetailsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/TourDetailsViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI/ViewModel/TourDetailsViewModel.java" afterDir="false" />
-    </list>
+    <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="Made the TourDetails more responsive" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -309,14 +306,6 @@
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
       <updated>1688234955868</updated>
-    </task>
-    <task id="LOCAL-00011" summary="TourLog modified for hibernate and TOurDao overrides written">
-      <option name="closed" value="true" />
-      <created>1688385845434</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1688385845434</updated>
     </task>
     <task id="LOCAL-00012" summary="TourLogDao overrides written for hibernate">
       <option name="closed" value="true" />
@@ -624,7 +613,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689160118162</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Made the TourDetails more responsive">
+      <option name="closed" value="true" />
+      <created>1689161288357</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1689161288357</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -664,7 +661,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ObservableList works now" />
     <MESSAGE value="Setting up TourLogs" />
     <MESSAGE value="Adding TourLog works" />
     <MESSAGE value="added comments, cleaned up code a bit" />
@@ -689,7 +685,8 @@
     <MESSAGE value="Fixed the bug with the creation. ControllerFactory never had an instance assinged" />
     <MESSAGE value="Added a search" />
     <MESSAGE value="Clearing the search works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clearing the search works" />
+    <MESSAGE value="Made the TourDetails more responsive" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made the TourDetails more responsive" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

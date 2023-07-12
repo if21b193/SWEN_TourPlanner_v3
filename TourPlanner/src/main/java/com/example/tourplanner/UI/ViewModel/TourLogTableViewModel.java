@@ -36,6 +36,9 @@ public class TourLogTableViewModel implements EventListener {
 
     private void setTourLogListToTour(Tour tour) {
         tourLogEntries.clear();
+        if(tour == null) {
+            return;
+        }
         List<TourLogs> logs = tourLogService.getAllFromTour(tour.getId());
         for(TourLogs log : logs){
             tourLogEntries.add(getEntryFromTourLog(log));
