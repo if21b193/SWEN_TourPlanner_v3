@@ -1,6 +1,5 @@
 package com.example.tourplanner.UI.View;
 
-import com.example.tourplanner.UI.ViewModel.TourLogListViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -18,14 +17,7 @@ public class TourLogListController {
     public Pane tourLogTable;
     @FXML
     public TourLogTableController tourLogTableController;
-
-    private final TourLogListViewModel tourLogListViewModel;
-
     public Button modifyTourLog;
-
-    public TourLogListController(TourLogListViewModel tourLogListViewModel){
-        this.tourLogListViewModel = tourLogListViewModel;
-    }
     @FXML
     public void initialize() {
     }

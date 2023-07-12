@@ -15,12 +15,10 @@ public class ControllerFactory {
     private final AddTourViewModel addTourViewModel;
     private final UpdateTourViewModel updateTourViewModel;
     private final EventPublisher eventPublisher;
-    private final TourLogListViewModel tourLogListViewModel;
     private final AddTourLogViewModel addTourLogViewModel;
     private final TourMapViewModel tourMapViewModel;
     private final ReportService reportService;
     private final TourDetailsViewModel tourDetailsViewModel;
-    private final TourLogDao tourLogDao;
     private final TourLogTableViewModel tourLogTableViewModel;
     private final UpdateTourLogViewModel updateTourLogViewModel;
     private final TourLogEventPublisher tourLogEventPublisher;
@@ -37,13 +35,12 @@ public class ControllerFactory {
         this.updateTourViewModel = new UpdateTourViewModel(eventPublisher, implTourService);
         this.tourListViewModel = new TourListViewModel(eventPublisher, implTourService, tourLogService, addTourViewModel);
         this.mainWindowViewModel = new MainWindowViewModel(tourListViewModel, addTourViewModel);
-        this.addTourLogViewModel = new AddTourLogViewModel(eventPublisher, tourLogEventPublisher, tourLogService);
-        this.tourLogListViewModel = new TourLogListViewModel(tourLogEventPublisher, tourLogService, addTourLogViewModel);
+        this.addTourLogViewModel = new AddTourLogViewModel(eventPublisher, tourLogService);
         this.tourMapViewModel = new TourMapViewModel(eventPublisher);
         MapQuestStaticImageAPI mapQuestStaticImageAPI = new MapQuestStaticImageAPI();
         this.reportService = new ReportService(mapQuestStaticImageAPI);
         this.tourDetailsViewModel = new TourDetailsViewModel(eventPublisher);
-        this.tourLogDao = new TourLogDao();
+        TourLogDao tourLogDao = new TourLogDao();
         this.updateTourLogViewModel = new UpdateTourLogViewModel(tourLogEventPublisher, tourLogService);
         this.searchBarViewModel = new SearchBarViewModel(tourListViewModel);
     }
@@ -52,13 +49,13 @@ public class ControllerFactory {
         if(controllerClass == TourListController.class){
             return new TourListController(this.tourListViewModel, eventPublisher, reportService);
         } if(controllerClass == MainWindowController.class){
-            return new MainWindowController(this.mainWindowViewModel, this.tourLogListViewModel, this.tourListViewModel);
+            return new MainWindowController(this.mainWindowViewModel, this.tourListViewModel);
         } if(controllerClass == AddTourController.class){
             return new AddTourController(this.addTourViewModel);
         } if(controllerClass == UpdateTourController.class){
             return new UpdateTourController(this.updateTourViewModel);
         } if(controllerClass == TourLogListController.class){
-            return new TourLogListController(this.tourLogListViewModel);
+            return new TourLogListController();
         } if(controllerClass == AddTourLogController.class) {
             return new AddTourLogController(this.addTourLogViewModel);
         } if(controllerClass == TourDetailsController.class){

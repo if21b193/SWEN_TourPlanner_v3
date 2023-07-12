@@ -22,7 +22,6 @@ public class UpdateTourViewModel implements EventListener {
     private final ImplTourService tourService;
     static int searchedId;
 
-
     public StringProperty nameProperty() {
         return name;
     }
@@ -76,10 +75,6 @@ public class UpdateTourViewModel implements EventListener {
         SharedTourEvent sharedTourEvent = new SharedTourEvent(tour);
         publisher.publishToSingle(sharedTourEvent, "TourListViewModel");
         return tour;
-    }
-
-    public static int getSearchedId() {
-        return searchedId;
     }
 
 }

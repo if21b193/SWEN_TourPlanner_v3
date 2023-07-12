@@ -9,16 +9,12 @@ import java.io.IOException;
 import java.sql.Date;
 
 public class AddTourLogViewModel implements EventListener {
-    private final TourLogEventPublisher eventPublisher;
-    private final EventPublisher publisher;
     private final TourLogService tourLogService;
     private static Tour tour;
 
-    public AddTourLogViewModel(EventPublisher eventPublisher, TourLogEventPublisher tourLogEventPublisher, TourLogService tourLogService) {
-        this.eventPublisher = tourLogEventPublisher;
+    public AddTourLogViewModel(EventPublisher eventPublisher, TourLogService tourLogService) {
         this.tourLogService = tourLogService;
-        this.publisher = eventPublisher;
-        this.publisher.addEventListener(this);
+        eventPublisher.addEventListener(this);
     }
 
     public TourLogs addTourLog(Date dateTime, String comment, Float difficulty, String totalTime, Float rating) throws IOException {

@@ -60,7 +60,7 @@ public class TourListViewModel implements EventListener {
         observableList.remove(tour);
     }
 
-    public void modifyTour(Tour tour) {
+    public void modifyTour() {
         setTours(this.tourService.getAll());
     }
 

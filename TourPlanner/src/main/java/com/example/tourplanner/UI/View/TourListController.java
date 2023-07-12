@@ -105,8 +105,7 @@ public class TourListController {
         Stage stage = setUpScene(fxmlLoader);
         stage.setTitle("Modify tour");
         stage.showAndWait();
-        tour = fxmlLoader.<UpdateTourController>getController().getTour();
-        tourListViewModel.modifyTour(tour);
+        tourListViewModel.modifyTour();
         stage.close();
     }
 

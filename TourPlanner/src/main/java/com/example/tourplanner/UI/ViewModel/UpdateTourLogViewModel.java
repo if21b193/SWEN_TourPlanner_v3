@@ -18,11 +18,8 @@ public class UpdateTourLogViewModel implements ITourLogEventListener{
 
     private static TourLogs tourLog;
 
-    private final TourLogEventPublisher publisher;
-
     public UpdateTourLogViewModel(TourLogEventPublisher publisher, TourLogService service) {
-        this.publisher = publisher;
-        this.publisher.addEventListener(this);
+        publisher.addEventListener(this);
         this.tourLogService = service;
     }
 
