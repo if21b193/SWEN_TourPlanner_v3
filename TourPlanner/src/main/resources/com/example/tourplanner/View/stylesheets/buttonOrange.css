@@ -1,0 +1,31 @@
+.myButton {
+    -fx-background-color: rgba(23, 19, 21, 0);
+    -fx-text-fill: #ffffff;
+    -fx-font-family: Arial;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 15px;
+
+}
+
+.myButton:hover {
+    -fx-background-color: rgba(109, 102, 126, 0.6);
+
+}
+
+.myButton:pressed {
+    -fx-background-color: rgb(109, 102, 126);
+    -fx-translate-y:2px;
+}
+
+
+
+.list-cell:even {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
+.list-cell:odd {
+    -fx-background-color: #0a0909;
+    -fx-text-fill: white;
+}

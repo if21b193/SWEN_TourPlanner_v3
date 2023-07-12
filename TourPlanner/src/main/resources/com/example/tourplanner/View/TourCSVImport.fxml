@@ -8,6 +8,6 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.tourplanner.UI.View.TourCSVImportController" stylesheets="@buttonOrange.css">
+            fx:controller="com.example.tourplanner.UI.View.TourCSVImportController" stylesheets="@stylesheets/buttonOrange.css">
     <Button fx:id="importButton" text="Import Tours" onAction="#importData" styleClass="myButton"/>
 </AnchorPane>

@@ -1,0 +1,22 @@
+.list-cell:even {
+    -fx-background-color: #171315;
+
+}
+
+.list-cell:odd {
+    -fx-background-color: #131012;
+}
+
+.list-cell {
+    -fx-text-fill: white;
+    -fx-font-family: Arial;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-border-width: 0;
+    -fx-padding: 10px;
+}
+
+
+.list-cell:hover {
+    -fx-background-color: rgba(51, 42, 48, 0.44);
+}

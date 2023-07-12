@@ -1,0 +1,20 @@
+
+.list-cell:even {
+    -fx-background-color: #131012;
+    -fx-text-fill: white;
+    -fx-font-family: Arial;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.list-cell:odd {
+    -fx-background-color: #131012;
+    -fx-text-fill: white;
+    -fx-font-family: Arial;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.list-cell:hover {
+    -fx-background-color: rgba(51, 42, 48, 0.44);
+}

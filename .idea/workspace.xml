@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="TourLogTable works and shows the correct TourLogs to the corresponding tour when re-loading the tab">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8494843f-16f5-4851-9645-a73208aee948.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets/TourDetails.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets/buttonOrange.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets/hboxStylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets/tourList.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets/tourLogsList.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/MainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/MainWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/NavBar.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourCSVExport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourCSVExport.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourCSVImport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourCSVImport.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourLogList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourLogList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourLogTable.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourLogTable.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/buttonOrange.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,47 +79,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;azul-17&quot;,
-    &quot;last_directory_selection&quot;: &quot;/Users/tijana/Documents/GitHub/SWEN_TourPlanner_v7/TourPlanner/src/test/java/com/example/tourplanner/models&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mprue/Documents/Studium/4_Semester_Sommer23/SWEN/classwork&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "TODO_SCOPE": "All Places",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "jdk.selected.JAVA_MODULE": "azul-17",
+    "last_directory_selection": "/Users/tijana/Documents/GitHub/SWEN_TourPlanner_v7/TourPlanner/src/test/java/com/example/tourplanner/models",
+    "last_opened_file_path": "C:/Users/mprue/Documents/Studium/4_Semester_Sommer23/SWEN/SWEN_TourPlanner_TijanasWork/why/SWEN_TourPlanner_v3/TourPlanner/src/main/resources/com/example/tourplanner/View",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.tourplanner" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mprue\Documents\Studium\4_Semester_Sommer23\SWEN\SWEN_TourPlanner_TijanasWork\why\SWEN_TourPlanner_v3\TourPlanner\src\main\resources\com\example\tourplanner\View" />
       <recent name="C:\Users\mprue\Documents\Studium\4_Semester_Sommer23\SWEN\SWEN_TourPlanner_Hibernate\SWEN_TourPlannerDB\TourPlanner\src\main\resources\com\example\tourplanner" />
       <recent name="C:\Users\mprue\Documents\Studium\4_Semester_Sommer23\SWEN\SWEN_TourPlanner_Hibernate\SWEN_TourPlannerDB\TourPlanner\src\main\java\com\example\tourplanner\UI\View" />
       <recent name="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/UI" />
       <recent name="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/" />
-      <recent name="C:\Users\mprue\Documents\Studium\4_Semester_Sommer23\SWEN\SWEN_TourPlanner21\SWEN_TourPlanner2\TourPlanner\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mprue\Documents\Studium\4_Semester_Sommer23\SWEN\SWEN_TourPlanner_TijanasWork\why\SWEN_TourPlanner_v3\TourPlanner\src\main\resources\com\example\tourplanner\View" />
@@ -608,6 +619,11 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="6df7cdda-5060-47d3-b980-70fe1ba316d6" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="6df7cdda-5060-47d3-b980-70fe1ba316d6">
@@ -632,11 +648,6 @@
             </State>
           </value>
         </entry>
-      </map>
-    </option>
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="6df7cdda-5060-47d3-b980-70fe1ba316d6" value="TOOL_WINDOW" />
       </map>
     </option>
   </component>
