@@ -7,9 +7,9 @@
 <VBox fx:id="tourLogView" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.tourplanner.UI.View.TourLogListController"  stylesheets="@stylesheets/buttonOrange.css, @stylesheets/tourLogsList.css" style="-fx-border-width: 0">
     <fx:include source="TourLogTable.fxml" fx:id="tourLogTable"/>
 
-    <HBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml">
-        <Button text="Add TourLog" fx:id="addTourLogButton" onAction="#addTourLog" />
-        <Button text="Update TourLog" fx:id="modifyTourLog" onAction="#modifyTourLog" />
-        <Button text="Delete TourLog" fx:id="deleteTourLogButton" onAction="#deleteTourLog"/>
-    </HBox>
+    <VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml">
+        <Button text="Add TourLog" fx:id="addTourLogButton" onAction="#addTourLog" styleClass="myButton" />
+        <Button text="Update TourLog" fx:id="modifyTourLog" onAction="#modifyTourLog" styleClass="myButton" />
+        <Button text="Delete TourLog" fx:id="deleteTourLogButton" onAction="#deleteTourLog" styleClass="myButton"/>
+    </VBox>
 </VBox>

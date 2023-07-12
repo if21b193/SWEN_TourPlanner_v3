@@ -6,12 +6,12 @@
 
 <VBox fx:id="tourView" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.tourplanner.UI.View.TourListController" stylesheets="@stylesheets/buttonOrange.css, @stylesheets/tourList.css">
     <ListView fx:id="listView" VBox.vgrow="SOMETIMES"/>
-    <HBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml">
-        <Button text="Add Tour" fx:id="addTourButton" onAction="#addTour" />
-        <Button text="Update Tour" fx:id="updateTourButton" onAction="#modifyTour" />
-        <Button text="Delete Tour" fx:id="deleteTourButton" onAction="#deleteTour"/>
-        <Button fx:id="generateReportButton" text="Generate Report" onAction="#generateReportForSelectedTour" />
+    <VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml">
+        <Button text="Add Tour" fx:id="addTourButton" onAction="#addTour" styleClass="myButton"/>
+        <Button text="Update Tour" fx:id="updateTourButton" onAction="#modifyTour" styleClass="myButton"/>
+        <Button text="Delete Tour" fx:id="deleteTourButton" onAction="#deleteTour" styleClass="myButton"/>
+        <Button fx:id="generateReportButton" text="Generate Report" onAction="#generateReportForSelectedTour" styleClass="myButton"/>
 
-    </HBox>
+    </VBox>
 </VBox>
 

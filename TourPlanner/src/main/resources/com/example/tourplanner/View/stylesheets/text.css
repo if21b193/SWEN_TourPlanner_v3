@@ -1,0 +1,16 @@
+#tourLogList{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+*{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.tab-pane .tab .tab-label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.tab-text {
+     -fx-text-fill: white;
+     -fx-font-weight: bold;
+ }

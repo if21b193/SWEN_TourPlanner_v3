@@ -6,8 +6,8 @@
 <SplitPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:controller="com.example.tourplanner.UI.View.SearchBarController"
-           dividerPositions="0.6">
-    <TextField fx:id="searchInputField"/>
+           dividerPositions="0.6" stylesheets="@stylesheets/searchBar.css">
+    <TextField fx:id="searchInputField" />
     <Button text="search" fx:id="searchButton" onAction="#searchButtonClicked"/>
     <Button text="clear" fx:id="clearButton" onAction="#clearSearchField"/>
 </SplitPane>

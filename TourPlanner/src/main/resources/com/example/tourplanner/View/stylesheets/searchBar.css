@@ -1,0 +1,8 @@
+#searchInputField {
+    -fx-text-fill: #ffffff;
+    -fx-border-color: white;
+    -fx-border-width: 1;
+    -fx-start-margin: 5;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}

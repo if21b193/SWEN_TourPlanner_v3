@@ -2,7 +2,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.tourplanner.UI.View.MainWindowController" stylesheets="@stylesheets/hboxStylesheet.css">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.tourplanner.UI.View.MainWindowController" stylesheets="@stylesheets/hboxStylesheet.css, @stylesheets/searchBar.css, @stylesheets/text.css">
     <top>
         <VBox>
             <HBox spacing="10" alignment="CENTER_RIGHT">
@@ -13,9 +13,9 @@
         </VBox>
     </top>
     <center>
-        <SplitPane dividerPositions="0.3" prefHeight="500.0" prefWidth="600.0">
-            <fx:include fx:id="TourList" source="TourList.fxml"/>
-            <fx:include fx:id="details" source="details.fxml"/>
+        <SplitPane dividerPositions="0.3" prefHeight="500.0" prefWidth="600.0" style="-fx-text-fill: white; -fx-font-weight: bold">
+            <fx:include fx:id="TourList" source="TourList.fxml" />
+            <fx:include fx:id="details" source="details.fxml" />
         </SplitPane>
     </center>
 </BorderPane>
