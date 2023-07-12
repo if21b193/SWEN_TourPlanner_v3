@@ -1,15 +1,15 @@
 
 .list-cell:even {
-    -fx-background-color: #131012;
-    -fx-text-fill: white;
+    -fx-background-color: #e1e1e1;
+    -fx-text-fill: #000000;
     -fx-font-family: Arial;
     -fx-font-size: 12px;
     -fx-font-weight: bold;
 }
 
 .list-cell:odd {
-    -fx-background-color: #131012;
-    -fx-text-fill: white;
+    -fx-background-color: #c0c0c0;
+    -fx-text-fill: #000000;
     -fx-font-family: Arial;
     -fx-font-size: 12px;
     -fx-font-weight: bold;

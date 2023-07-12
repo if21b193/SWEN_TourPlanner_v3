@@ -1,12 +1,7 @@
-*{
-    -fx-background-color: #171315;
-    -fx-text-fill: #ffffff;
-    -fx-font-weight: bold;
-}
 
 .text{
     -fx-font-weight: bold;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 
 }
 

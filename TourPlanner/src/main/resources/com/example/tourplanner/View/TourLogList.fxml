@@ -4,8 +4,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="tourLogView" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.tourplanner.UI.View.TourLogListController"  stylesheets="@stylesheets/buttonOrange.css, @stylesheets/tourLogsList.css" style="-fx-border-width: 0">
-    <fx:include source="TourLogTable.fxml" fx:id="tourLogTable"/>
+<VBox fx:id="tourLogView" style="-fx-background-color: #ffffff" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.tourplanner.UI.View.TourLogListController"  stylesheets="@stylesheets/buttonOrange.css, @stylesheets/tourLogsList.css" >
+    <fx:include source="TourLogTable.fxml" fx:id="tourLogTable" />
 
     <VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml">
         <Button text="Add TourLog" fx:id="addTourLogButton" onAction="#addTourLog" styleClass="myButton" />

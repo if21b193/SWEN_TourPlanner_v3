@@ -4,17 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="made sure it deletes the tourLogs belonging to a tour when it gets deleted">
-      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets/searchBar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets/text.css" afterDir="false" />
+    <list default="true" id="a897ec80-fb68-438a-bddb-887bfce5f666" name="Changes" comment="Added stylesheets">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/MainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/MainWindow.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/SearchBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/SearchBar.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourList.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourLogList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/TourLogList.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/details.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/details.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets/buttonOrange.css" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets/buttonOrange.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets/hboxStylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets/hboxStylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets/searchBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets/searchBar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets/text.css" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets/text.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets/tourList.css" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets/tourList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets/tourLogsList.css" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets/tourLogsList.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,11 +118,11 @@
       <recent name="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner/" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/View/stylesheets" />
+      <recent name="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner" />
       <recent name="C:\Users\mprue\Documents\Studium\4_Semester_Sommer23\SWEN\SWEN_TourPlanner_TijanasWork\why\SWEN_TourPlanner_v3\TourPlanner\src\main\resources\com\example\tourplanner\View" />
       <recent name="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/" />
       <recent name="$PROJECT_DIR$/TourPlanner/src/main/resources/com/example/tourplanner/stylesheets" />
-      <recent name="C:\Users\mprue\Documents\Studium\4_Semester_Sommer23\SWEN\SWEN_TourPlanner_Hibernate\SWEN_TourPlannerDB\TourPlanner\src\main\resources\com\example\tourplanner" />
-      <recent name="$PROJECT_DIR$/TourPlanner/src/main/java/com/example/tourplanner" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -256,14 +256,8 @@
       <workItem from="1689115300216" duration="1235000" />
       <workItem from="1689185591973" duration="1293000" />
       <workItem from="1689187128962" duration="749000" />
-      <workItem from="1689187915091" duration="1899000" />
-    </task>
-    <task id="LOCAL-00001" summary="design update">
-      <created>1686757115641</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1686757115704</updated>
+      <workItem from="1689187915091" duration="2514000" />
+      <workItem from="1689190623505" duration="1503000" />
     </task>
     <task id="LOCAL-00002" summary="design update">
       <created>1686812435032</created>
@@ -635,7 +629,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689170817162</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Added stylesheets">
+      <created>1689190034738</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1689190034739</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -675,7 +676,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="mapImage resizable" />
     <MESSAGE value="implemented fetching tourlog by tour_id" />
     <MESSAGE value="implemented tourlogs in report, no styling yet" />
     <MESSAGE value="Added Unit Tests" />
@@ -700,7 +700,8 @@
     <MESSAGE value="code refactoring in the viewModel classes" />
     <MESSAGE value="fixed an issue in the tourMapController" />
     <MESSAGE value="made sure it deletes the tourLogs belonging to a tour when it gets deleted" />
-    <option name="LAST_COMMIT_MESSAGE" value="made sure it deletes the tourLogs belonging to a tour when it gets deleted" />
+    <MESSAGE value="Added stylesheets" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added stylesheets" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
