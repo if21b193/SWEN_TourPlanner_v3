@@ -20,7 +20,6 @@ public class SearchBarController {
     }
     @FXML
     public void initialize(){
-
     }
 
     public void searchButtonClicked(ActionEvent actionEvent) {
@@ -29,6 +28,6 @@ public class SearchBarController {
 
     public void clearSearchField(ActionEvent actionEvent) {
         searchInputField.setText("");
-        searchBarViewModel.searchFor("");
+        searchBarViewModel.searchFor(null);
     }
 }

@@ -69,6 +69,10 @@ public class TourListViewModel implements EventListener {
     }
 
     public void searchFor(String text) {
+        if(text == null || text.contentEquals("")){
+            setTours(this.tourService.getAll());
+            return;
+        }
         List<TourLogs> tourLogs = this.tourLogService.getAll();
         List<TourLogs> foundTourLogs = new ArrayList<>();
         List<Tour> tours = this.tourService.getAll();
