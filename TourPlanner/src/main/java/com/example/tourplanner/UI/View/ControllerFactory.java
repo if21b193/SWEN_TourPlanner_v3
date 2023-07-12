@@ -1,8 +1,6 @@
 package com.example.tourplanner.UI.View;
 
 import com.example.tourplanner.BL.report.ReportService;
-import com.example.tourplanner.BL.report.TourCSVExport;
-import com.example.tourplanner.BL.report.TourCSVImportService;
 import com.example.tourplanner.BL.service.ImplTourLogService;
 import com.example.tourplanner.BL.service.ImplTourService;
 import com.example.tourplanner.DAL.dal.Repository.MapQuestStaticImageAPI;
@@ -16,22 +14,17 @@ public class ControllerFactory {
     private final MainWindowViewModel mainWindowViewModel;
     private final AddTourViewModel addTourViewModel;
     private final UpdateTourViewModel updateTourViewModel;
-
     private final EventPublisher eventPublisher;
-
     private final TourLogListViewModel tourLogListViewModel;
     private final AddTourLogViewModel addTourLogViewModel;
     private final TourMapViewModel tourMapViewModel;
     private final ReportService reportService;
-    private final MapQuestStaticImageAPI mapQuestStaticImageAPI;
     private final TourDetailsViewModel tourDetailsViewModel;
     private final TourLogDao tourLogDao;
-    private final TourCSVExportController tourCSVExportController;
-    private final TourCSVImportController tourCSVImportController;
     private final TourLogTableViewModel tourLogTableViewModel;
     private final UpdateTourLogViewModel updateTourLogViewModel;
-
     private final TourLogEventPublisher tourLogEventPublisher;
+    private final SearchBarViewModel searchBarViewModel;
 
 
     public ControllerFactory(){
@@ -47,13 +40,12 @@ public class ControllerFactory {
         this.addTourLogViewModel = new AddTourLogViewModel(eventPublisher, tourLogEventPublisher, tourLogService);
         this.tourLogListViewModel = new TourLogListViewModel(tourLogEventPublisher, tourLogService, addTourLogViewModel);
         this.tourMapViewModel = new TourMapViewModel(eventPublisher);
-        this.mapQuestStaticImageAPI = new MapQuestStaticImageAPI();
+        MapQuestStaticImageAPI mapQuestStaticImageAPI = new MapQuestStaticImageAPI();
         this.reportService = new ReportService(mapQuestStaticImageAPI);
         this.tourDetailsViewModel = new TourDetailsViewModel(eventPublisher);
         this.tourLogDao = new TourLogDao();
-        this.tourCSVExportController = new TourCSVExportController();
-        this.tourCSVImportController = new TourCSVImportController();
         this.updateTourLogViewModel = new UpdateTourLogViewModel(tourLogEventPublisher, tourLogService);
+        this.searchBarViewModel = new SearchBarViewModel(tourListViewModel);
     }
 
     public Object create(Class<?> controllerClass){
@@ -83,6 +75,8 @@ public class ControllerFactory {
             return new TourLogTableController(tourLogTableViewModel, tourLogEventPublisher);
         } if(controllerClass == UpdateTourLogController.class){
             return new UpdateTourLogController(updateTourLogViewModel);
+        } if(controllerClass == SearchBarController.class){
+            return new SearchBarController(searchBarViewModel);
         }
         throw new IllegalArgumentException("Unknown controller class: "+ controllerClass);
     }
@@ -91,7 +85,7 @@ public class ControllerFactory {
 
     public static ControllerFactory getInstance(){
         if(instance == null){
-            return new ControllerFactory();
+            instance =  new ControllerFactory();
         }
         return instance;
     }
