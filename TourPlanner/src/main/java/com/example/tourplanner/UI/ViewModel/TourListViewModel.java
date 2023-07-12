@@ -56,7 +56,11 @@ public class TourListViewModel implements EventListener {
     }
 
     public void deleteTour(Tour tour) {
+        List<TourLogs> tourLogs = tourLogService.getAllFromTour(tour.getId());
         tourService.delete(tour);
+        for(TourLogs tourLog : tourLogs){
+            tourLogService.delete(tourLog);
+        }
         observableList.remove(tour);
     }
 
