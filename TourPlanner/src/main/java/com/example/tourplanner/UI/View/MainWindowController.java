@@ -5,7 +5,9 @@ import com.example.tourplanner.UI.ViewModel.TourListViewModel;
 import com.example.tourplanner.UI.ViewModel.TourLogListViewModel;
 import com.example.tourplanner.models.Tour;
 import javafx.fxml.FXML;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.TabPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 public class MainWindowController {
@@ -15,6 +17,9 @@ public class MainWindowController {
     public VBox TourLogList;
     @FXML
     public TabPane details;
+    public VBox exportButton;
+    public AnchorPane importButton;
+    public SplitPane searchBar;
 
     @FXML
     private DetailsController detailsController;

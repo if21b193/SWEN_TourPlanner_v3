@@ -68,6 +68,33 @@ public class TourListViewModel implements EventListener {
         return tourLogService.getAllFromTour(id);
     }
 
+    public void searchFor(String text) {
+        List<TourLogs> tourLogs = this.tourLogService.getAll();
+        List<TourLogs> foundTourLogs = new ArrayList<>();
+        List<Tour> tours = this.tourService.getAll();
+        List<Tour> foundTours = new ArrayList<>();
+
+        for(Tour tour : tours){
+            if(tour.getDescription().contains(text) || String.valueOf(tour.getDistance()).contains(text)
+                || tour.getFrom().contains(text) || tour.getName().contains(text) || tour.getEstimatedTime().contains(text) ||
+                tour.getTo().contains(text) || tour.getTransportType().contains(text)){
+                foundTours.add(tour);
+            }
+        }
+        for (TourLogs tourLog: tourLogs) {
+            if(tourLog.getComment().contains(text) || tourLog.getTotalTime().contains(text)){
+                foundTourLogs.add(tourLog);
+            }
+        }
+        for (TourLogs tourLog: foundTourLogs){
+            Tour tour = tourLog.getTour_id();
+            if(!foundTours.contains(tour)){
+                foundTours.add(tour);
+            }
+        }
+        setTours(foundTours);
+    }
+
     public interface SelectionChangedListener {
         void changeSelection(Tour tour);
     }

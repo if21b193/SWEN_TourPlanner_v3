@@ -4,17 +4,18 @@
 
 <BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.tourplanner.UI.View.MainWindowController" stylesheets="@stylesheets/hboxStylesheet.css">
     <top>
-        <HBox spacing="10" alignment="CENTER_RIGHT" styleClass="hbox">
-            <fx:include fx:id="exportButton" source="TourCSVExport.fxml" />
-            <fx:include fx:id="importButton" source="TourCSVImport.fxml" />
-        </HBox>
+        <VBox>
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <fx:include fx:id="exportButton" source="TourCSVExport.fxml" />
+                <fx:include fx:id="importButton" source="TourCSVImport.fxml" />
+            </HBox>
+            <fx:include source="SearchBar.fxml" fx:id="searchBar"/>
+        </VBox>
     </top>
     <center>
         <SplitPane dividerPositions="0.3" prefHeight="500.0" prefWidth="600.0">
-            <items>
-                <fx:include fx:id="TourList" source="TourList.fxml"/>
-                <fx:include fx:id="details" source="details.fxml" />
-            </items>
+            <fx:include fx:id="TourList" source="TourList.fxml"/>
+            <fx:include fx:id="details" source="details.fxml"/>
         </SplitPane>
     </center>
 </BorderPane>
