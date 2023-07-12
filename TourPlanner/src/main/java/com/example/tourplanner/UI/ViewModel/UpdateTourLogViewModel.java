@@ -38,11 +38,11 @@ public class UpdateTourLogViewModel implements ITourLogEventListener{
         return totalTime;
     }
 
-    public Property ratingProperty() {
+    public StringProperty ratingProperty() {
         return rating;
     }
 
-    public Property difficultyProperty() {
+    public StringProperty difficultyProperty() {
         return difficulty;
     }
 

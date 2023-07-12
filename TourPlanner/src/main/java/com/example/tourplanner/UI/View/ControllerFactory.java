@@ -50,7 +50,7 @@ public class ControllerFactory {
 
     public Object create(Class<?> controllerClass){
         if(controllerClass == TourListController.class){
-            return new TourListController(this.tourListViewModel, eventPublisher, reportService, tourLogDao);
+            return new TourListController(this.tourListViewModel, eventPublisher, reportService);
         } if(controllerClass == MainWindowController.class){
             return new MainWindowController(this.mainWindowViewModel, this.tourLogListViewModel, this.tourListViewModel);
         } if(controllerClass == AddTourController.class){
@@ -58,7 +58,7 @@ public class ControllerFactory {
         } if(controllerClass == UpdateTourController.class){
             return new UpdateTourController(this.updateTourViewModel);
         } if(controllerClass == TourLogListController.class){
-            return new TourLogListController(this.tourLogListViewModel, eventPublisher);
+            return new TourLogListController(this.tourLogListViewModel);
         } if(controllerClass == AddTourLogController.class) {
             return new AddTourLogController(this.addTourLogViewModel);
         } if(controllerClass == TourDetailsController.class){

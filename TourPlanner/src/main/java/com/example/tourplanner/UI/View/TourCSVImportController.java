@@ -10,7 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class TourCSVImportController {
-    private TourDao tourDao;
+    private final TourDao tourDao;
 
     public TourCSVImportController(){
         this.tourDao = new TourDao();

@@ -9,10 +9,10 @@ public class CalculateTimeFromSeconds {
         int hours = ((calcTime / 3600) % 24);
 
         String secsText = (seconds < 10 ? "0" : "") + seconds;
-        String minsText = (minutes < 10 ? "0" : "") + minutes;
+        String minText = (minutes < 10 ? "0" : "") + minutes;
         String hrsText = (hours < 10 ? "0" : "") + hours;
 
-        return new String(hrsText + ":" + minsText + ":" + secsText);
+        return hrsText + ":" + minText + ":" + secsText;
     }
 
 }

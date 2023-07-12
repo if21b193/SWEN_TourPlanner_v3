@@ -9,7 +9,7 @@ import java.util.List;
 
 public class TourCSVExport {
 
-        private TourDao tourDao;
+        private final TourDao tourDao;
 
         public TourCSVExport(TourDao tourDao){
             this.tourDao = tourDao;

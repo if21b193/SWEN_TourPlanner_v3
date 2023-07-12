@@ -10,17 +10,14 @@ import com.example.tourplanner.models.TourLogs;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TourLogTableViewModel implements EventListener {
     ObservableList<TourLogTableViewEntry> tourLogEntries = FXCollections.observableArrayList();
     private final TourLogService tourLogService;
-    private final EventPublisher publisher;
     private static Tour tour;
     public TourLogTableViewModel(EventPublisher eventPublisher, TourLogService tourLogService){
-        this.publisher = eventPublisher;
-        this.publisher.addEventListener(this);
+        eventPublisher.addEventListener(this);
         this.tourLogService = tourLogService;
     }
 
@@ -48,19 +45,12 @@ public class TourLogTableViewModel implements EventListener {
     public ObservableList<TourLogTableViewEntry> getTourLogEntries(){
         return tourLogEntries;
     }
-    public List<TourLogTableViewEntry> getTourLogEntriesUnobservable(){
-        List<TourLogs> logs = tourLogService.getAllFromTour(tour.getId());
-        List<TourLogTableViewEntry> tourLogEntry = new ArrayList<>();
-        for(TourLogs log : logs){
-            tourLogEntry.add(getEntryFromTourLog(log));
-        }
-        return tourLogEntry;
-    }
 
     public TourLogTableViewEntry getEntryFromTourLog(TourLogs log) {
         return new TourLogTableViewEntry(log.getId(), log.getDateTime(), log.getComment(), log.getDifficulty(), log.getTotalTime(), log.getRating());
     }
 
     public void modifyTourLog() {
+        setTourLogListToTour(tour);
     }
 }

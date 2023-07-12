@@ -1,11 +1,9 @@
 package com.example.tourplanner.UI.View;
 import com.example.tourplanner.BL.report.ReportService;
-import com.example.tourplanner.DAL.dal.dao.TourLogDao;
 import com.example.tourplanner.FXMLDependencyInjection;
 import com.example.tourplanner.UI.ViewModel.ShareData.EventPublisher;
 import com.example.tourplanner.UI.ViewModel.ShareData.SharedTourEvent;
 import com.example.tourplanner.UI.ViewModel.TourListViewModel;
-import com.example.tourplanner.UI.ViewModel.TourLogListViewModel;
 import com.example.tourplanner.models.Tour;
 import com.example.tourplanner.models.TourLogs;
 import javafx.event.ActionEvent;
@@ -39,24 +37,18 @@ public class TourListController {
     private final TourListViewModel tourListViewModel;
     private final EventPublisher publisher;
     private final ReportService reportService;
-    private final TourLogDao tourLogDao;
 
-    public TourListController(TourListViewModel tourListViewModel, EventPublisher publisher, ReportService reportService, TourLogDao tourLogDao){
+    public TourListController(TourListViewModel tourListViewModel, EventPublisher publisher, ReportService reportService){
         this.tourListViewModel = tourListViewModel;
         this.publisher = publisher;
         this.reportService = reportService;
-        this.tourLogDao = tourLogDao;
-    }
-
-    public TourListViewModel getListViewViewModel(){
-        return this.tourListViewModel;
     }
 
     @FXML
     public void initialize() {
-        //setup the view so the name of the tours is shown
+        //set up the view so the name of the tours is shown
         listView.setItems(tourListViewModel.getObservableTours());
-        listView.setCellFactory(param -> new ListCell<Tour>() {
+        listView.setCellFactory(param -> new ListCell<>() {
             @Override
             protected void updateItem(Tour tour, boolean empty) {
                 super.updateItem(tour, empty);
@@ -72,10 +64,9 @@ public class TourListController {
         listView.getSelectionModel().selectedItemProperty().addListener(tourListViewModel.getChangeListener());
 
         //send out an event whenever selection is changed, so the AddTourLogViewModel knows which tour it is supposed to work with
-        //TODO: Still needs work to figure out whether there's a more elegant solution
-        listView.getSelectionModel().selectedItemProperty().addListener((observableValue, tour, t1) -> {
-            publisher.publishEvent(new SharedTourEvent(t1));
-        });
+        listView.getSelectionModel().selectedItemProperty().
+                addListener((observableValue, tour, t1) ->
+                publisher.publishEvent(new SharedTourEvent(t1)));
     }
 
     public void addTour(ActionEvent actionEvent) {

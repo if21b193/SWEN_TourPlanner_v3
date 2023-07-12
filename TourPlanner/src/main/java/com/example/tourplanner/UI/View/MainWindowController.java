@@ -3,7 +3,6 @@ package com.example.tourplanner.UI.View;
 import com.example.tourplanner.UI.ViewModel.MainWindowViewModel;
 import com.example.tourplanner.UI.ViewModel.TourListViewModel;
 import com.example.tourplanner.UI.ViewModel.TourLogListViewModel;
-import com.example.tourplanner.models.Tour;
 import javafx.fxml.FXML;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TabPane;
@@ -14,17 +13,14 @@ public class MainWindowController {
 
     @FXML
     public VBox TourList;
-    public VBox TourLogList;
     @FXML
     public TabPane details;
     public VBox exportButton;
     public AnchorPane importButton;
     public SplitPane searchBar;
 
-    @FXML
-    private DetailsController detailsController;
-    private TourListViewModel tourListViewModel;
-    private TourLogListViewModel tourLogListViewModel;
+    private final TourListViewModel tourListViewModel;
+    private final TourLogListViewModel tourLogListViewModel;
 
     private final MainWindowViewModel mainWindowViewModel;
 

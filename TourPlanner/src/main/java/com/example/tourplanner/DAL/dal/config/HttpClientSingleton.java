@@ -1,6 +1,6 @@
 package com.example.tourplanner.DAL.dal.config;
 
-import org.apache.http.client.HttpClient;
+
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 

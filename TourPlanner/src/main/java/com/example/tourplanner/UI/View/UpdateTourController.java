@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class UpdateTourController {
-    private Stage stage;
     @FXML
     public Button cancel;
     @FXML
@@ -34,10 +33,6 @@ public class UpdateTourController {
 
     public UpdateTourController(UpdateTourViewModel updateTourViewModel) {
         this.updateTourViewModel = updateTourViewModel;
-    }
-
-    public UpdateTourViewModel getUpdateTourViewModel() {
-        return updateTourViewModel;
     }
 
     //for some reason binding works here, but far be it from me to change a running system

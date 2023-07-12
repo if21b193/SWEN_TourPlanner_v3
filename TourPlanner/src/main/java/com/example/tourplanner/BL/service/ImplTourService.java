@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ImplTourService implements TourService {
 
-    private TourDao tourDao = new TourDao();
+    private final TourDao tourDao = new TourDao();
 
     public ImplTourService() {
     }

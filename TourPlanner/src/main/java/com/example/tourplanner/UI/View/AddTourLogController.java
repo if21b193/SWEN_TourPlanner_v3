@@ -16,7 +16,6 @@ import java.sql.Date;
 public class AddTourLogController {
     @FXML
     public DatePicker datePicker;
-    private Stage stage;
     @FXML
     public TextField comment;
     @FXML
@@ -37,16 +36,17 @@ public class AddTourLogController {
     }
 
     //saving a TourLog in the database, works similar/the same as the AddTourController
-    public void saveTourLog(ActionEvent actionEvent) throws IOException {
+    public void saveTourLog(ActionEvent actionEvent) {
         try {
             Date dateTimeText = Date.valueOf(datePicker.getValue());
             String commentText = comment.getText();
             Float difficultyInput = Float.parseFloat(difficulty.getValue());
             String totalTimeValue = totalTime.getText();
             Float ratingInput = Float.parseFloat(rating.getValue());
-            validateTourData(dateTimeText, commentText, difficultyInput, totalTimeValue, ratingInput);
-            tourLogs = addTourLogViewModel.addTourLog(dateTimeText, commentText, difficultyInput, totalTimeValue, ratingInput);
-
+            if(validateTourData(dateTimeText, commentText, difficultyInput, totalTimeValue, ratingInput)){
+                tourLogs = addTourLogViewModel.addTourLog(dateTimeText, commentText, difficultyInput, totalTimeValue, ratingInput);
+                close();
+            }
             clearTextFields();
         } catch (IOException e) {
             e.printStackTrace();
@@ -57,20 +57,20 @@ public class AddTourLogController {
 
     private boolean validateTourData(Date dateTimeText, String comment, Float difficultyInput, String totalTime, Float ratingInput) {
         // Check if any field is empty
-        if (dateTimeText == null || comment.isEmpty() || Float.toString(difficultyInput).isEmpty() || totalTime == null || Float.toString(ratingInput).isEmpty()) {
-            return false;
-        }
+        return dateTimeText != null && !comment.isEmpty() && !Float.toString(difficultyInput).isEmpty() && totalTime != null && !Float.toString(ratingInput).isEmpty();
         // Validate specific criteria for each field
         // Validate if datetime is really datetime
         // validate if total time is a float
-
-        return true; // Input is valid
+// Input is valid
     }
 
-    public void closeWindow(ActionEvent actionEvent) {
+    private void close(){
         clearTextFields();
         Stage stage = (Stage)saveTourLog.getScene().getWindow();
         stage.close();
+    }
+    public void closeWindow(ActionEvent actionEvent) {
+        close();
     }
     private void clearTextFields() {
         comment.clear();

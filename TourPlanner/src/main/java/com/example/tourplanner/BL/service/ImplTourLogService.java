@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ImplTourLogService implements TourLogService {
 
-    private TourLogDao tourLogDao = new TourLogDao();
+    private final TourLogDao tourLogDao = new TourLogDao();
     public ImplTourLogService(){}
 
     @Override

@@ -5,16 +5,14 @@ import com.example.tourplanner.DAL.dal.dao.TourDao;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
-import java.io.IOException;
 public class TourCSVExportController {
     @FXML
     private Button exportButton;
 
-    private TourDao tourDao;
-    private TourCSVExport exporter;
+    private final TourCSVExport exporter;
 
     public TourCSVExportController() {
-        this.tourDao = new TourDao();
+        TourDao tourDao = new TourDao();
         this.exporter = new TourCSVExport(tourDao);
     }
 

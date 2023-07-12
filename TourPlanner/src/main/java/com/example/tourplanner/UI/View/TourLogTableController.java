@@ -5,8 +5,6 @@ import com.example.tourplanner.UI.ViewModel.ShareData.SharedTourLogEvent;
 import com.example.tourplanner.UI.ViewModel.ShareData.TourLogEventPublisher;
 import com.example.tourplanner.UI.ViewModel.TourLogTableViewModel;
 import com.example.tourplanner.models.TourLogs;
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,7 +16,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 public class TourLogTableController {
@@ -45,9 +42,6 @@ public class TourLogTableController {
         this.publisher = publisher;
     }
 
-    public TourLogTableViewModel getTourLogTableViewModel() {
-        return tourLogTableViewModel;
-    }
     @FXML
     public void initialize(){
         tourLogTable.setItems(tourLogTableViewModel.getTourLogEntries());
@@ -56,12 +50,6 @@ public class TourLogTableController {
         difficultyColumn.setCellValueFactory(new PropertyValueFactory<>("difficulty"));
         timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
         ratingColumn.setCellValueFactory(new PropertyValueFactory<>("rating"));
-    }
-
-    public void addToursFromTour() {
-        List<TourLogTableViewEntry> logsList = tourLogTableViewModel.getTourLogEntriesUnobservable();
-        tourLogTable.getItems().clear();
-        tourLogTable.getItems().addAll(logsList);
     }
 
     public void addTourLog() {
@@ -79,6 +67,9 @@ public class TourLogTableController {
 
     public void modifyTourLog() {
         TourLogTableViewEntry selectedItem = tourLogTable.getSelectionModel().getSelectedItem();
+        if(selectedItem == null){
+            return;
+        }
         TourLogs tourLog = tourLogTableViewModel.getTourLogById(selectedItem.getId());
         publisher.publishToSingle(new SharedTourLogEvent(tourLog), "UpdateTourLogViewModel");
         FXMLLoader loader = FXMLDependencyInjection.getLoader("View/updateTourLogMask.fxml", Locale.GERMAN);
@@ -87,11 +78,8 @@ public class TourLogTableController {
         stage.showAndWait();
         TourLogs tourLogs = loader.<UpdateTourLogController>getController().getTourLog();
         if(tourLogs != null){
-            tourLogTable.getItems().remove(selectedItem);
-            TourLogTableViewEntry entry = tourLogTableViewModel.getEntryFromTourLog(tourLogs);
-            tourLogTable.getItems().add(entry);
+            tourLogTableViewModel.modifyTourLog();
         }
-        tourLogTableViewModel.modifyTourLog();
     }
 
     public void deleteTourLog() {

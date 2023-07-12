@@ -6,12 +6,12 @@ import javafx.beans.property.StringProperty;
 import java.util.Date;
 
 public class TourLogTableViewEntry {
-    private StringProperty id;
-    private StringProperty date;
-    private StringProperty comment;
-    private StringProperty difficulty;
-    private StringProperty time;
-    private StringProperty rating;
+    private final StringProperty id;
+    private final StringProperty date;
+    private final StringProperty comment;
+    private final StringProperty difficulty;
+    private final StringProperty time;
+    private final StringProperty rating;
 
     public TourLogTableViewEntry(int id, Date date, String comment, Float difficulty, String time, Float rating) {
         this.id = new SimpleStringProperty(String.valueOf(id));

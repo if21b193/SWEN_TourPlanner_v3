@@ -1,8 +1,6 @@
 package com.example.tourplanner.UI.View;
 
 import com.example.tourplanner.UI.ViewModel.UpdateTourLogViewModel;
-import com.example.tourplanner.UI.ViewModel.UpdateTourViewModel;
-import com.example.tourplanner.models.Tour;
 import com.example.tourplanner.models.TourLogs;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,14 +9,11 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.time.LocalDate;
 import java.sql.Date;
 
 public class UpdateTourLogController {
 
-    private Stage stage;
+
     @FXML
     public DatePicker datePicker;
     @FXML

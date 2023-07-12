@@ -69,6 +69,9 @@ public class TourDetailsViewModel implements EventListener {
     public void updateFromDb(SharedTourEvent event) {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         tour = event.returnTour();
+        if(tour == null){
+            return;
+        }
         tourName.set(tour.getName());
         from.set(tour.getFrom());
         to.set(tour.getTo());

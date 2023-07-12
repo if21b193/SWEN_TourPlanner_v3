@@ -11,7 +11,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AddTourController {
-    private Stage stage;
     @FXML
     public TextField from;
     @FXML
@@ -34,21 +33,25 @@ public class AddTourController {
         this.addTourViewModel = addTourViewModel;
     }
 
+    @FXML
     private void initialize(){
     }
 
     //because binding didn't work user input is gotten via getMethods
     //addTourViewModel returns a tour which then can be added to the observableList in the TourListViewModel
-    public void saveTour(ActionEvent actionEvent) throws IOException {
+    public void saveTour(ActionEvent actionEvent) {
         try {
             String name = tourName.getText();
             String start = from.getText().replace(" ", "+");
             String end = to.getText().replace(" ", "+");
             String transportation = transportationMode.getValue();
             String description = tourDescription.getText();
-            validateTourData(name, start, end, transportation, description);
-            tour = addTourViewModel.addTour(name, start, end, transportation, description);
-            close();
+            if(validateTourData(name, start, end, transportation, description)){
+                tour = addTourViewModel.addTour(name, start, end, transportation, description);
+                close();
+            } else {
+                clearTextFields();
+            }
         } catch (Exception e) {
             System.out.println("Error miss girl");
         }
@@ -82,11 +85,8 @@ public class AddTourController {
             return false;
         }
         // Validate specific criteria for each field
-        if (name.length() > 50) {
-            return false; // Name exceeds maximum length
-        }
-
-        return true; // Input is valid
+        return name.length() <= 50; // Name exceeds maximum length
+// Input is valid
     }
 
 }

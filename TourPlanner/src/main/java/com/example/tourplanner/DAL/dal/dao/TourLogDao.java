@@ -16,7 +16,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 public class TourLogDao implements Dao<TourLogs>{
 
-    private List<TourLogs> tourLogs = new ArrayList<>();
     // The class has a SessionFactory named tourLogFactory which is used to manage Hibernate sessions.
     // The SessionFactory is obtained from the HibernateUtil class, which is responsible for
     // initializing and providing the Hibernate session factory.
